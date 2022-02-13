@@ -25,7 +25,7 @@ public class KeyguardUnlockView extends FrameLayout implements KeyguardSecurityV
     protected ImageView f139b;
 
     /* renamed from: c */
-    protected SurfaceHolder$CallbackC0047d f140c;
+    protected WallpaperSurfaceView f140c;
 
     /* renamed from: d */
     protected GalaxyLockscreen f141d;

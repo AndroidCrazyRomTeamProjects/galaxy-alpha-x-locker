@@ -16,8 +16,6 @@ import com.xlocker.core.sdk.GlobalSettings;
 import com.xlocker.core.sdk.LogUtil;
 import java.util.HashMap;
 
-/* renamed from: com.galaxytheme.brilliantring.a */
-/* loaded from: classes.dex */
 public class KeyguardEffectViewBrilliantRing extends EffectView implements KeyguardEffectViewBase {
     private static final String TAG = "BrilliantRing_Keyguard";
     private Context mContext;

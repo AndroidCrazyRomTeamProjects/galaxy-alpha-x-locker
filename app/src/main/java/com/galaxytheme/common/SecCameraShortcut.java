@@ -63,7 +63,7 @@ public class SecCameraShortcut extends FrameLayout implements KeyguardSecurityCa
     private Lockscreen f167q;
 
     /* renamed from: b */
-    private String f152b = "SecCameraShortcut";
+    private String TAG = "SecCameraShortcut";
 
     /* renamed from: d */
     private float f154d = 0.0f;
@@ -114,23 +114,23 @@ public class SecCameraShortcut extends FrameLayout implements KeyguardSecurityCa
     /* renamed from: a */
     private void m114a(View view, MotionEvent motionEvent) {
         if (this.f165o != null) {
-            Log.d(this.f152b, "mAdditionalUnlockView != null");
+            Log.d(this.TAG, "mAdditionalUnlockView != null");
             this.f165o.handleTouchEvent(view, motionEvent);
             return;
         }
-        Log.d(this.f152b, "mAdditionalUnlockView == null");
+        Log.d(this.TAG, "mAdditionalUnlockView == null");
         this.f164n.handleTouchEvent(view, motionEvent);
     }
 
     /* renamed from: b */
     private void m112b(View view, MotionEvent motionEvent) {
         if (this.f165o != null) {
-            Log.d(this.f152b, "mAdditionalUnlockView != null");
+            Log.d(this.TAG, "mAdditionalUnlockView != null");
             this.f165o.handleUnlock(view, motionEvent);
             this.f165o.reset();
             return;
         }
-        Log.d(this.f152b, "mAdditionalUnlockView == null");
+        Log.d(this.TAG, "mAdditionalUnlockView == null");
         this.f164n.handleUnlock(view, motionEvent);
     }
 
@@ -138,7 +138,7 @@ public class SecCameraShortcut extends FrameLayout implements KeyguardSecurityCa
         if (this.f165o != null) {
             return this.f165o.getUnlockDelay();
         }
-        Log.d(this.f152b, "mAdditionalUnlockView == null");
+        Log.d(this.TAG, "mAdditionalUnlockView == null");
         return this.f164n.getUnlockDelay();
     }
 
@@ -219,7 +219,7 @@ public class SecCameraShortcut extends FrameLayout implements KeyguardSecurityCa
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        Log.d(this.f152b, "touched, mIsFirst = " + this.f157g);
+        Log.d(this.TAG, "touched, mIsFirst = " + this.f157g);
         if (!this.f157g) {
             return false;
         }
@@ -227,7 +227,7 @@ public class SecCameraShortcut extends FrameLayout implements KeyguardSecurityCa
         float y = motionEvent.getY(0);
         switch (motionEvent.getAction()) {
             case 0:
-                Log.e(this.f152b, "action down");
+                Log.e(this.TAG, "action down");
                 this.f162l = x;
                 this.f163m = y;
                 this.f155e = 0.0d;
@@ -235,7 +235,7 @@ public class SecCameraShortcut extends FrameLayout implements KeyguardSecurityCa
                 break;
             case 1:
             case 3:
-                Log.e(this.f152b, "action up/cancel mDistance: " + this.f155e);
+                Log.e(this.TAG, "action up/cancel mDistance: " + this.f155e);
                 if ((this.f156f < this.f155e && this.f155e < this.f161k) || this.f155e >= this.f161k) {
                     this.f157g = false;
                     m112b(null, motionEvent);
@@ -251,7 +251,7 @@ public class SecCameraShortcut extends FrameLayout implements KeyguardSecurityCa
                 break;
             case 2:
                 this.f155e = Math.sqrt(Math.pow((int) (y - this.f163m), 2.0d) + Math.pow((int) (x - this.f162l), 2.0d));
-                Log.d(this.f152b, "ACTION_MOVE mDistance: " + this.f155e);
+                Log.d(this.TAG, "ACTION_MOVE mDistance: " + this.f155e);
                 if (this.f155e >= this.f161k) {
                     this.f157g = false;
                     m112b(null, motionEvent);

@@ -7,15 +7,12 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import com.xlocker.core.sdk.LogUtil;
 
-/* renamed from: com.galaxytheme.common.d */
-/* loaded from: classes.dex */
-public class SurfaceHolder$CallbackC0047d extends SurfaceView implements SurfaceHolder.Callback {
+public class WallpaperSurfaceView extends SurfaceView implements SurfaceHolder.Callback {
 
     /* renamed from: a */
     private KeyguardSecurityView f173a;
 
-    /* renamed from: b */
-    private Handler f174b;
+    private Handler mHandler;
 
     /* renamed from: c */
     private final Rect f175c;
@@ -34,8 +31,8 @@ public class SurfaceHolder$CallbackC0047d extends SurfaceView implements Surface
 
     /* renamed from: a */
     private void m110a() {
-        this.f174b.removeMessages(1001);
-        this.f174b.sendEmptyMessage(1001);
+        this.mHandler.removeMessages(1001);
+        this.mHandler.sendEmptyMessage(1001);
     }
 
     @Override // android.view.SurfaceView, android.view.View
