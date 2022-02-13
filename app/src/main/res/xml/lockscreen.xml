@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<theme-info title="@string/theme_title_galaxy_brilliantring" key="@drawable/theme_preview_galaxy_brilliantring" summary="@array/theme_screenshot_galaxy_brilliantring" entries="@drawable/default_wallpaper" defaultValue="com.galaxytheme.brilliantring.BrilliantringLockscreen" dialogTitle="com.xlocker.support.ThemeSettingsActivity" entryValues="1" theme_need_root="false" theme_support_shortcut="true" theme_support_notification="true" theme_support_alarm="true" theme_support_ownertext="false" theme_support_carrier="true"/>

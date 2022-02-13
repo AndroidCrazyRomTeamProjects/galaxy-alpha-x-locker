@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="clock">Zegar</string>
+    <string name="clock_font">Czcionka zegara</string>
+    <string name="clock_size">Rozmiar zegara</string>
+    <string name="custom_typeface">Select font file</string>
+    <string name="default_typeface">Kaiti (Default)</string>
+    <string name="edit_profile">Edytuj napis</string>
+    <string name="enable_profile">Pokaż mój profil</string>
+    <string name="myprofile">mój profil</string>
+    <string name="myprofile_font">Czcionka</string>
+    <string name="myprofile_size">Rozmiar czcionki</string>
+    <string name="select_font_file">Please select font file.</string>
+    <string name="set_font_failed">Set font failed.</string>
+    <string name="set_font_success">Set font success.</string>
+    <string name="swipe_to_unlock">przesuń, aby odblokować</string>
+    <string name="help_text">Wskazówka</string>
+    <string name="other">inne</string>
+    <string name="show_help_text">Pokaż wskazówkę na ekranie blokady</string>
+</resources>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent">
+    <com.galaxytheme.common.KeyguardStatusView android:gravity="top|center_vertical|center_horizontal|center" android:orientation="vertical" android:id="@+id/keyguard_status_view_face_palm" android:padding="@dimen/kg_status_line_font_right_margin" android:clipChildren="false" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent">
+        <LinearLayout android:layout_gravity="top|left|center_vertical|center_horizontal|center" android:orientation="vertical" android:focusable="true" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <com.galaxytheme.common.AutoResizeEditText android:textColor="#fff9f9f9" android:gravity="center_vertical" android:id="@+id/keyguard_status_myprofile" android:background="@android:color/transparent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="14dp" android:minHeight="72dp" android:text="@string/keyguard_status_view_myprofile" android:singleLine="true" android:shadowColor="#99000000" android:shadowDy="4" android:shadowRadius="4"/>
+            <LinearLayout android:orientation="vertical" android:id="@+id/clock_alarm_container" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp">
+                <com.xlocker.core.sdk.widget.ClockView android:id="@+id/clock_view" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                    <TextView android:textSize="@dimen/kg_status_clock_font_size" android:textColor="#fff9f9f9" android:ellipsize="none" android:id="@+id/clock_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:shadowColor="#99000000" android:shadowDy="4" android:shadowRadius="4"/>
+                    <TextView android:textSize="22sp" android:textColor="#fff9f9f9" android:ellipsize="none" android:id="@+id/am_pm" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="8dp" android:layout_marginBottom="8dp" android:singleLine="true" android:shadowColor="#99000000" android:shadowDy="4" android:shadowRadius="4" android:layout_toRightOf="@+id/clock_text" android:layout_alignBottom="@+id/clock_text"/>
+                </com.xlocker.core.sdk.widget.ClockView>
+                <include layout="@layout/keyguard_status_area"/>
+            </LinearLayout>
+            <com.xlocker.core.sdk.widget.KeyguardMissedEventView android:orientation="vertical" android:id="@+id/missed_event" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="3dp"/>
+            <include layout="@layout/keyguard_message_area"/>
+        </LinearLayout>
+    </com.galaxytheme.common.KeyguardStatusView>
+    <RelativeLayout android:id="@+id/keyguard_security_container" android:layout_width="match_parent" android:layout_height="match_parent">
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="16dp" android:layout_alignParentBottom="true">
+            <TextView android:textSize="18sp" android:textColor="#fff9f9f9" android:ellipsize="marquee" android:gravity="center_horizontal" android:id="@+id/help_text" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:text="@string/swipe_to_unlock" android:singleLine="true" android:shadowColor="#99000000" android:shadowDy="4" android:shadowRadius="4"/>
+            <com.xlocker.core.sdk.widget.CarrierText android:textSize="16sp" android:textColor="#fff9f9f9" android:ellipsize="marquee" android:gravity="center_horizontal" android:id="@+id/carrier_text" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="16dp" android:singleLine="true" android:shadowColor="#99000000" android:shadowDy="4" android:shadowRadius="4"/>
+            <com.galaxytheme.common.GalaxyKeyguardShortcutView android:gravity="center" android:id="@+id/keyguard_shortcutview" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </RelativeLayout>
+</FrameLayout>

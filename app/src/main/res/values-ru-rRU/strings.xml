@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="clock">Часы на экране блокировки</string>
+    <string name="clock_color">Цвет часов</string>
+    <string name="clock_font">Шрифт</string>
+    <string name="clock_size">Размер</string>
+    <string name="custom_typeface">Выберите файл шрифта</string>
+    <string name="date">Дата</string>
+    <string name="date_color">Цвет даты</string>
+    <string name="date_font">Шрифт даты</string>
+    <string name="date_size">Размер даты</string>
+    <string name="default_typeface">Курсив (По умолчанию)</string>
+    <string name="edit_profile">Имя профиля</string>
+    <string name="enable_profile">Показывать профиль</string>
+    <string name="font_custom">Выбранный</string>
+    <string name="font_system">Системный</string>
+    <string name="myprofile">Мой профиль</string>
+    <string name="myprofile_font">Стиль шрифта</string>
+    <string name="myprofile_size">Размер шрифта</string>
+    <string name="select_font_file">Пожалуйста, выберите файл шрифта</string>
+    <string name="set_font_failed">Набор шрифтов не удалось</string>
+    <string name="set_font_success">Набор шрифтов успеха</string>
+    <string name="swipe_to_unlock">Для разблокировки проведите по экрану</string>
+    <string name="help_text">Текст справки</string>
+    <string name="other">Справка и сеть</string>
+    <string name="show_help_text">Показывать текст справки на экране блокировки</string>
+</resources>

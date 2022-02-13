@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="install">インストール</string>
+    <string name="need_locker_app">これは %1$s のテーマです。このテーマをロック画面として使用する場合は、%2$s をインストールしてからこのテーマを適用してください</string>
+</resources>

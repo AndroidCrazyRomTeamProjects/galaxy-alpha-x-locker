@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="clock_align_entries">
+        <item>ліворуч</item>
+        <item>по середині</item>
+        <item>праворуч</item>
+    </array>
+    <array name="clock_font_entries">
+        <item>типовий</item>
+        <item>cooljazz</item>
+        <item>обраний</item>
+    </array>
+    <array name="clock_size_entries">
+        <item>малий</item>
+        <item>нормальний</item>
+        <item>великий</item>
+    </array>
+    <array name="myprofile_align_entries">
+        <item>ліворуч</item>
+        <item>по середині</item>
+        <item>праворуч</item>
+    </array>
+    <array name="myprofile_font_entries">
+        <item>cooljazz</item>
+        <item>обраний</item>
+    </array>
+    <array name="myprofile_size_entries">
+        <item>малий</item>
+        <item>нормальний</item>
+        <item>великий</item>
+    </array>
+</resources>

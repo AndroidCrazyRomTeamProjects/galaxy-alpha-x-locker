@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="clock">Saat</string>
+    <string name="clock_align">Saat tarihini hizala</string>
+    <string name="clock_color">Saat rengi</string>
+    <string name="clock_font">Saat yazı tipi</string>
+    <string name="clock_size">Saat boyutu</string>
+    <string name="custom_typeface">Yazı tipi dosyası seç</string>
+    <string name="date">Tarih</string>
+    <string name="date_color">Tarih rengi</string>
+    <string name="date_font">Tarih yazı tipi</string>
+    <string name="date_size">Tarih boyutu</string>
+    <string name="default_typeface">Kaiti (Varsayılan)</string>
+    <string name="edit_profile">Profilimi düzenle</string>
+    <string name="enable_alarm">Alarmı etkinleştir</string>
+    <string name="enable_profile">Profilimi göster</string>
+    <string name="font_custom">Özel</string>
+    <string name="font_system">Sistem</string>
+    <string name="myprofile">Profilim</string>
+    <string name="myprofile_align">Hizala</string>
+    <string name="myprofile_font">Yazı tipi stili</string>
+    <string name="myprofile_size">Yazı tipi boyutu</string>
+    <string name="select_font_file">Lütfen yazı tipi dosyasını seçin</string>
+    <string name="set_font_failed">Yazı tipi ayarlama başarısız oldu.</string>
+    <string name="set_font_success">Yazı tipi başarıyla ayarlandı.</string>
+    <string name="swipe_to_unlock">Kilidi açmak için kaydırın</string>
+    <string name="help_text">Yardım metni</string>
+    <string name="other">Diğer</string>
+    <string name="show_help_text">Kilit ekranında yardım metni göster</string>
+    <string name="install">Yükle</string>
+    <string name="need_locker_app">Bu, %1$s teması, bu temayı kilit ekranınız olarak kullanmak istiyorsanız, lütfen %2$s yükleyin ve ardından bu temayı uygulayın</string>
+</resources>

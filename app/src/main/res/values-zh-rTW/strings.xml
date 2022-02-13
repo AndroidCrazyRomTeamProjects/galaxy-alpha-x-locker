@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="clock">時鐘</string>
+    <string name="clock_color">時鐘顔色</string>
+    <string name="clock_font">時鐘字體</string>
+    <string name="clock_size">時鐘大小</string>
+    <string name="date">日期</string>
+    <string name="date_color">日期顔色</string>
+    <string name="date_font">日期字體</string>
+    <string name="date_size">日期大小</string>
+    <string name="font_custom">自定義</string>
+    <string name="font_system">系統</string>
+    <string name="select_font_file">請選擇字體文件（ttf）</string>
+    <string name="set_font_failed">設置字體失敗</string>
+    <string name="set_font_success">設置字體成功</string>
+    <string name="battery">電量</string>
+    <string name="battery_font_color">電量字體顏色</string>
+    <string name="battery_font_size">電量字體大小</string>
+    <string name="enable_battery">始終顯示電量</string>
+</resources>

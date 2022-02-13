@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="clock">reloj</string>
+    <string name="clock_font">fuente de reloj</string>
+    <string name="clock_size">tamaño del reloj</string>
+    <string name="custom_typeface">Seleccionar archivo de fuentes</string>
+    <string name="default_typeface">cursiva (defecto)</string>
+    <string name="edit_profile">Editar mi perfil</string>
+    <string name="enable_profile">Mostrar mi perfil</string>
+    <string name="myprofile">Mi encuesta</string>
+    <string name="myprofile_font">estilo de fuente</string>
+    <string name="myprofile_size">tamaño de letra</string>
+    <string name="select_font_file">Por favor, seleccione el archivo fuente</string>
+    <string name="set_font_failed">Conjunto de fuentes no</string>
+    <string name="set_font_success">Establezca el éxito de fuente</string>
+    <string name="swipe_to_unlock">Deslice la pantalla para desbloquear</string>
+    <string name="help_text">texto de ayuda</string>
+    <string name="other">otro</string>
+    <string name="show_help_text">Mostrar el texto de ayuda en la pantalla de bloqueo</string>
+    <string name="install">Instalar</string>
+    <string name="need_locker_app">Este es un tema de %1$s, si desea utilizar este tema como su pantalla de bloqueo, instale %2$s y luego aplique este tema</string>
+</resources>

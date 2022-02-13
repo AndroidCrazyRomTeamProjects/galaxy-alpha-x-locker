@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="clock">时钟</string>
+    <string name="clock_align">时钟日期对齐</string>
+    <string name="clock_color">时钟颜色</string>
+    <string name="clock_font">时钟字体</string>
+    <string name="clock_size">时钟大小</string>
+    <string name="custom_typeface">选择字体文件</string>
+    <string name="date">日期</string>
+    <string name="date_color">日期颜色</string>
+    <string name="date_font">日期字体</string>
+    <string name="date_size">日期大小</string>
+    <string name="default_typeface">楷体（默认）</string>
+    <string name="edit_profile">编辑个性签名</string>
+    <string name="enable_alarm">显示闹钟</string>
+    <string name="enable_profile">显示个性签名</string>
+    <string name="font_custom">自定义</string>
+    <string name="font_system">系统</string>
+    <string name="myprofile">个性签名</string>
+    <string name="myprofile_align">对齐</string>
+    <string name="myprofile_font">字体风格</string>
+    <string name="myprofile_size">字体大小</string>
+    <string name="select_font_file">请选择字体文件（ttf）</string>
+    <string name="set_font_failed">设置字体失败</string>
+    <string name="set_font_success">设置字体成功</string>
+    <string name="swipe_to_unlock">滑动屏幕以解锁</string>
+    <string name="help_text">帮助文本</string>
+    <string name="other">其他</string>
+    <string name="show_help_text">在锁定屏幕时显示帮助文本</string>
+    <string name="need_locker_app">这是 %1$s 的主题，如果你想使用这个主题作为你的锁屏，请安装 %2$s 然后应用这个主题</string>
+    <string name="battery">电量</string>
+    <string name="battery_font_color">电量字体颜色</string>
+    <string name="battery_font_size">电量字体大小</string>
+    <string name="enable_battery">始终显示电量</string>
+    <string name="app_name_galaxy_brilliantring">A5 马赛克锁屏</string>
+    <string name="camera_shortcut_summary">右下角显示相机快捷键</string>
+    <string name="enable_camera_shortcut">照相机快捷键</string>
+    <string name="enable_parallax">启用视差效果</string>
+    <string name="locker_app_name">X 锁屏</string>
+    <string name="theme_title_galaxy_brilliantring">A5 马赛克</string>
+</resources>

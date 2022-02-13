@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="clock">horloge</string>
+    <string name="clock_font">Police de l\'horloge</string>
+    <string name="clock_size">Taille de l\'horloge</string>
+    <string name="custom_typeface">Sélectionnez le fichier de police</string>
+    <string name="default_typeface">italique (Par défaut)</string>
+    <string name="edit_profile">Modifier mon profil</string>
+    <string name="enable_profile">Afficher mon profil</string>
+    <string name="myprofile">mon profil</string>
+    <string name="myprofile_font">Le style de police</string>
+    <string name="myprofile_size">Taille de la police</string>
+    <string name="select_font_file">S\'il vous plaît sélectionner le fichier de la police</string>
+    <string name="set_font_failed">Set police n\'a pas</string>
+    <string name="set_font_success">Définir le succès de la police</string>
+    <string name="swipe_to_unlock">Écran de glisser pour déverrouiller</string>
+    <string name="help_text">texte d\'aide</string>
+    <string name="other">autre</string>
+    <string name="show_help_text">Afficher le texte d\'aide sur l\'écran de verrouillage</string>
+    <string name="install">Installer</string>
+    <string name="need_locker_app">Ceci est un thème de %1$s, si vous voulez utiliser ce thème comme votre écran de verrouillage, installez %2$s et appliquez ce thème</string>
+</resources>

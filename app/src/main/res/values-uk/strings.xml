@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="clock">Годинник</string>
+    <string name="clock_align">Розміщення годинника і дати</string>
+    <string name="clock_color">Колір годинника</string>
+    <string name="clock_font">Шрифт годинника</string>
+    <string name="clock_size">Розмір годинника</string>
+    <string name="custom_typeface">обраний файл шрифту</string>
+    <string name="date">Дата</string>
+    <string name="date_color">Колір дати</string>
+    <string name="date_font">Шрифт дати</string>
+    <string name="date_size">Розмір дати</string>
+    <string name="default_typeface">Kaiti (по замовчуванню)</string>
+    <string name="edit_profile">Редагувати профіль</string>
+    <string name="enable_profile">Показувати профіль</string>
+    <string name="font_custom">Обраний</string>
+    <string name="font_system">Системний</string>
+    <string name="myprofile">Мій профіль</string>
+    <string name="myprofile_align">Розміщення</string>
+    <string name="myprofile_font">Стиль шрифту</string>
+    <string name="myprofile_size">Розмір шрифту</string>
+    <string name="select_font_file">Оберіть файл шрифту.</string>
+    <string name="set_font_failed">Шрифт не встановлено.</string>
+    <string name="set_font_success">Шрифт встановлено успішно.</string>
+    <string name="swipe_to_unlock">Для розблокування ковзніть по екрані</string>
+    <string name="help_text">Текст довідки</string>
+    <string name="other">Довідка і мережа</string>
+    <string name="show_help_text">Показувати текст довідки на екрані блокування</string>
+</resources>

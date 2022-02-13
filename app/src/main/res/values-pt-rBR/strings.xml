@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="install">Instalar</string>
+    <string name="need_locker_app">Este é um tema de %1$s, se você quiser usar esse tema como tela de bloqueio, instale %2$s e aplique este tema</string>
+</resources>

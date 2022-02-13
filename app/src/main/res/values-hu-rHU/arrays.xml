@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="clock_font_entries">
+        <item>alapértelmezett</item>
+        <item>cooljazz</item>
+        <item>egyéni</item>
+    </array>
+    <array name="clock_size_entries">
+        <item>kicsi</item>
+        <item>közepes</item>
+        <item>nagy</item>
+    </array>
+    <array name="myprofile_font_entries">
+        <item>cooljazz</item>
+        <item>egyéni</item>
+    </array>
+    <array name="myprofile_size_entries">
+        <item>kicsi</item>
+        <item>közepes</item>
+        <item>nagy</item>
+    </array>
+</resources>

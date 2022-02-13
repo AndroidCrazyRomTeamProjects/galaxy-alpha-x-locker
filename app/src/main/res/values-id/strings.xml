@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="clock">Jam</string>
+    <string name="clock_align">Posisi jam dan tanggal</string>
+    <string name="clock_color">Warna jam</string>
+    <string name="clock_font">Huruf jam</string>
+    <string name="clock_size">Ukuran jam</string>
+    <string name="custom_typeface">Pilih berkas huruf</string>
+    <string name="date">Tanggal</string>
+    <string name="date_color">Warna tanggal</string>
+    <string name="date_font">Gaya huruf tanggal</string>
+    <string name="date_size">Ukuran tanggal</string>
+    <string name="default_typeface">Kaiti (standar)</string>
+    <string name="edit_profile">Ubah profil saya</string>
+    <string name="enable_alarm">Aktifkan alarm</string>
+    <string name="enable_profile">Tunjukkan profil saya</string>
+    <string name="font_custom">Kustom</string>
+    <string name="font_system">Sistem</string>
+    <string name="myprofile">Profil saya</string>
+    <string name="myprofile_align">Posisi</string>
+    <string name="myprofile_font">Gaya huruf</string>
+    <string name="myprofile_size">Ukuran huruf</string>
+    <string name="select_font_file">Mohon pilih berkas huruf.</string>
+    <string name="set_font_failed">Gagal mengatur huruf.</string>
+    <string name="set_font_success">Sukses mengatur huruf.</string>
+    <string name="swipe_to_unlock">Usap layar untuk membuka kunci</string>
+    <string name="help_text">Teks bantuan</string>
+    <string name="other">Lainnya</string>
+    <string name="show_help_text">Munculkan teks bantuan pada layar kunci</string>
+    <string name="install">Memasang</string>
+    <string name="need_locker_app">Ini adalah tema dari %1$s, jika Anda ingin menggunakan tema ini sebagai layar kunci, silahkan install %2$s dan kemudian menerapkan tema ini</string>
+</resources>

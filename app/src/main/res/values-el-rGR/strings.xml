@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="clock">Ρολόι</string>
+    <string name="clock_font">Γραμματοσειρά ρολογιού</string>
+    <string name="clock_size">Μέγεθος ρολογιού</string>
+    <string name="custom_typeface">Επιλέξτε αρχείο γραμματοσειράς</string>
+    <string name="default_typeface">Kaiti (Default)</string>
+    <string name="edit_profile">Επεξεργασία προφίλ</string>
+    <string name="enable_profile">Το προφίλ μου</string>
+    <string name="myprofile">Το προφίλ μου</string>
+    <string name="myprofile_font">Γραμματοσειρά</string>
+    <string name="myprofile_size">Μέγεθος γραμματοσειράς</string>
+    <string name="select_font_file">Επιλέξτε αρχείο γραμματοσειράς</string>
+    <string name="set_font_failed">Δεν ορίστηκε γραμματοσειρά</string>
+    <string name="set_font_success">Ορίστηκε γραμματοσειρά</string>
+    <string name="swipe_to_unlock">Κύλιση για ξεκλείδωμα</string>
+    <string name="help_text">Κείμενο βοήθειας</string>
+    <string name="other">Άλλο</string>
+    <string name="show_help_text">Εμφάνιση κειμένου βοήθειας στην οθόνη κλειδώματος</string>
+</resources>

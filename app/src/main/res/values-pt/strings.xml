@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="clock">Relogio</string>
+    <string name="clock_font">Tipo de Letra</string>
+    <string name="clock_size">Tipo de Letra</string>
+    <string name="custom_typeface">Escolher ficheiro.</string>
+    <string name="default_typeface">Kaiti (Pre-Definido)</string>
+    <string name="edit_profile">Editar o meu perfil</string>
+    <string name="enable_profile">Mostrar o meu perfil</string>
+    <string name="myprofile">Meu perfil</string>
+    <string name="myprofile_font">Estilo de letra</string>
+    <string name="myprofile_size">Tamanho de letra</string>
+    <string name="select_font_file">Escolher ficheiro.</string>
+    <string name="set_font_failed">Falhou</string>
+    <string name="set_font_success">Sucesso</string>
+    <string name="swipe_to_unlock">Deslize para desbloquear</string>
+    <string name="help_text">Texto de ajuda</string>
+    <string name="other">Outro</string>
+    <string name="show_help_text">Mostra texto de ajuda no ecrã de bloqueio</string>
+</resources>

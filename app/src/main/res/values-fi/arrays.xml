@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="clock_align_entries">
+        <item>Vasen</item>
+        <item>Keskitetty</item>
+        <item>Oikea</item>
+    </array>
+    <array name="clock_font_entries">
+        <item>oletus</item>
+        <item>cooljazz</item>
+        <item>oma..</item>
+    </array>
+    <array name="clock_size_entries">
+        <item>pieni</item>
+        <item>normaali</item>
+        <item>suuri</item>
+    </array>
+    <array name="myprofile_align_entries">
+        <item>Vasen</item>
+        <item>Keskitetty</item>
+        <item>Oikea</item>
+    </array>
+    <array name="myprofile_font_entries">
+        <item>cooljazz</item>
+        <item>oma..</item>
+    </array>
+    <array name="myprofile_size_entries">
+        <item>pieni</item>
+        <item>normaali</item>
+        <item>suuri</item>
+    </array>
+</resources>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="100" android:versionName="1.0.0" android:compileSdkVersion="29" android:compileSdkVersionCodename="10" package="com.galaxytheme.brilliantring" platformBuildVersionCode="22" platformBuildVersionName="7">
+    <uses-sdk android:minSdkVersion="17" android:targetSdkVersion="21"/>
+    <application android:label="@string/app_name_galaxy_brilliantring" android:icon="@drawable/app_icon_galaxy_brilliantring" android:name="com.xlocker.support.ThemeApplication" android:allowBackup="true">
+        <activity android:theme="@style/Theme.Translucent" android:name="com.xlocker.support.ThemeMainActivity" android:excludeFromRecents="true" android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.xlocker.support.ThemeSettingsActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="com.xlocker.theme.settings" android:value="com.galaxytheme.common.GalaxySettings"/>
+        <meta-data android:name="com.xlocker.theme.lockscreen" android:resource="@xml/lockscreen"/>
+    </application>
+</manifest>

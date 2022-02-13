@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="clock">Óra</string>
+    <string name="clock_font">Betűtípus</string>
+    <string name="clock_size">Betűméret</string>
+    <string name="custom_typeface">Betűtípus választása</string>
+    <string name="default_typeface">Kaiti (Alap)</string>
+    <string name="edit_profile">Szöveg szerkesztése</string>
+    <string name="enable_profile">Szöveg megjelenítése</string>
+    <string name="myprofile">Szöveg a képernyőzáron</string>
+    <string name="myprofile_font">Betűtípus</string>
+    <string name="myprofile_size">Betűméret</string>
+    <string name="select_font_file">Adjon meg egy betűtípusfájlt.</string>
+    <string name="set_font_failed">Betűtípus beállítása sikertelen.</string>
+    <string name="set_font_success">Betűtípus beállítva.</string>
+    <string name="swipe_to_unlock">Feloldás az üveg végigsimításával</string>
+    <string name="help_text">Súgószöveg</string>
+    <string name="other">Más</string>
+    <string name="show_help_text">Feloldási segédlet megjelenítése a zárolt képernyőn.</string>
+</resources>

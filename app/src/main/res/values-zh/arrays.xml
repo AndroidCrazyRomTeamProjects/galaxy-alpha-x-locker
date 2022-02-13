@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="clock_align_entries">
+        <item>靠左</item>
+        <item>居中</item>
+        <item>靠右</item>
+    </array>
+    <array name="clock_font_entries">
+        <item>默认</item>
+        <item>爵士酷</item>
+        <item>自定义</item>
+    </array>
+    <array name="clock_size_entries">
+        <item>小</item>
+        <item>正常</item>
+        <item>大</item>
+    </array>
+    <array name="myprofile_align_entries">
+        <item>靠左</item>
+        <item>居中</item>
+        <item>靠右</item>
+    </array>
+    <array name="myprofile_font_entries">
+        <item>爵士酷</item>
+        <item>自定义</item>
+    </array>
+    <array name="myprofile_size_entries">
+        <item>小</item>
+        <item>正常</item>
+        <item>大</item>
+    </array>
+</resources>

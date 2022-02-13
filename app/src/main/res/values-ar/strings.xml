@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="clock">ساعة</string>
+    <string name="clock_align"> محاذاة الساعة التاريخ </string>
+    <string name="clock_color">لون الساعة</string>
+    <string name="clock_font">خط الساعة</string>
+    <string name="clock_size">حجم الساعة</string>
+    <string name="custom_typeface">أختيار ملف الخط</string>
+    <string name="date">تاريخ</string>
+    <string name="date_color">لون التاريخ</string>
+    <string name="date_font">خط التاريخ</string>
+    <string name="date_size">حجم التاريخ</string>
+    <string name="default_typeface">Kaiti (الأفتراضي)</string>
+    <string name="edit_profile">عدل ملفي الشخصي</string>
+    <string name="enable_alarm">تمكين المنبة</string>
+    <string name="enable_profile">أضهار ملفي الشخصي</string>
+    <string name="font_custom">مخصص</string>
+    <string name="font_system">النظام</string>
+    <string name="myprofile">ملفي الشخصي</string>
+    <string name="myprofile_align">محاذاة</string>
+    <string name="myprofile_font">نمط الخط</string>
+    <string name="myprofile_size">حجم الخط</string>
+    <string name="select_font_file">أرجاء اختيار ملف الخط.</string>
+    <string name="set_font_failed">تعيين الخط فشل.</string>
+    <string name="set_font_success">تعيين الخط ناجح.</string>
+    <string name="swipe_to_unlock">حرك لفتح القفل</string>
+</resources>

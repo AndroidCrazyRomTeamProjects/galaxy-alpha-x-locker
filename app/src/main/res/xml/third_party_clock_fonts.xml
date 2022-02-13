@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fonts xmlns:app="http://schemas.android.com/apk/res-auto">
+    <font app:displayName="AndroidClock" app:assetPath="fonts/AndroidClock.ttf" app:preferenceValue="0"/>
+    <font app:displayName="AndroidClock Highlight" app:assetPath="fonts/AndroidClock_Highlight.ttf" app:preferenceValue="2"/>
+    <font app:displayName="AndroidClock Solid" app:assetPath="fonts/AndroidClock_Solid.ttf" app:preferenceValue="3"/>
+    <font app:displayName="Clockopia" app:assetPath="fonts/Clockopia.ttf" app:preferenceValue="4"/>
+    <font app:displayName="Lato" app:assetPath="fonts/Lato.ttf" app:preferenceValue="5"/>
+    <font app:displayName="Lato Black" app:assetPath="fonts/Lato_Black.ttf" app:preferenceValue="6"/>
+    <font app:displayName="Lato Bold" app:assetPath="fonts/Lato_Bold.ttf" app:preferenceValue="7"/>
+    <font app:displayName="Lato Hairline" app:assetPath="fonts/Lato_Hairline.ttf" app:preferenceValue="8"/>
+    <font app:displayName="Lato Light" app:assetPath="fonts/Lato_Light.ttf" app:preferenceValue="9"/>
+</fonts>

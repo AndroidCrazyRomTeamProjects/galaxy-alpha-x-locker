@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="clock">時計</string>
+    <string name="clock_font">時計のフォント</string>
+    <string name="clock_size">時計のサイズ</string>
+    <string name="custom_typeface">フォントファイルの選択</string>
+    <string name="default_typeface">Kaiti (Default)</string>
+    <string name="edit_profile">プロフィールの編集</string>
+    <string name="enable_profile">私のプロフィールを表示</string>
+    <string name="myprofile">私のプロファイル</string>
+    <string name="myprofile_font">フォントスタイル</string>
+    <string name="myprofile_size">プロフィールのサイズ</string>
+    <string name="select_font_file">フォントファイルお選択してください。</string>
+    <string name="set_font_failed">フォント設定が失敗した。</string>
+    <string name="set_font_success">フォントの設定が成功した。</string>
+    <string name="swipe_to_unlock">スワイプしてロックを解除する</string>
+    <string name="help_text">ヘルプ</string>
+    <string name="other">その他</string>
+    <string name="show_help_text">ロック画面にヘルプを表示する</string>
+</resources>

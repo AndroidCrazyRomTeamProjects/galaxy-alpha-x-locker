@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:padding="12dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <LinearLayout android:orientation="vertical" android:background="@android:color/white" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <ImageView android:layout_width="match_parent" android:layout_height="148dp" android:src="@drawable/app_avator" android:scaleType="centerCrop"/>
+            <TextView android:textSize="18sp" android:textColor="#ff248fb3" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@+id/message" android:paddingLeft="5dp" android:paddingRight="5dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="15dp" android:text="@string/need_locker_app"/>
+        </LinearLayout>
+        <Button android:textSize="18sp" android:textStyle="bold" android:textColor="#ffffffff" android:gravity="center" android:id="@+id/ok" android:background="@drawable/download_button_bg" android:paddingLeft="36dp" android:paddingRight="36dp" android:layout_width="match_parent" android:layout_height="42dp" android:layout_marginLeft="20dp" android:layout_marginTop="20dp" android:layout_marginRight="20dp" android:layout_marginBottom="20dp" android:text="@string/install" android:shadowColor="#55000000" android:shadowDx="0" android:shadowDy="1" android:shadowRadius="1" android:textAllCaps="true"/>
+    </LinearLayout>
+</LinearLayout>

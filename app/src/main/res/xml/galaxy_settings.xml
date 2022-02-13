@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <SwitchPreference android:title="@string/enable_camera_shortcut" android:key="enable_camera_shortcut" android:summary="@string/camera_shortcut_summary"/>
+    <PreferenceCategory android:title="@string/myprofile" android:key="category_myprofile">
+        <CheckBoxPreference android:title="@string/enable_profile" android:key="enable_profile"/>
+        <EditTextPreference android:title="@string/edit_profile" android:key="edit_profile"/>
+        <ListPreference android:entries="@array/myprofile_font_entries" android:title="@string/myprofile_font" android:key="myprofile_font" android:defaultValue="1" android:dialogTitle="@string/myprofile_font" android:entryValues="@array/myprofile_font_values"/>
+        <ListPreference android:entries="@array/myprofile_size_entries" android:title="@string/myprofile_size" android:key="myprofile_size" android:defaultValue="1" android:dialogTitle="@string/myprofile_size" android:entryValues="@array/myprofile_size_values"/>
+        <ListPreference android:entries="@array/myprofile_align_entries" android:title="@string/myprofile_align" android:key="myprofile_align" android:defaultValue="1" android:dialogTitle="@string/myprofile_align" android:entryValues="@array/myprofile_align_values"/>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/clock">
+        <ListPreference android:entries="@array/clock_font_entries" android:title="@string/clock_font" android:key="clock_font" android:defaultValue="1" android:dialogTitle="@string/clock_font" android:entryValues="@array/clock_font_values"/>
+        <ListPreference android:entries="@array/clock_size_entries" android:title="@string/clock_size" android:key="clock_size" android:defaultValue="1" android:dialogTitle="@string/clock_size" android:entryValues="@array/clock_size_values"/>
+        <ListPreference android:entries="@array/clock_align_entries" android:title="@string/clock_align" android:key="clock_align" android:defaultValue="1" android:dialogTitle="@string/clock_align" android:entryValues="@array/clock_align_values"/>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/other">
+        <CheckBoxPreference android:title="@string/help_text" android:key="help_text" android:summary="@string/show_help_text"/>
+    </PreferenceCategory>
+</PreferenceScreen>

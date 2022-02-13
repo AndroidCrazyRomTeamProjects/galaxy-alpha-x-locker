@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="displayName" format="string">
+    </attr>
+    <attr name="assetPath" format="string">
+    </attr>
+    <attr name="preferenceValue" format="integer">
+    </attr>
+</resources>

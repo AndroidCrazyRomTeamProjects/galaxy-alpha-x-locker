@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:gravity="center" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp">
+    <com.xlocker.core.sdk.widget.KeyguardMessageArea android:textSize="16sp" android:textColor="#fff9f9f9" android:id="@+id/keyguard_message_area" android:padding="3dp" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:shadowColor="#99000000" android:shadowDy="3.3" android:shadowRadius="3.3"/>
+</LinearLayout>

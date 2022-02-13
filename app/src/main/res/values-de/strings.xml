@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="clock">Uhr</string>
+    <string name="clock_align">Uhrendatum anpassen</string>
+    <string name="clock_font">Uhrenschrift</string>
+    <string name="clock_size">Uhrengröße</string>
+    <string name="custom_typeface">Schrift auswählen</string>
+    <string name="default_typeface">Kaiti (Standard)</string>
+    <string name="edit_profile">Mein Profil anzeigen</string>
+    <string name="enable_alarm">Alarm einschalten</string>
+    <string name="enable_profile">Mein Profil anzeigen</string>
+    <string name="myprofile">Mein Profil</string>
+    <string name="myprofile_align">Anpassen</string>
+    <string name="myprofile_font">Schriftart</string>
+    <string name="myprofile_size">Schriftgröße</string>
+    <string name="select_font_file">Bitte wählen Sie eine Schrift aus.</string>
+    <string name="set_font_failed">Schrift konnte nicht ausgewählt werden.</string>
+    <string name="set_font_success">Schrift erfolgreich ausgewählt.</string>
+    <string name="swipe_to_unlock">Über Bildschirm wischen, um zu entsperren</string>
+    <string name="help_text">Hilfetexte</string>
+    <string name="other">Andere</string>
+    <string name="show_help_text">Hilfe anzeigen Text auf Bildschirm sperren</string>
+</resources>

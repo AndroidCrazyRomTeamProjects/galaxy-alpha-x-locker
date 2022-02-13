@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="action_bar_switch_padding">16dp</dimen>
+    <dimen name="default_battery_font_size">16dp</dimen>
+    <dimen name="keyguard_lockscreen_camera_shortcut_circle_max_radius">144dp</dimen>
+    <dimen name="keyguard_lockscreen_first_border">184dp</dimen>
+    <dimen name="keyguard_lockscreen_second_border">267dp</dimen>
+    <dimen name="kg_status_clock_font_size">52sp</dimen>
+    <dimen name="kg_status_clock_font_size_large">65sp</dimen>
+    <dimen name="kg_status_date_font_size">15dp</dimen>
+    <dimen name="kg_status_line_font_right_margin">16dp</dimen>
+    <dimen name="kg_status_line_font_size">13dp</dimen>
+    <dimen name="kg_status_myprofile_font_default_size">42sp</dimen>
+    <dimen name="kg_status_myprofile_font_max_size">62sp</dimen>
+    <dimen name="kg_status_myprofile_font_min_size">22sp</dimen>
+    <dimen name="kg_status_myprofile_font_size_slot">1sp</dimen>
+</resources>

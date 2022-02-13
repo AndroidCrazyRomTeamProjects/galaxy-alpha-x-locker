@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="clock_align_entries">
+        <item>Left</item>
+        <item>Center</item>
+        <item>Right</item>
+    </array>
+    <array name="clock_font_entries">
+        <item>default</item>
+        <item>cooljazz</item>
+        <item>custom</item>
+    </array>
+    <array name="clock_size_entries">
+        <item>small</item>
+        <item>normal</item>
+        <item>large</item>
+    </array>
+    <array name="myprofile_align_entries">
+        <item>Left</item>
+        <item>Center</item>
+        <item>Right</item>
+    </array>
+    <array name="myprofile_font_entries">
+        <item>cooljazz</item>
+        <item>custom</item>
+    </array>
+    <array name="myprofile_size_entries">
+        <item>small</item>
+        <item>normal</item>
+        <item>large</item>
+    </array>
+    <array name="clock_align_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </array>
+    <array name="clock_font_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </array>
+    <array name="clock_size_values">
+        <item>0.9</item>
+        <item>1.0</item>
+        <item>1.2</item>
+    </array>
+    <array name="myprofile_align_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </array>
+    <array name="myprofile_font_values">
+        <item>2</item>
+        <item>3</item>
+    </array>
+    <array name="myprofile_size_values">
+        <item>0.9</item>
+        <item>1.0</item>
+        <item>1.1</item>
+    </array>
+    <array name="theme_screenshot_galaxy_brilliantring">
+        <item>@drawable/theme_screenshot_galaxy_brilliantring</item>
+        <item>@drawable/theme_screenshot2_galaxy_brilliantring</item>
+    </array>
+</resources>

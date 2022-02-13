@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="clock_align_entries">
+        <item>Sol</item>
+        <item>Merkez</item>
+        <item>Sağ</item>
+    </array>
+    <array name="clock_font_entries">
+        <item>Varsayılan</item>
+        <item>Cooljazz</item>
+        <item>Özel</item>
+    </array>
+    <array name="clock_size_entries">
+        <item>Küçük</item>
+        <item>Normal</item>
+        <item>Büyük</item>
+    </array>
+    <array name="myprofile_align_entries">
+        <item>Sol</item>
+        <item>Merkez</item>
+        <item>Sağ</item>
+    </array>
+    <array name="myprofile_font_entries">
+        <item>Cooljazz</item>
+        <item>Özel</item>
+    </array>
+    <array name="myprofile_size_entries">
+        <item>Küçük</item>
+        <item>Normal</item>
+        <item>Büyük</item>
+    </array>
+</resources>

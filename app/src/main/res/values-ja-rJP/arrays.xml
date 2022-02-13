@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="clock_font_entries">
+        <item>デフォルト</item>
+        <item>クールジャズ</item>
+        <item>ユーザーの設定</item>
+    </array>
+    <array name="clock_size_entries">
+        <item>小</item>
+        <item>ノーマル</item>
+        <item>大</item>
+    </array>
+    <array name="myprofile_font_entries">
+        <item>クールジャズ</item>
+        <item>ユーザーの設定</item>
+    </array>
+    <array name="myprofile_size_entries">
+        <item>小</item>
+        <item>ノーマル</item>
+        <item>大</item>
+    </array>
+    <array name="light_theme_entries">
+        <item>レンーズのフレア</item>
+        <item>ブルーリング</item>
+        <item>レッド血</item>
+        <item>Lightning</item>
+    </array>
+</resources>

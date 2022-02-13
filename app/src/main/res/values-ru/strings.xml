@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="install">устанавливать</string>
+    <string name="need_locker_app">Это тема %1$s, если вы хотите использовать эту тему в качестве экрана блокировки, пожалуйста, установите %2$s, а затем применить эту тему</string>
+</resources>

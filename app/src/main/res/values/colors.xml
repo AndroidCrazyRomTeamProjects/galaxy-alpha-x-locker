@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="download_bg_normal">#ff1bbbc9</color>
+    <color name="download_bg_pressed">#ff189aa8</color>
+    <color name="font_color_default">#ffffffff</color>
+</resources>

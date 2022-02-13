@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="clock">Kello</string>
+    <string name="clock_align">Kellon päiväyksen kohdistus</string>
+    <string name="clock_color">Kellon väri</string>
+    <string name="clock_font">Kellon fontti</string>
+    <string name="clock_size">Kellon koko</string>
+    <string name="custom_typeface">Valitse fonttitiedosto</string>
+    <string name="date">Päiväys</string>
+    <string name="date_color">Päiväyksen väri</string>
+    <string name="date_font">Päiväyksen fontti</string>
+    <string name="date_size">Päiväyksen koko</string>
+    <string name="default_typeface">Kaiti (Oletus)</string>
+    <string name="edit_profile">Muokkaa profiilia</string>
+    <string name="enable_alarm">Näytä hälytykset</string>
+    <string name="enable_profile">Näytä profiili</string>
+    <string name="font_custom">Oma</string>
+    <string name="font_system">Järjestelmän fontti</string>
+    <string name="myprofile">Profiilini</string>
+    <string name="myprofile_align">Kohdistus</string>
+    <string name="myprofile_font">Fontin tyyli</string>
+    <string name="myprofile_size">Fontin koko</string>
+    <string name="select_font_file">Valitse fonttitiedosto.</string>
+    <string name="set_font_failed">Fontin asettaminen epäonnistui.</string>
+    <string name="set_font_success">Fontti asetettu.</string>
+    <string name="swipe_to_unlock">Avaa pyyhkäisemällä</string>
+    <string name="help_text">Ohjeteksti</string>
+    <string name="other">Muu</string>
+    <string name="show_help_text">Näytä ohjeteksti lukitusnäytössä</string>
+</resources>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="clock_align_entries">
+        <item>Links</item>
+        <item>Midden</item>
+        <item>Rechts</item>
+    </array>
+    <array name="clock_font_entries">
+        <item>Huidig</item>
+        <item>cooljazz</item>
+        <item>aangepast</item>
+    </array>
+    <array name="clock_size_entries">
+        <item>smal</item>
+        <item>normaal</item>
+        <item>Groot</item>
+    </array>
+    <array name="myprofile_align_entries">
+        <item>Links</item>
+        <item>Midden</item>
+        <item>Rechts</item>
+    </array>
+    <array name="myprofile_font_entries">
+        <item>cooljazz</item>
+        <item>Aangepast</item>
+    </array>
+    <array name="myprofile_size_entries">
+        <item>smal</item>
+        <item>normaal</item>
+        <item>Groot</item>
+    </array>
+</resources>

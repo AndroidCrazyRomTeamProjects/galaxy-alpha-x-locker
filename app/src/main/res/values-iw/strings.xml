@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="clock">שעון</string>
+    <string name="clock_align">יישור שעון ותאריך</string>
+    <string name="clock_font">גופן שעון</string>
+    <string name="clock_size">גודל שעון</string>
+    <string name="custom_typeface">בחר קובץ גופן</string>
+    <string name="default_typeface">Kaiti (ברירת מחדל)</string>
+    <string name="edit_profile">ערוך את הפרופיל שלי</string>
+    <string name="enable_alarm">אפשר שעון מעורר</string>
+    <string name="enable_profile">הצג את הפרופיל שלי</string>
+    <string name="myprofile">הפרופיל שלי</string>
+    <string name="myprofile_align">יישור</string>
+    <string name="myprofile_font">סגנון גופן</string>
+    <string name="myprofile_size">גודל גופן</string>
+    <string name="select_font_file">אנא בחר קובץ גופן.</string>
+    <string name="set_font_failed">הגדרת גופן נכשלה.</string>
+    <string name="set_font_success">הגדרת גופן הצליחה.</string>
+    <string name="swipe_to_unlock">החלק מסך כדי לבטל נעילה</string>
+    <string name="help_text">טקסט עזרה</string>
+    <string name="other">אחר</string>
+    <string name="show_help_text">הצג טקסט עזרה במסך הנעילה</string>
+</resources>

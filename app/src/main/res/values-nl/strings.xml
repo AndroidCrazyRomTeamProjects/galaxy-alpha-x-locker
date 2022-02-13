@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="clock">Klok</string>
+    <string name="clock_align">Benoem tijd en datum</string>
+    <string name="clock_color">klok kleur</string>
+    <string name="clock_font">Klok font</string>
+    <string name="clock_size">Klok Groote</string>
+    <string name="custom_typeface">Selecteer font bestand</string>
+    <string name="date">Datum</string>
+    <string name="date_color">Datum kleur</string>
+    <string name="date_font">Datum font</string>
+    <string name="date_size">Datum formaat</string>
+    <string name="default_typeface">Kaiti (Huidig)</string>
+    <string name="edit_profile">Pas mijn profiel aan</string>
+    <string name="enable_alarm">Shakel alarm in</string>
+    <string name="enable_profile">Laat mijn profiel zien</string>
+    <string name="font_custom">Aangepast</string>
+    <string name="font_system">Systeem</string>
+    <string name="myprofile">Mijn profiel</string>
+    <string name="myprofile_align">Benoem</string>
+    <string name="myprofile_font">Font stijl</string>
+    <string name="myprofile_size">Font grootte</string>
+    <string name="select_font_file">Gelieve font bestand te selecteren.</string>
+    <string name="set_font_failed">Aanpassing van font is mislukt.</string>
+    <string name="set_font_success">Aanpassing van font succesvol .</string>
+    <string name="swipe_to_unlock">Veeg om te ontgrendelen</string>
+    <string name="help_text">Help tekst</string>
+    <string name="other">Anders</string>
+    <string name="show_help_text">Maak help tekst zichtbaar op vergrendelscherm</string>
+</resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="clock">시계</string>
+    <string name="clock_color">시계 색상</string>
+    <string name="clock_font">서체 설정</string>
+    <string name="clock_size">시계 크기</string>
+    <string name="custom_typeface">파일 선택</string>
+    <string name="date">날짜</string>
+    <string name="date_color">날짜 색상</string>
+    <string name="date_font">날짜 폰트</string>
+    <string name="date_size">날짜 크기</string>
+    <string name="default_typeface">해서 (기본값)</string>
+    <string name="edit_profile">사용자 문구 편집</string>
+    <string name="enable_profile">사용자 문구</string>
+    <string name="font_custom">개인 설정</string>
+    <string name="font_system">시스템</string>
+    <string name="myprofile">사용자 문구</string>
+    <string name="myprofile_font">서체 변경</string>
+    <string name="myprofile_size">글자 크기</string>
+    <string name="select_font_file">변경할 서체를 선택하세요</string>
+    <string name="set_font_failed">서체를 설정할 수 없습니다</string>
+    <string name="set_font_success">서체 설정이 변경되었습니다</string>
+    <string name="swipe_to_unlock">해제하려면 화면을 움직이세요</string>
+    <string name="help_text">도움말</string>
+    <string name="other">다른</string>
+    <string name="show_help_text">잠금화면에 도움말을 표시합니다</string>
+    <string name="install">설치</string>
+    <string name="need_locker_app">이것은 %1$s 의 테마입니다.이 테마를 잠금 화면으로 사용하려면 %2$s 을 (를) 설치 한 다음이 테마를 적용하십시오.</string>
+</resources>
