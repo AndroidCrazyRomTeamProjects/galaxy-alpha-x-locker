@@ -62,7 +62,7 @@ public class ThemeMainActivity extends Activity implements DialogInterface.OnCan
         public void onClick(View view) {
             if (view.getId() == com.xlocker.support.R.id.ok) {
                 Intent intent = new Intent("android.intent.action.VIEW", Uri.parse("market://details?id=" + ThemeMainActivity.this.getString(com.xlocker.support.R.string.locker_app_package) + "&referrer=utm_source%3Dtheme%26utm_medium%3Dbangding%26utm_content%3D" + ThemeMainActivity.this.getPackageName()));
-                intent.addFlags(268435456);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 ThemeMainActivity.this.startActivity(Intent.createChooser(intent, ThemeMainActivity.this.getResources().getString(com.xlocker.support.R.string.locker_app_name)));
                 ThemeMainActivity.this.finish();
             }
@@ -82,7 +82,7 @@ public class ThemeMainActivity extends Activity implements DialogInterface.OnCan
     /* renamed from: a */
     private String m28a() {
         try {
-            PackageInfo packageInfo = getPackageManager().getPackageInfo(getPackageName(), 128);
+            PackageInfo packageInfo = getPackageManager().getPackageInfo(getPackageName(), PackageManager.GET_META_DATA);
             if (!(packageInfo == null || packageInfo.applicationInfo == null)) {
                 XmlResourceParser loadXmlMetaData = packageInfo.applicationInfo.loadXmlMetaData(getPackageManager(), "com.xlocker.theme.lockscreen");
                 if (loadXmlMetaData == null) {
@@ -141,7 +141,7 @@ public class ThemeMainActivity extends Activity implements DialogInterface.OnCan
             return false;
         }
         try {
-            context.getPackageManager().getApplicationInfo(str, 8192);
+            context.getPackageManager().getApplicationInfo(str, PackageManager.MATCH_UNINSTALLED_PACKAGES);
             return true;
         } catch (PackageManager.NameNotFoundException e) {
             return false;
@@ -188,8 +188,8 @@ public class ThemeMainActivity extends Activity implements DialogInterface.OnCan
         }
         Intent intent = new Intent("com.xlocker.intent.action.THEME_DETAIL");
         intent.putExtra("com.xlocker.intent.extra.THEME_PACKAGE", getPackageName());
-        intent.addFlags(268435456);
-        intent.addFlags(67108864);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
         finish();
     }

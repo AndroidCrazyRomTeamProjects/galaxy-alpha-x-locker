@@ -168,7 +168,7 @@ public class GLTextureViewRenderer implements GLTextureView.Renderer {
     public void onSurfaceCreated(GL10 gl10, EGLConfig eGLConfig) {
         LogUtil.i(this.TAG, "onSurfaceCreated");
         DisplayMetrics displayMetrics = new DisplayMetrics();
-        ((WindowManager) this.mContext.getSystemService("window")).getDefaultDisplay().getRealMetrics(displayMetrics);
+        ((WindowManager) this.mContext.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay().getRealMetrics(displayMetrics);
         this.mWidth = displayMetrics.widthPixels;
         this.mHeight = displayMetrics.heightPixels;
         this.mIsNeedToReinit = true;

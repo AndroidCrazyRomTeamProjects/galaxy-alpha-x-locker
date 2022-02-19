@@ -2,6 +2,7 @@ package com.galaxytheme.effect;
 
 import android.animation.Animator;
 import android.animation.ValueAnimator;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Point;
@@ -34,9 +35,7 @@ public class C0004b extends FrameLayout {
 
     /* renamed from: J */
     private int f24J;
-
-    /* renamed from: K */
-    private Context f25K;
+    private Context mContext;
 
     /* renamed from: L */
     private int f26L;
@@ -46,18 +45,14 @@ public class C0004b extends FrameLayout {
 
     /* renamed from: N */
     private float f28N;
-
-    /* renamed from: P */
-    private GalaxyLockscreen f30P;
+    private GalaxyLockscreen mGalaxyLockscreen;
 
     /* renamed from: a */
     float f31a;
 
     /* renamed from: b */
     float f32b;
-
-    /* renamed from: k */
-    private ImageView f41k;
+    private ImageView mImageView;
 
     /* renamed from: l */
     private float f42l;
@@ -118,9 +113,7 @@ public class C0004b extends FrameLayout {
 
     /* renamed from: i */
     private final int f39i = -200;
-
-    /* renamed from: j */
-    private final String f40j = "VisualEffectCircleUnlockEffect";
+    private final String TAG = "VisualEffectCircleUnlockEffect";
 
     /* renamed from: m */
     private boolean f43m = false;
@@ -146,10 +139,11 @@ public class C0004b extends FrameLayout {
     /* renamed from: O */
     private float f29O = 0.0f;
 
+    @SuppressLint("LongLogTag")
     public C0004b(Context context, int i, int i2, int i3, int[] iArr, int i4) {
         super(context);
         Log.d("VisualEffectCircleUnlockEffect", "Constructor");
-        this.f25K = context;
+        this.mContext = context;
         this.f45o = i4;
         this.f54x = i;
         this.f56z = (m186a(i4, true) - i3) - 4;
@@ -195,15 +189,15 @@ public class C0004b extends FrameLayout {
             this.f42l = 1.0f;
             this.f46p.m191a(this.f16B);
             setImageInLockImageView(this.f16B);
-            this.f41k.setAlpha(1.0f);
+            this.mImageView.setAlpha(1.0f);
             m188a(f, f2);
             this.f50t.setStartDelay(j);
             this.f50t.setDuration(666L);
-            this.f50t.setInterpolator(new animationInterpolatorC0011d());
+            this.f50t.setInterpolator(new QuintEaseIn());
             this.f50t.start();
             this.f51u.setStartDelay((-200) + j + 666);
             this.f51u.setDuration(700L);
-            this.f51u.setInterpolator(new animationInterpolatorC0011d());
+            this.f51u.setInterpolator(new QuintEaseIn());
             this.f51u.start();
         }
     }
@@ -219,13 +213,13 @@ public class C0004b extends FrameLayout {
     public void m182a(View view, float f) {
         int i = 8;
         if (f != 0.0f) {
-            if (view.getVisibility() != 0) {
-                view.setVisibility(0);
+            if (view.getVisibility() != View.VISIBLE) {
+                view.setVisibility(View.VISIBLE);
             }
             view.setAlpha(f);
-        } else if (view.getVisibility() != 8) {
+        } else if (view.getVisibility() != View.GONE) {
             if (view.getWidth() == 0) {
-                i = 4;
+                i = View.INVISIBLE;
             }
             view.setVisibility(i);
         }
@@ -245,7 +239,7 @@ public class C0004b extends FrameLayout {
         int scrollY = top - view2.getScrollY();
         View view3 = view2;
         while (true) {
-            if (view3 != null && view3.getId() == this.f30P.getHostView().getId()) {
+            if (view3 != null && view3.getId() == this.mGalaxyLockscreen.getHostView().getId()) {
                 break;
             }
             int left2 = view3.getLeft() + scrollX;
@@ -285,11 +279,11 @@ public class C0004b extends FrameLayout {
             this.f50t.end();
             this.f50t.setStartDelay(0L);
             this.f50t.setDuration(666L);
-            this.f50t.setInterpolator(new animationInterpolatorC0011d());
+            this.f50t.setInterpolator(new QuintEaseIn());
             this.f51u.end();
             this.f51u.setStartDelay(0L);
             this.f51u.setDuration(333L);
-            this.f51u.setInterpolator(new animationInterpolatorC0011d());
+            this.f51u.setInterpolator(new QuintEaseIn());
         }
     }
 
@@ -321,7 +315,7 @@ public class C0004b extends FrameLayout {
                 } else {
                     f = 0.0f;
                 }
-                C0004b.this.f41k.setAlpha(f);
+                C0004b.this.mImageView.setAlpha(f);
             }
         });
         this.f51u.addListener(new Animator.AnimatorListener() { // from class: com.galaxytheme.a.b.3
@@ -329,6 +323,7 @@ public class C0004b extends FrameLayout {
             public void onAnimationCancel(Animator animator) {
             }
 
+            @SuppressLint("LongLogTag")
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 Log.d("VisualEffectCircleUnlockEffect", "circleOutAnimator : onAnimationEnd");
@@ -354,7 +349,7 @@ public class C0004b extends FrameLayout {
                 if (C0004b.this.f43m) {
                     floatValue = 1.0f - floatValue;
                 }
-                C0004b.this.f41k.setAlpha(C0004b.this.f16B > 0.4f ? 0.0f : (floatValue * (0.4f - C0004b.this.f16B)) / 0.4f);
+                C0004b.this.mImageView.setAlpha(C0004b.this.f16B > 0.4f ? 0.0f : (floatValue * (0.4f - C0004b.this.f16B)) / 0.4f);
             }
         });
         this.f44n.addListener(new Animator.AnimatorListener() { // from class: com.galaxytheme.a.b.5
@@ -379,18 +374,18 @@ public class C0004b extends FrameLayout {
 
     /* renamed from: g */
     private void m163g() {
-        this.f49s = new FrameLayout(this.f25K);
-        this.f49s.setLayoutDirection(0);
+        this.f49s = new FrameLayout(this.mContext);
+        this.f49s.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
         addView(this.f49s, this.f54x, this.f52v);
         m182a(this.f49s, 0.0f);
-        this.f46p = new C0003a(this.f25K, this.f54x, this.f56z, this.f26L, this.f18D);
+        this.f46p = new C0003a(this.mContext, this.f54x, this.f56z, this.f26L, this.f18D);
         this.f49s.addView(this.f46p);
-        this.f41k = new ImageView(this.f25K);
-        this.f41k.setImageResource(this.f45o);
-        this.f49s.addView(this.f41k, -2, -2);
-        this.f41k.setX((this.f54x - m186a(this.f45o, true)) / 2);
-        this.f41k.setY((this.f52v - m186a(this.f45o, false)) / 2);
-        this.f22H = new ImageView(this.f25K);
+        this.mImageView = new ImageView(this.mContext);
+        this.mImageView.setImageResource(this.f45o);
+        this.f49s.addView(this.mImageView, -2, -2);
+        this.mImageView.setX((this.f54x - m186a(this.f45o, true)) / 2);
+        this.mImageView.setY((this.f52v - m186a(this.f45o, false)) / 2);
+        this.f22H = new ImageView(this.mContext);
         this.f22H.setImageResource(this.f23I[0]);
         this.f49s.addView(this.f22H, -2, -2);
         this.f22H.setX((this.f54x - m186a(this.f23I[0], true)) / 2);
@@ -426,6 +421,7 @@ public class C0004b extends FrameLayout {
     }
 
     /* renamed from: a */
+    @SuppressLint("LongLogTag")
     public void m184a(long j, Rect rect) {
         Log.d("VisualEffectCircleUnlockEffect", "showUnlockAffordance : " + rect.left + ", " + rect.right + ", " + rect.top + ", " + rect.bottom + ", startDelay : " + j);
         this.f31a = rect.left + ((rect.right - rect.left) / 2.0f);
@@ -434,6 +430,7 @@ public class C0004b extends FrameLayout {
     }
 
     /* renamed from: a */
+    @SuppressLint("LongLogTag")
     public boolean m180a(View view, MotionEvent motionEvent) {
         float x = motionEvent.getX();
         float y = motionEvent.getY();
@@ -474,7 +471,7 @@ public class C0004b extends FrameLayout {
             m169d();
             this.f47q = this.f29O;
             this.f17C = this.f16B;
-            this.f42l = this.f41k.getAlpha();
+            this.f42l = this.mImageView.getAlpha();
             if (!this.f21G) {
                 this.f51u.start();
             }
@@ -501,6 +498,6 @@ public class C0004b extends FrameLayout {
     }
 
     public void setLockscreen(GalaxyLockscreen aVar) {
-        this.f30P = aVar;
+        this.mGalaxyLockscreen = aVar;
     }
 }

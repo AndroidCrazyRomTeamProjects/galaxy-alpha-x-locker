@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 
 /* loaded from: classes.dex */
@@ -12,11 +13,11 @@ public class ThemeSettingsActivity extends Activity {
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         try {
-            ApplicationInfo applicationInfo = getPackageManager().getApplicationInfo(getPackageName(), 128);
+            ApplicationInfo applicationInfo = getPackageManager().getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
             if (applicationInfo != null && applicationInfo.metaData != null && applicationInfo.metaData.containsKey("com.xlocker.theme.settings")) {
                 Fragment instantiate = Fragment.instantiate(this, applicationInfo.metaData.getString("com.xlocker.theme.settings"), bundle);
                 FragmentTransaction beginTransaction = getFragmentManager().beginTransaction();
-                beginTransaction.setTransition(4099);
+                beginTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
                 beginTransaction.replace(16908290, instantiate);
                 beginTransaction.commitAllowingStateLoss();
             }

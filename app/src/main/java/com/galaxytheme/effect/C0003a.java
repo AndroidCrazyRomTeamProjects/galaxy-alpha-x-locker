@@ -41,9 +41,7 @@ public class C0003a extends View {
 
     /* renamed from: a */
     private final boolean f0a = true;
-
-    /* renamed from: b */
-    private final String f1b = "VisualEffectCircleUnlockEffect";
+    private final String TAG = "VisualEffectCircleUnlockEffect";
 
     /* renamed from: f */
     private float f5f = 0.0f;

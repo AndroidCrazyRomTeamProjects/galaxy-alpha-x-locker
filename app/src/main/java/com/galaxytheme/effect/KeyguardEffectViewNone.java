@@ -1,5 +1,6 @@
 package com.galaxytheme.effect;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Rect;
@@ -16,14 +17,10 @@ public class KeyguardEffectViewNone extends FrameLayout implements KeyguardEffec
 
     /* renamed from: a */
     private final boolean f62a = true;
-
-    /* renamed from: b */
-    private final String f63b = "VisualEffectCircleUnlockEffect";
+    private final String TAG = "VisualEffectCircleUnlockEffect";
 
     /* renamed from: c */
     private C0004b f64c;
-
-    /* renamed from: d */
     private Context mContext;
 
     /* renamed from: e */
@@ -32,6 +29,7 @@ public class KeyguardEffectViewNone extends FrameLayout implements KeyguardEffec
     /* renamed from: f */
     private int f67f;
 
+    @SuppressLint("LongLogTag")
     public KeyguardEffectViewNone(Context context, GalaxyLockscreen aVar) {
         super(context);
         Log.d("VisualEffectCircleUnlockEffect", "KeyguardEffectViewNone : Constructor");
@@ -47,7 +45,39 @@ public class KeyguardEffectViewNone extends FrameLayout implements KeyguardEffec
         Log.d("VisualEffectCircleUnlockEffect", "screenWidth : " + i);
         Log.d("VisualEffectCircleUnlockEffect", "screenHeight : " + i2);
         Log.d("VisualEffectCircleUnlockEffect", "ratio : " + f);
-        this.f64c = new C0004b(this.mContext, ((int) this.mContext.getResources().getDimension(com.galaxytheme.common.R.dimen.keyguard_lockscreen_camera_shortcut_circle_max_radius)) * 2, (int) (4.0f * f), (int) (6.0f * f), new int[]{com.galaxytheme.common.R.drawable.keyguard_none_lock_01, com.galaxytheme.common.R.drawable.keyguard_none_lock_02, com.galaxytheme.common.R.drawable.keyguard_none_lock_03, com.galaxytheme.common.R.drawable.keyguard_none_lock_04, com.galaxytheme.common.R.drawable.keyguard_none_lock_05, com.galaxytheme.common.R.drawable.keyguard_none_lock_06, com.galaxytheme.common.R.drawable.keyguard_none_lock_07, com.galaxytheme.common.R.drawable.keyguard_none_lock_08, com.galaxytheme.common.R.drawable.keyguard_none_lock_09, com.galaxytheme.common.R.drawable.keyguard_none_lock_10, com.galaxytheme.common.R.drawable.keyguard_none_lock_11, com.galaxytheme.common.R.drawable.keyguard_none_lock_12, com.galaxytheme.common.R.drawable.keyguard_none_lock_13, com.galaxytheme.common.R.drawable.keyguard_none_lock_14, com.galaxytheme.common.R.drawable.keyguard_none_lock_15, com.galaxytheme.common.R.drawable.keyguard_none_lock_16, com.galaxytheme.common.R.drawable.keyguard_none_lock_17, com.galaxytheme.common.R.drawable.keyguard_none_lock_18, com.galaxytheme.common.R.drawable.keyguard_none_lock_19, com.galaxytheme.common.R.drawable.keyguard_none_lock_20, com.galaxytheme.common.R.drawable.keyguard_none_lock_21, com.galaxytheme.common.R.drawable.keyguard_none_lock_22, com.galaxytheme.common.R.drawable.keyguard_none_lock_23, com.galaxytheme.common.R.drawable.keyguard_none_lock_24, com.galaxytheme.common.R.drawable.keyguard_none_lock_25, com.galaxytheme.common.R.drawable.keyguard_none_lock_26, com.galaxytheme.common.R.drawable.keyguard_none_lock_27, com.galaxytheme.common.R.drawable.keyguard_none_lock_28, com.galaxytheme.common.R.drawable.keyguard_none_lock_29, com.galaxytheme.common.R.drawable.keyguard_none_lock_30}, com.galaxytheme.common.R.drawable.keyguard_none_arrow);
+        this.f64c = new C0004b(this.mContext, ((int) this.mContext.getResources().getDimension(com.galaxytheme.common.R.dimen.keyguard_lockscreen_camera_shortcut_circle_max_radius)) * 2, (int) (4.0f * f), (int) (6.0f * f), new int[] {
+                com.galaxytheme.common.R.drawable.keyguard_none_lock_01,
+                com.galaxytheme.common.R.drawable.keyguard_none_lock_02,
+                com.galaxytheme.common.R.drawable.keyguard_none_lock_03,
+                com.galaxytheme.common.R.drawable.keyguard_none_lock_04,
+                com.galaxytheme.common.R.drawable.keyguard_none_lock_05,
+                com.galaxytheme.common.R.drawable.keyguard_none_lock_06,
+                com.galaxytheme.common.R.drawable.keyguard_none_lock_07,
+                com.galaxytheme.common.R.drawable.keyguard_none_lock_08,
+                com.galaxytheme.common.R.drawable.keyguard_none_lock_09,
+                com.galaxytheme.common.R.drawable.keyguard_none_lock_10,
+                com.galaxytheme.common.R.drawable.keyguard_none_lock_11,
+                com.galaxytheme.common.R.drawable.keyguard_none_lock_12,
+                com.galaxytheme.common.R.drawable.keyguard_none_lock_13,
+                com.galaxytheme.common.R.drawable.keyguard_none_lock_14,
+                com.galaxytheme.common.R.drawable.keyguard_none_lock_15,
+                com.galaxytheme.common.R.drawable.keyguard_none_lock_16,
+                com.galaxytheme.common.R.drawable.keyguard_none_lock_17,
+                com.galaxytheme.common.R.drawable.keyguard_none_lock_18,
+                com.galaxytheme.common.R.drawable.keyguard_none_lock_19,
+                com.galaxytheme.common.R.drawable.keyguard_none_lock_20,
+                com.galaxytheme.common.R.drawable.keyguard_none_lock_21,
+                com.galaxytheme.common.R.drawable.keyguard_none_lock_22,
+                com.galaxytheme.common.R.drawable.keyguard_none_lock_23,
+                com.galaxytheme.common.R.drawable.keyguard_none_lock_24,
+                com.galaxytheme.common.R.drawable.keyguard_none_lock_25,
+                com.galaxytheme.common.R.drawable.keyguard_none_lock_26,
+                com.galaxytheme.common.R.drawable.keyguard_none_lock_27,
+                com.galaxytheme.common.R.drawable.keyguard_none_lock_28,
+                com.galaxytheme.common.R.drawable.keyguard_none_lock_29,
+                com.galaxytheme.common.R.drawable.keyguard_none_lock_30
+        }
+        , com.galaxytheme.common.R.drawable.keyguard_none_arrow);
         this.f64c.setLockscreen(aVar);
         addView(this.f64c);
     }
@@ -59,6 +89,7 @@ public class KeyguardEffectViewNone extends FrameLayout implements KeyguardEffec
         }
     }
 
+    @SuppressLint("LongLogTag")
     @Override // com.galaxytheme.p000a.AbstractC0012e
     /* renamed from: a */
     public void reset() {
@@ -68,6 +99,7 @@ public class KeyguardEffectViewNone extends FrameLayout implements KeyguardEffec
         }
     }
 
+    @SuppressLint("LongLogTag")
     @Override // com.galaxytheme.p000a.AbstractC0012e
     /* renamed from: a */
     public void showUnlockAffordance(long j, Rect rect) {
@@ -99,11 +131,13 @@ public class KeyguardEffectViewNone extends FrameLayout implements KeyguardEffec
         return true;
     }
 
+    @SuppressLint("LongLogTag")
     @Override // com.galaxytheme.p000a.AbstractC0012e
     public void screenTurnedOn() {
         Log.d("VisualEffectCircleUnlockEffect", "KeyguardEffectViewNone : screenTurnedOn");
     }
 
+    @SuppressLint("LongLogTag")
     @Override // com.galaxytheme.p000a.AbstractC0012e
     /* renamed from: b */
     public void handleUnlock(View view, MotionEvent motionEvent) {
@@ -114,6 +148,7 @@ public class KeyguardEffectViewNone extends FrameLayout implements KeyguardEffec
         m158e();
     }
 
+    @SuppressLint("LongLogTag")
     @Override // com.galaxytheme.p000a.AbstractC0012e
     /* renamed from: c */
     public void show() {

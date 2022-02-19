@@ -51,7 +51,7 @@ public class KeyguardEffectViewBrilliantRing extends EffectView implements Keygu
         this.sounds = new int[3];
     }
 
-    private void playSound(int soundId) {
+    private void playSound(int soundId) throws Settings.SettingNotFoundException {
         m142f();
         LogUtil.d(TAG, "SOUND PLAY mSoundPool = " + this.mSoundPool + ", isSystemSoundChecked = " + this.f78k);
         if (this.f78k && this.mSoundPool != null) {
@@ -65,7 +65,7 @@ public class KeyguardEffectViewBrilliantRing extends EffectView implements Keygu
     }
 
     /* renamed from: f */
-    private void m142f() {
+    private void m142f() throws Settings.SettingNotFoundException {
         ContentResolver contentResolver = this.mContext.getContentResolver();
         while (Settings.System.getInt(contentResolver, "lockscreen_sounds_enabled") == 1) {
             try {
@@ -179,7 +179,7 @@ public class KeyguardEffectViewBrilliantRing extends EffectView implements Keygu
     }
 
     @Override // com.galaxytheme.effect.KeyguardEffectViewBase
-    public boolean handleTouchEvent(View view, MotionEvent motionEvent) {
+    public boolean handleTouchEvent(View view, MotionEvent motionEvent) throws Settings.SettingNotFoundException {
         if (this.isUnlocked) {
             LogUtil.i(TAG, "handleTouchEvent isUnlocked : " + this.isUnlocked);
         } else {
@@ -235,7 +235,7 @@ public class KeyguardEffectViewBrilliantRing extends EffectView implements Keygu
     }
 
     @Override // com.galaxytheme.effect.KeyguardEffectViewBase
-    public void handleUnlock(View view, MotionEvent motionEvent) {
+    public void handleUnlock(View view, MotionEvent motionEvent) throws Settings.SettingNotFoundException {
         LogUtil.i(TAG, "handleUnlock");
         handleCustomEvent(2, (HashMap<?, ?>) null);
         this.isUnlocked = true;

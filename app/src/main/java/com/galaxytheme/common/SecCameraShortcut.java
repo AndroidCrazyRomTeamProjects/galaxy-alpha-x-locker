@@ -98,12 +98,12 @@ public class SecCameraShortcut extends FrameLayout implements KeyguardSecurityCa
         if (this.f168r.isSecure()) {
             try {
                 Intent intent = new Intent("android.media.action.STILL_IMAGE_CAMERA_SECURE");
-                intent.addFlags(8388608);
-                intent.addFlags(268435456);
-                intent.addFlags(262144);
+                intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_USER_ACTION);
                 getContext().startActivity(intent);
             } catch (Exception e) {
-                Toast.makeText(getContext(), "No camera found on your phone.", 2000);
+                Toast.makeText(getContext(), "No camera found on your phone.", Toast.LENGTH_SHORT);
             }
             this.f157g = true;
             return;
@@ -199,8 +199,8 @@ public class SecCameraShortcut extends FrameLayout implements KeyguardSecurityCa
     @Override // android.view.View
     protected void onFinishInflate() {
         super.onFinishInflate();
-        this.f159i = (PowerManager) this.f166p.getSystemService("power");
-        this.f151a = (InputMethodManager) getContext().getSystemService("input_method");
+        this.f159i = (PowerManager) this.f166p.getSystemService(Context.POWER_SERVICE);
+        this.f151a = (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
         this.f153c = (ImageView) findViewById(com.galaxytheme.common.R.id.camera_button);
         this.f156f = (int) getContext().getResources().getDimension(com.galaxytheme.common.R.dimen.keyguard_lockscreen_first_border);
         this.f161k = (int) getContext().getResources().getDimension(com.galaxytheme.common.R.dimen.keyguard_lockscreen_second_border);
@@ -209,11 +209,11 @@ public class SecCameraShortcut extends FrameLayout implements KeyguardSecurityCa
     public void onSuccess() {
         try {
             Intent intent = new Intent("android.media.action.STILL_IMAGE_CAMERA");
-            intent.addFlags(8388608);
-            intent.addFlags(268435456);
+            intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+            intent.addFlags(Intent.FLAG_RECEIVER_FOREGROUND);
             getContext().startActivity(intent);
         } catch (Exception e) {
-            Toast.makeText(getContext(), "No camera found on your phone.", 2000);
+            Toast.makeText(getContext(), "No camera found on your phone.", Toast.LENGTH_SHORT);
         }
     }
 

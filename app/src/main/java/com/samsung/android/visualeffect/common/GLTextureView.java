@@ -328,12 +328,12 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         }
 
         /* renamed from: h */
-        private void guardedRun() {
-            boolean z;
+        private void guardedRun() throws InterruptedException {
+            boolean z = false;
             //int w;
             //boolean createEglSurface;
             //boolean wantRenderNotification;
-            boolean z4;
+            boolean z4 = false;
             //int h;
             boolean z5;
             boolean z6;
@@ -479,7 +479,6 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
                                 throw th;
                             }
                         }
-                        return;
                     }
                     if (runnable != null) {
                         runnable.run();
@@ -865,7 +864,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         this.mGLThread.surfaceDestroyed();
     }
 
-    protected void finalize() {
+    protected void finalize() throws Throwable {
         try {
             if (this.mGLThread != null) {
                 this.mGLThread.requestExitAndWait();

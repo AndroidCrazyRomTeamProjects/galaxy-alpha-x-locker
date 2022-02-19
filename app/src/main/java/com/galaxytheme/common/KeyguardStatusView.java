@@ -32,8 +32,7 @@ import java.util.Date;
 /* loaded from: classes.dex */
 public class KeyguardStatusView extends GridLayout implements AdapterView.OnItemSelectedListener {
 
-    /* renamed from: a */
-    public static final int f115a = com.galaxytheme.common.R.drawable.ic_lock_idle_alarm;
+    public static final int IdleAlarm = com.galaxytheme.common.R.drawable.ic_lock_idle_alarm;
 
     /* renamed from: h */
     private static Typeface f116h;
@@ -58,8 +57,6 @@ public class KeyguardStatusView extends GridLayout implements AdapterView.OnItem
 
     /* renamed from: g */
     private AutoResizeEditText f123g;
-
-    /* renamed from: j */
     private LockPatternUtils mLockPatternUtils;
 
     /* renamed from: k */
@@ -247,12 +244,12 @@ public class KeyguardStatusView extends GridLayout implements AdapterView.OnItem
         String nextAlarm = getNextAlarm();
         LogUtil.i("KeyguardStatusView", "nextAlarm: " + nextAlarm);
         if (!GlobalSettings.isAlarmEnable(getContext().getApplicationContext()) || TextUtils.isEmpty(nextAlarm)) {
-            this.f120d.setVisibility(8);
+            this.f120d.setVisibility(GONE);
             return;
         }
         m132a(this.f120d, nextAlarm);
-        this.f120d.setCompoundDrawablesWithIntrinsicBounds(f115a, 0, 0, 0);
-        this.f120d.setVisibility(0);
+        this.f120d.setCompoundDrawablesWithIntrinsicBounds(IdleAlarm, 0, 0, 0);
+        this.f120d.setVisibility(VISIBLE);
     }
 
     /* renamed from: c */
@@ -294,14 +291,14 @@ public class KeyguardStatusView extends GridLayout implements AdapterView.OnItem
         }
         this.f123g.setLayoutParams(layoutParams);
         if (GalaxySettings.isEnableProfile(getContext())) {
-            this.f123g.setVisibility(0);
+            this.f123g.setVisibility(VISIBLE);
             m126d();
             String profile = GalaxySettings.getProfile(getContext());
             if (profile != null) {
                 this.f123g.setText(profile);
             }
         } else {
-            this.f123g.setVisibility(8);
+            this.f123g.setVisibility(GONE);
         }
         m125e();
         this.f121e.setTextSize(0, (GalaxySettings.isEnableProfile(getContext()) ? 1.0f : 1.25f) * GalaxySettings.getClockSize(getContext()) * getContext().getResources().getDimensionPixelSize(com.galaxytheme.common.R.dimen.kg_status_clock_font_size));

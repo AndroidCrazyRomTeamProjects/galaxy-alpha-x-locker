@@ -2,9 +2,7 @@ package com.galaxytheme.effect;
 
 import android.view.animation.Interpolator;
 
-/* renamed from: com.galaxytheme.a.d  reason: invalid class name */
-/* loaded from: classes.dex */
-public class animationInterpolatorC0011d implements Interpolator {
+public class QuintEaseIn implements Interpolator {
     /* renamed from: a */
     private float m157a(float f) {
         float f2 = f - 1.0f;

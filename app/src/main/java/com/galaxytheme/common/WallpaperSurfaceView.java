@@ -1,5 +1,6 @@
 package com.galaxytheme.common;
 
+import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.os.Handler;
@@ -29,6 +30,16 @@ public class WallpaperSurfaceView extends SurfaceView implements SurfaceHolder.C
     /* renamed from: g */
     private final Rect f179g;
 
+    public WallpaperSurfaceView(Context context, Handler mHandler, Rect f175c, Rect f176d, Rect f177e, Rect f178f, Rect f179g) {
+        super(context);
+        this.mHandler = mHandler;
+        this.f175c = f175c;
+        this.f176d = f176d;
+        this.f177e = f177e;
+        this.f178f = f178f;
+        this.f179g = f179g;
+    }
+
     /* renamed from: a */
     private void m110a() {
         this.mHandler.removeMessages(1001);
@@ -41,6 +52,7 @@ public class WallpaperSurfaceView extends SurfaceView implements SurfaceHolder.C
 
     @Override // android.view.SurfaceView, android.view.View
     public void draw(Canvas canvas) {
+        super.draw(canvas);
     }
 
     @Override // android.view.View

@@ -67,7 +67,7 @@ public abstract class GalaxyLockscreen extends Lockscreen {
         this.mKeyguardShortcutView = (GalaxyKeyguardShortcutView) inflate.findViewById(com.galaxytheme.common.R.id.keyguard_shortcutview);
         this.mKeyguardShortcutView.setUnlockView(this.mKeyguardUnlockView);
         this.mKeyguardShortcutView.setRootContainer(getHostView());
-        ((TextView) inflate.findViewById(com.galaxytheme.common.R.id.help_text)).setVisibility(GalaxySettings.isShowHelpText(getThemeContext()) ? 0 : 8);
+        ((TextView) inflate.findViewById(com.galaxytheme.common.R.id.help_text)).setVisibility(GalaxySettings.isShowHelpText(getThemeContext()) ? View.VISIBLE : View.GONE);
         this.mUnLockView = createUnlockView();
         if (this.mUnLockView != null) {
             this.mUnLockView.reset();
@@ -87,7 +87,7 @@ public abstract class GalaxyLockscreen extends Lockscreen {
             secCameraShortcut.setLockscreen(this);
             return;
         }
-        findViewById(com.galaxytheme.common.R.id.keyguard_selector_fade_container).setVisibility(8);
+        findViewById(com.galaxytheme.common.R.id.keyguard_selector_fade_container).setVisibility(View.GONE);
     }
 
     public void onActivityDestroyed() {

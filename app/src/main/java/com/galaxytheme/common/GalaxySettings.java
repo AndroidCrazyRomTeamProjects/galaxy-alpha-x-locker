@@ -367,14 +367,14 @@ public class GalaxySettings extends PreferenceFragment implements Preference.OnP
             if (i2 == -1 && intent != null && intent.getData() != null) {
                 String path = intent.getData().getPath();
                 if (path == null || !new File(path).exists() || !path.endsWith(".ttf")) {
-                    Toast.makeText(getActivity(), getText(com.galaxytheme.common.R.string.set_font_failed), 2000).show();
+                    Toast.makeText(getActivity(), getText(com.galaxytheme.common.R.string.set_font_failed), Toast.LENGTH_SHORT).show();
                     return;
                 }
                 setCustomTypeFacePath(path);
                 setLockscreenFontStyleType(3);
                 this.mPreferenceFontStyle.setValue(String.valueOf(3));
                 this.mPreferenceFontStyle.setSummary(this.mPreferenceFontStyle.getEntry());
-                Toast.makeText(getActivity(), getText(com.galaxytheme.common.R.string.set_font_success), 2000).show();
+                Toast.makeText(getActivity(), getText(com.galaxytheme.common.R.string.set_font_success), Toast.LENGTH_SHORT).show();
             }
         } else if (i == REQUEST_CODE_GET_FONT_FILE_CLOCK && i2 == -1 && intent != null && intent.getData() != null) {
             String path2 = intent.getData().getPath();
@@ -385,11 +385,11 @@ public class GalaxySettings extends PreferenceFragment implements Preference.OnP
                     setLockscreenClockFontType(3);
                     this.mPreferenceClockStyle.setValue(String.valueOf(3));
                     this.mPreferenceClockStyle.setSummary(this.mPreferenceClockStyle.getEntry());
-                    Toast.makeText(getActivity(), getText(com.galaxytheme.common.R.string.set_font_success), 2000).show();
+                    Toast.makeText(getActivity(), getText(com.galaxytheme.common.R.string.set_font_success), Toast.LENGTH_SHORT).show();
                     return;
                 }
             }
-            Toast.makeText(getActivity(), getText(com.galaxytheme.common.R.string.set_font_failed), 2000).show();
+            Toast.makeText(getActivity(), getText(com.galaxytheme.common.R.string.set_font_failed), Toast.LENGTH_SHORT).show();
         }
     }
 

@@ -44,7 +44,7 @@ public class ThemeApplication extends Application {
     /* renamed from: a */
     private boolean m33a() {
         boolean z = false;
-        File b = GetPreview();
+        File b = GetPreviewDex();
         if (b.exists()) {
             b.delete();
         }
@@ -70,13 +70,13 @@ public class ThemeApplication extends Application {
     }
 
     /* renamed from: b */
-    private File GetPreview() {
+    private File GetPreviewDex() {
         return new File(getDir("dex", 0), "preview.apk");
     }
 
     /* renamed from: c */
     private String m29c() {
-        return GetPreview().getAbsolutePath();
+        return GetPreviewDex().getAbsolutePath();
     }
 
     @Override // android.app.Application
