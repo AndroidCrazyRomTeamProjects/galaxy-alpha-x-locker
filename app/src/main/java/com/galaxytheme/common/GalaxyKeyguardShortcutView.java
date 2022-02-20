@@ -2,6 +2,7 @@ package com.galaxytheme.common;
 
 import android.content.Context;
 import android.graphics.Point;
+import android.provider.Settings;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -47,7 +48,11 @@ public class GalaxyKeyguardShortcutView extends KeyguardShortcutView {
         float y = motionEvent.getY();
         getPositionInContainer(shortcutItem, this.mTmpPosition);
         motionEvent.setLocation(this.mTmpPosition.x + x, this.mTmpPosition.y + y);
-        this.mUnlockView.m119a((View) shortcutItem, motionEvent);
+        try {
+            this.mUnlockView.m119a((View) shortcutItem, motionEvent);
+        } catch (Settings.SettingNotFoundException e) {
+            e.printStackTrace();
+        }
         motionEvent.setLocation(x, y);
         switch (motionEvent.getAction()) {
             case 1:

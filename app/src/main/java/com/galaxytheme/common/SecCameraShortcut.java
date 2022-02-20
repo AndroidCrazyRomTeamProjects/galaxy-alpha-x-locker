@@ -3,6 +3,7 @@ package com.galaxytheme.common;
 import android.content.Context;
 import android.content.Intent;
 import android.os.PowerManager;
+import android.provider.Settings;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -113,7 +114,7 @@ public class SecCameraShortcut extends FrameLayout implements KeyguardSecurityCa
     }
 
     /* renamed from: a */
-    private void m114a(View view, MotionEvent motionEvent) {
+    private void m114a(View view, MotionEvent motionEvent) throws Settings.SettingNotFoundException {
         if (this.f165o != null) {
             Log.d(this.TAG, "mAdditionalUnlockView != null");
             this.f165o.handleTouchEvent(view, motionEvent);
@@ -124,7 +125,7 @@ public class SecCameraShortcut extends FrameLayout implements KeyguardSecurityCa
     }
 
     /* renamed from: b */
-    private void m112b(View view, MotionEvent motionEvent) {
+    private void m112b(View view, MotionEvent motionEvent) throws Settings.SettingNotFoundException {
         if (this.f165o != null) {
             Log.d(this.TAG, "mAdditionalUnlockView != null");
             this.f165o.handleUnlock(view, motionEvent);
@@ -239,7 +240,11 @@ public class SecCameraShortcut extends FrameLayout implements KeyguardSecurityCa
                 Log.e(this.TAG, "action up/cancel mDistance: " + this.f155e);
                 if ((this.f156f < this.f155e && this.f155e < this.f161k) || this.f155e >= this.f161k) {
                     this.f157g = false;
-                    m112b(null, motionEvent);
+                    try {
+                        m112b(null, motionEvent);
+                    } catch (Settings.SettingNotFoundException e) {
+                        e.printStackTrace();
+                    }
                     postDelayed(new Runnable() { // from class: com.galaxytheme.common.SecCameraShortcut.2
                         @Override // java.lang.Runnable
                         public void run() {
@@ -255,7 +260,11 @@ public class SecCameraShortcut extends FrameLayout implements KeyguardSecurityCa
                 Log.d(this.TAG, "ACTION_MOVE mDistance: " + this.f155e);
                 if (this.f155e >= this.f161k) {
                     this.f157g = false;
-                    m112b(null, motionEvent);
+                    try {
+                        m112b(null, motionEvent);
+                    } catch (Settings.SettingNotFoundException e) {
+                        e.printStackTrace();
+                    }
                     postDelayed(new Runnable() { // from class: com.galaxytheme.common.SecCameraShortcut.3
                         @Override // java.lang.Runnable
                         public void run() {
@@ -273,7 +282,11 @@ public class SecCameraShortcut extends FrameLayout implements KeyguardSecurityCa
                 }
         }
         setTag("ShortcutWidget");
-        m114a(this.f153c, motionEvent);
+        try {
+            m114a(this.f153c, motionEvent);
+        } catch (Settings.SettingNotFoundException e) {
+            e.printStackTrace();
+        }
         return true;
     }
 

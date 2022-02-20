@@ -4,6 +4,7 @@ import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import android.provider.Settings;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -109,7 +110,7 @@ public class KeyguardUnlockView extends FrameLayout implements KeyguardSecurityV
     }
 
     /* renamed from: a */
-    public boolean m119a(View view, MotionEvent motionEvent) {
+    public boolean m119a(View view, MotionEvent motionEvent) throws Settings.SettingNotFoundException {
         if (motionEvent.getAction() == 0) {
             m120a(this.f143f, 0.0f);
             this.f145h = motionEvent.getX();
@@ -185,8 +186,13 @@ public class KeyguardUnlockView extends FrameLayout implements KeyguardSecurityV
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        return m119a((View) this.mUnlockView, motionEvent);
-    }
+        try {
+            return m119a((View) this.mUnlockView, motionEvent);
+        } catch (Settings.SettingNotFoundException e) {
+            e.printStackTrace();
+        }
+        return false;
+        }
 
     public void setFadeView(View view) {
         this.f143f = view;

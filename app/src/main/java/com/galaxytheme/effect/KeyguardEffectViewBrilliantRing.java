@@ -23,11 +23,11 @@ public class KeyguardEffectViewBrilliantRing extends EffectView implements Keygu
     private Handler mHandler = new Handler();
     private SoundPool mSoundPool = null;
     private Runnable releaseSoundRunnable = null;
-    private final long f72e = 2000;
+    private final long UNLOCK_SOUND_PLAY_TIME = 2000;
     private long touchDownTime = 0;
     private long touchMoveDiffTime = 0;
-    final int f69b = 0;
-    final int f68a = 1;
+    final int SOUND_ID_TAB = 0;
+    final int SOUND_ID_DRAG = 1;
     final int f70c = 2;
     private boolean f78k = true;
     private float leftVolumeMax = GlobalSettings.getSoundVolume(getContext().getApplicationContext());
@@ -68,12 +68,12 @@ public class KeyguardEffectViewBrilliantRing extends EffectView implements Keygu
     private void m142f() throws Settings.SettingNotFoundException {
         ContentResolver contentResolver = this.mContext.getContentResolver();
         while (Settings.System.getInt(contentResolver, "lockscreen_sounds_enabled") == 1) {
-            try {
+            //try {
                 this.f78k = true;
                 return;
-            } catch (Settings.SettingNotFoundException e) {
+            /*} catch (Settings.SettingNotFoundException e) {
                 e.printStackTrace();
-            }
+            }*/
         }
         this.f78k = false;
     }
@@ -143,7 +143,7 @@ public class KeyguardEffectViewBrilliantRing extends EffectView implements Keygu
     }
 
     private void setBitmap(Bitmap bitmap) {
-        HashMap<?, ?> hashMap = new HashMap<>();
+        HashMap<String, Bitmap> hashMap = new HashMap<>();
         hashMap.put("Bitmap", bitmap);
         handleCustomEvent(0, hashMap);
     }
@@ -159,21 +159,20 @@ public class KeyguardEffectViewBrilliantRing extends EffectView implements Keygu
     public void showUnlockAffordance(long startDelay, Rect rect) {
         LogUtil.i(TAG, "showUnlockAffordance");
         this.isUnlocked = false;
-        HashMap<?, ?> hashMap = new HashMap<>();
+        HashMap<String, Long> hashMap = new HashMap<>();
         hashMap.put("StartDelay", Long.valueOf(startDelay));
-        hashMap.put("Rect", rect);
+        HashMap<String, Rect> hashMap2 = new HashMap<>();
+        hashMap2.put("Rect", rect);
         handleCustomEvent(1, hashMap);
     }
 
     @Override // com.galaxytheme.effect.KeyguardEffectViewBase
-    /* renamed from: a */
     public void update(Bitmap bitmap) {
         LogUtil.i(TAG, "update");
         setBitmap(bitmap);
     }
 
     @Override // com.galaxytheme.effect.KeyguardEffectViewBase
-    /* renamed from: a */
     public boolean handleTouchEventForPatternLock(MotionEvent motionEvent) {
         return false;
     }
