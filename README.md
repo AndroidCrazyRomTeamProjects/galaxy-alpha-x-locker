@@ -10,8 +10,7 @@ and no google is not a virus!
 
 - The ring dosnt fill all the screen when unlocked
 - The effects plays too fast on some devices
-- Carier Text shows as NO SIM INSERTED on newer android version(X Locker bug)
-- When launching the camera from the lockscreen the camera frezzers on android 12(x locker bug???)
+- Carrier Text shows as NO SIM INSERTED on newer android version(X Locker bug)
  
  # Special thanks
  - X locker team for making this framework possible
