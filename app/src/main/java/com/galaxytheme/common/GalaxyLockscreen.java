@@ -13,6 +13,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.galaxytheme.brilliantring.R;
 import com.galaxytheme.effect.KeyguardEffectViewNone;
 import com.galaxytheme.effect.KeyguardEffectViewBase;
 import com.xlocker.core.sdk.Lockscreen;
@@ -38,7 +39,7 @@ public abstract class GalaxyLockscreen extends Lockscreen {
     }
 
     public Drawable getDefaultWallpaper() {
-        return getThemeContext().getResources().getDrawable(com.galaxytheme.common.R.drawable.default_wallpaper);
+        return getThemeContext().getResources().getDrawable(R.drawable.default_wallpaper);
     }
 
     public FrameLayout getForegroundLayer() {
@@ -55,19 +56,19 @@ public abstract class GalaxyLockscreen extends Lockscreen {
 
     public void onActivityCreated() {
         GalaxyLockscreen.super.onActivityCreated();
-        View inflate = LayoutInflater.from(getThemeContext()).inflate(com.galaxytheme.common.R.layout.galaxy_lockscreen, (ViewGroup) null);
+        View inflate = LayoutInflater.from(getThemeContext()).inflate(R.layout.galaxy_lockscreen, (ViewGroup) null);
         addHomePage(inflate);
         this.mGalaxyView = inflate;
-        setCameraWidget((ImageView) LayoutInflater.from(getThemeContext()).inflate(com.galaxytheme.common.R.layout.galaxy_camera_widget, (ViewGroup) null), 84, 42, 84, 42);
+        setCameraWidget((ImageView) LayoutInflater.from(getThemeContext()).inflate(R.layout.galaxy_camera_widget, (ViewGroup) null), 84, 42, 84, 42);
         this.mKeyguardUnlockView = getKeyguardUnlockView();
         getUnlockLayer().addView(this.mKeyguardUnlockView);
         this.mKeyguardUnlockView.m118a(this, (ImageView) getWallpaperView());
-        this.mKeyguardUnlockView.setFadeView((CarrierText) inflate.findViewById(com.galaxytheme.common.R.id.carrier_text));
-        Log.i("lockscreen", "GalaxyKeyguardShortcutView.classLoader = " + GalaxyKeyguardShortcutView.class.getClassLoader() + "@" + GalaxyKeyguardShortcutView.class.getClassLoader().hashCode() + ", view.classLoader = " + inflate.findViewById(com.galaxytheme.common.R.id.keyguard_shortcutview).getClass().getClassLoader() + "@" + inflate.findViewById(com.galaxytheme.common.R.id.keyguard_shortcutview).getClass().getClassLoader().hashCode());
-        this.mKeyguardShortcutView = (GalaxyKeyguardShortcutView) inflate.findViewById(com.galaxytheme.common.R.id.keyguard_shortcutview);
+        this.mKeyguardUnlockView.setFadeView((CarrierText) inflate.findViewById(R.id.carrier_text));
+        Log.i("lockscreen", "GalaxyKeyguardShortcutView.classLoader = " + GalaxyKeyguardShortcutView.class.getClassLoader() + "@" + GalaxyKeyguardShortcutView.class.getClassLoader().hashCode() + ", view.classLoader = " + inflate.findViewById(R.id.keyguard_shortcutview).getClass().getClassLoader() + "@" + inflate.findViewById(R.id.keyguard_shortcutview).getClass().getClassLoader().hashCode());
+        this.mKeyguardShortcutView = (GalaxyKeyguardShortcutView) inflate.findViewById(R.id.keyguard_shortcutview);
         this.mKeyguardShortcutView.setUnlockView(this.mKeyguardUnlockView);
         this.mKeyguardShortcutView.setRootContainer(getHostView());
-        ((TextView) inflate.findViewById(com.galaxytheme.common.R.id.help_text)).setVisibility(GalaxySettings.isShowHelpText(getThemeContext()) ? View.VISIBLE : View.GONE);
+        ((TextView) inflate.findViewById(R.id.help_text)).setVisibility(GalaxySettings.isShowHelpText(getThemeContext()) ? View.VISIBLE : View.GONE);
         this.mUnLockView = createUnlockView();
         if (this.mUnLockView != null) {
             this.mUnLockView.reset();
@@ -77,8 +78,8 @@ public abstract class GalaxyLockscreen extends Lockscreen {
             }
             updateLockscreenWallpaper();
         }
-        LayoutInflater.from(getThemeContext()).inflate(com.galaxytheme.common.R.layout.keyguard_securityview_overlay_layout, (ViewGroup) findViewById(com.galaxytheme.common.R.id.keyguard_security_container), true);
-        SecCameraShortcut secCameraShortcut = (SecCameraShortcut) findViewById(com.galaxytheme.common.R.id.sec_camera_shortcut);
+        LayoutInflater.from(getThemeContext()).inflate(R.layout.keyguard_securityview_overlay_layout, (ViewGroup) findViewById(R.id.keyguard_security_container), true);
+        SecCameraShortcut secCameraShortcut = (SecCameraShortcut) findViewById(R.id.sec_camera_shortcut);
         if (GalaxySettings.isShowCameraShortcut(getThemeContext())) {
             KeyguardEffectViewNone cVar = new KeyguardEffectViewNone(getThemeContext(), this);
             secCameraShortcut.setAdditionalUnlockView(cVar);
@@ -87,7 +88,7 @@ public abstract class GalaxyLockscreen extends Lockscreen {
             secCameraShortcut.setLockscreen(this);
             return;
         }
-        findViewById(com.galaxytheme.common.R.id.keyguard_selector_fade_container).setVisibility(View.GONE);
+        findViewById(R.id.keyguard_selector_fade_container).setVisibility(View.GONE);
     }
 
     public void onActivityDestroyed() {
@@ -111,7 +112,7 @@ public abstract class GalaxyLockscreen extends Lockscreen {
     public void onScreenTurnedOn() {
         if (this.mUnLockView != null) {
             this.mUnLockView.screenTurnedOn();
-            Display defaultDisplay = ((WindowManager) getThemeContext().getSystemService("window")).getDefaultDisplay();
+            Display defaultDisplay = ((WindowManager) getThemeContext().getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
             int width = defaultDisplay.getWidth();
             int height = defaultDisplay.getHeight();
             Rect rect = new Rect();

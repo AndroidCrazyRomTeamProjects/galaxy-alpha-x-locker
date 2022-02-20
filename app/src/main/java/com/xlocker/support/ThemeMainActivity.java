@@ -21,6 +21,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.galaxytheme.brilliantring.R;
 import com.xlocker.core.sdk.ILockscreenCallback;
 import com.xlocker.core.sdk.KeyguardSecurityCallback;
 import com.xlocker.core.sdk.Lockscreen;
@@ -60,10 +62,10 @@ public class ThemeMainActivity extends Activity implements DialogInterface.OnCan
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view.getId() == com.xlocker.support.R.id.ok) {
-                Intent intent = new Intent("android.intent.action.VIEW", Uri.parse("market://details?id=" + ThemeMainActivity.this.getString(com.xlocker.support.R.string.locker_app_package) + "&referrer=utm_source%3Dtheme%26utm_medium%3Dbangding%26utm_content%3D" + ThemeMainActivity.this.getPackageName()));
+            if (view.getId() == R.id.ok) {
+                Intent intent = new Intent("android.intent.action.VIEW", Uri.parse("market://details?id=" + ThemeMainActivity.this.getString(R.string.locker_app_package) + "&referrer=utm_source%3Dtheme%26utm_medium%3Dbangding%26utm_content%3D" + ThemeMainActivity.this.getPackageName()));
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                ThemeMainActivity.this.startActivity(Intent.createChooser(intent, ThemeMainActivity.this.getResources().getString(com.xlocker.support.R.string.locker_app_name)));
+                ThemeMainActivity.this.startActivity(Intent.createChooser(intent, ThemeMainActivity.this.getResources().getString(R.string.locker_app_name)));
                 ThemeMainActivity.this.finish();
             }
         }
@@ -71,11 +73,11 @@ public class ThemeMainActivity extends Activity implements DialogInterface.OnCan
         @Override // android.app.AlertDialog, android.app.Dialog
         protected void onCreate(Bundle bundle) {
             super.onCreate(bundle);
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.f289b).inflate(com.xlocker.support.R.layout.download_dialog, (ViewGroup) null);
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.f289b).inflate(R.layout.download_dialog, (ViewGroup) null);
             setContentView(linearLayout);
-            String string = ThemeMainActivity.this.getString(com.xlocker.support.R.string.locker_app_name);
-            ((TextView) linearLayout.findViewById(com.xlocker.support.R.id.message)).setText(ThemeMainActivity.this.getString(com.xlocker.support.R.string.need_locker_app, new Object[]{string, string}));
-            ((Button) linearLayout.findViewById(com.xlocker.support.R.id.ok)).setOnClickListener(this);
+            String string = ThemeMainActivity.this.getString(R.string.locker_app_name);
+            ((TextView) linearLayout.findViewById(R.id.message)).setText(ThemeMainActivity.this.getString(R.string.need_locker_app, new Object[]{string, string}));
+            ((Button) linearLayout.findViewById(R.id.ok)).setOnClickListener(this);
         }
     }
 
@@ -122,7 +124,7 @@ public class ThemeMainActivity extends Activity implements DialogInterface.OnCan
     /* renamed from: c */
     private void m25c() {
         if (Build.VERSION.SDK_INT >= 19) {
-            View findViewById = findViewById(com.xlocker.support.R.id.host_view);
+            View findViewById = findViewById(R.id.host_view);
             findViewById.setFitsSystemWindows(true);
             if (Build.VERSION.SDK_INT >= 21) {
                 findViewById.setSystemUiVisibility(1536);
@@ -169,15 +171,15 @@ public class ThemeMainActivity extends Activity implements DialogInterface.OnCan
         super.onCreate(bundle);
         this.f286c = new AlertDialogC0073a(this);
         this.f286c.setOnCancelListener(this);
-        if (!m27a(this, getString(com.xlocker.support.R.string.locker_app_package))) {
+        if (!m27a(this, getString(R.string.locker_app_package))) {
             m26b();
             if (this.f287e != null) {
-                setContentView(com.xlocker.support.R.layout.preview);
-                this.f285b = findViewById(com.xlocker.support.R.id.root_view);
+                setContentView(R.layout.preview);
+                this.f285b = findViewById(R.id.root_view);
                 m25c();
                 ((Lockscreen) this.f287e).setCallback((ILockscreenCallback) m24d());
                 Drawable defaultWallpaper = ((Lockscreen) this.f287e).getDefaultWallpaper();
-                ((ImageView) findViewById(com.xlocker.support.R.id.wallpaper)).setImageDrawable(defaultWallpaper);
+                ((ImageView) findViewById(R.id.wallpaper)).setImageDrawable(defaultWallpaper);
                 ((Lockscreen) this.f287e).onActivityCreated();
                 ((Lockscreen) this.f287e).onWallpaperUpdated(defaultWallpaper, false);
                 return;

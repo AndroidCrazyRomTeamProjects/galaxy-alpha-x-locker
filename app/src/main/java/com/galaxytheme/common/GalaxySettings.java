@@ -15,6 +15,8 @@ import android.preference.SwitchPreference;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.galaxytheme.brilliantring.R;
+
 import java.io.File;
 import java.util.Locale;
 
@@ -173,7 +175,7 @@ public class GalaxySettings extends PreferenceFragment implements Preference.OnP
     }
 
     public static String getProfile(Context context) {
-        return context.getSharedPreferences(SP_NAME, 7).getString("edit_profile", context.getString(com.galaxytheme.common.R.string.keyguard_status_view_myprofile));
+        return context.getSharedPreferences(SP_NAME, 7).getString("edit_profile", context.getString(R.string.keyguard_status_view_myprofile));
     }
 
     public static Typeface getTypeface(Context context) {
@@ -248,15 +250,15 @@ public class GalaxySettings extends PreferenceFragment implements Preference.OnP
     }
 
     public static boolean isEnableProfile(Context context) {
-        return context.getSharedPreferences(SP_NAME, 7).getBoolean("enable_profile", context.getResources().getBoolean(com.galaxytheme.common.R.bool.default_enable_profile));
+        return context.getSharedPreferences(SP_NAME, 7).getBoolean("enable_profile", context.getResources().getBoolean(R.bool.default_enable_profile));
     }
 
     public static boolean isShowCameraShortcut(Context context) {
-        return context.getSharedPreferences(SP_NAME, 7).getBoolean("enable_camera_shortcut", context.getResources().getBoolean(com.galaxytheme.common.R.bool.default_enable_camera));
+        return context.getSharedPreferences(SP_NAME, 7).getBoolean("enable_camera_shortcut", context.getResources().getBoolean(R.bool.default_enable_camera));
     }
 
     public static boolean isShowHelpText(Context context) {
-        return context.getSharedPreferences(SP_NAME, 7).getBoolean("help_text", context.getResources().getBoolean(com.galaxytheme.common.R.bool.default_show_help_text));
+        return context.getSharedPreferences(SP_NAME, 7).getBoolean("help_text", context.getResources().getBoolean(R.bool.default_show_help_text));
     }
 
     private void setClockAlign(int i) {
@@ -367,14 +369,14 @@ public class GalaxySettings extends PreferenceFragment implements Preference.OnP
             if (i2 == -1 && intent != null && intent.getData() != null) {
                 String path = intent.getData().getPath();
                 if (path == null || !new File(path).exists() || !path.endsWith(".ttf")) {
-                    Toast.makeText(getActivity(), getText(com.galaxytheme.common.R.string.set_font_failed), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), getText(R.string.set_font_failed), Toast.LENGTH_SHORT).show();
                     return;
                 }
                 setCustomTypeFacePath(path);
                 setLockscreenFontStyleType(3);
                 this.mPreferenceFontStyle.setValue(String.valueOf(3));
                 this.mPreferenceFontStyle.setSummary(this.mPreferenceFontStyle.getEntry());
-                Toast.makeText(getActivity(), getText(com.galaxytheme.common.R.string.set_font_success), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), getText(R.string.set_font_success), Toast.LENGTH_SHORT).show();
             }
         } else if (i == REQUEST_CODE_GET_FONT_FILE_CLOCK && i2 == -1 && intent != null && intent.getData() != null) {
             String path2 = intent.getData().getPath();
@@ -385,18 +387,18 @@ public class GalaxySettings extends PreferenceFragment implements Preference.OnP
                     setLockscreenClockFontType(3);
                     this.mPreferenceClockStyle.setValue(String.valueOf(3));
                     this.mPreferenceClockStyle.setSummary(this.mPreferenceClockStyle.getEntry());
-                    Toast.makeText(getActivity(), getText(com.galaxytheme.common.R.string.set_font_success), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), getText(R.string.set_font_success), Toast.LENGTH_SHORT).show();
                     return;
                 }
             }
-            Toast.makeText(getActivity(), getText(com.galaxytheme.common.R.string.set_font_failed), Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), getText(R.string.set_font_failed), Toast.LENGTH_SHORT).show();
         }
     }
 
     @Override // android.preference.PreferenceFragment, android.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        addPreferencesFromResource(com.galaxytheme.common.R.xml.galaxy_settings);
+        addPreferencesFromResource(R.xml.galaxy_settings);
         initPreferences();
     }
 
@@ -418,7 +420,7 @@ public class GalaxySettings extends PreferenceFragment implements Preference.OnP
                 intent.setType("*/*");
                 try {
                     startActivityForResult(intent, 3);
-                    Toast.makeText(getActivity(), getText(com.galaxytheme.common.R.string.select_font_file), 2000).show();
+                    Toast.makeText(getActivity(), getText(R.string.select_font_file), Toast.LENGTH_SHORT).show();
                     return false;
                 } catch (Exception e) {
                     return false;
@@ -466,7 +468,7 @@ public class GalaxySettings extends PreferenceFragment implements Preference.OnP
                 intent2.setType("*/*");
                 try {
                     startActivityForResult(intent2, REQUEST_CODE_GET_FONT_FILE_CLOCK);
-                    Toast.makeText(getActivity(), getText(com.galaxytheme.common.R.string.select_font_file), 2000).show();
+                    Toast.makeText(getActivity(), getText(R.string.select_font_file), Toast.LENGTH_SHORT).show();
                     return false;
                 } catch (Exception e2) {
                     return false;

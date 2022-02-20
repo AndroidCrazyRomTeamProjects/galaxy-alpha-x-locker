@@ -14,6 +14,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.galaxytheme.brilliantring.R;
 import com.galaxytheme.effect.KeyguardEffectViewBase;
 import com.galaxytheme.effect.KeyguardEffectViewNone;
 import com.xlocker.core.sdk.KeyguardSecurityCallback;
@@ -201,9 +202,9 @@ public class SecCameraShortcut extends FrameLayout implements KeyguardSecurityCa
         super.onFinishInflate();
         this.f159i = (PowerManager) this.f166p.getSystemService(Context.POWER_SERVICE);
         this.f151a = (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-        this.f153c = (ImageView) findViewById(com.galaxytheme.common.R.id.camera_button);
-        this.f156f = (int) getContext().getResources().getDimension(com.galaxytheme.common.R.dimen.keyguard_lockscreen_first_border);
-        this.f161k = (int) getContext().getResources().getDimension(com.galaxytheme.common.R.dimen.keyguard_lockscreen_second_border);
+        this.f153c = (ImageView) findViewById(R.id.camera_button);
+        this.f156f = (int) getContext().getResources().getDimension(R.dimen.keyguard_lockscreen_first_border);
+        this.f161k = (int) getContext().getResources().getDimension(R.dimen.keyguard_lockscreen_second_border);
     }
 
     public void onSuccess() {
@@ -231,7 +232,7 @@ public class SecCameraShortcut extends FrameLayout implements KeyguardSecurityCa
                 this.f162l = x;
                 this.f163m = y;
                 this.f155e = 0.0d;
-                this.f153c.setImageResource(com.galaxytheme.common.R.drawable.camera_press);
+                this.f153c.setImageResource(R.drawable.camera_press);
                 break;
             case 1:
             case 3:
@@ -243,11 +244,11 @@ public class SecCameraShortcut extends FrameLayout implements KeyguardSecurityCa
                         @Override // java.lang.Runnable
                         public void run() {
                             SecCameraShortcut.this.m116a();
-                            SecCameraShortcut.this.f153c.setImageResource(com.galaxytheme.common.R.drawable.camera_default);
+                            SecCameraShortcut.this.f153c.setImageResource(R.drawable.camera_default);
                         }
                     }, this.f164n.getUnlockDelay());
                 }
-                this.f153c.setImageResource(com.galaxytheme.common.R.drawable.camera_default);
+                this.f153c.setImageResource(R.drawable.camera_default);
                 break;
             case 2:
                 this.f155e = Math.sqrt(Math.pow((int) (y - this.f163m), 2.0d) + Math.pow((int) (x - this.f162l), 2.0d));
@@ -259,15 +260,15 @@ public class SecCameraShortcut extends FrameLayout implements KeyguardSecurityCa
                         @Override // java.lang.Runnable
                         public void run() {
                             SecCameraShortcut.this.m116a();
-                            SecCameraShortcut.this.f153c.setImageResource(com.galaxytheme.common.R.drawable.camera_default);
+                            SecCameraShortcut.this.f153c.setImageResource(R.drawable.camera_default);
                         }
                     }, this.f164n.getUnlockDelay());
                 }
                 if (getHeight() / 2 >= this.f155e) {
-                    this.f153c.setImageResource(com.galaxytheme.common.R.drawable.camera_press);
+                    this.f153c.setImageResource(R.drawable.camera_press);
                     break;
                 } else {
-                    this.f153c.setImageResource(com.galaxytheme.common.R.drawable.camera_swipe);
+                    this.f153c.setImageResource(R.drawable.camera_swipe);
                     break;
                 }
         }

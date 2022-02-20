@@ -7,6 +7,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
 
+import com.galaxytheme.brilliantring.R;
 import com.xlocker.core.sdk.LogUtil;
 
 /* loaded from: classes.dex */
@@ -64,10 +65,10 @@ public class AutoResizeEditText extends TextView {
 
     /* renamed from: a */
     private void m137a() {
-        this.f94a = (int) (getResources().getDimensionPixelSize(com.galaxytheme.common.R.dimen.kg_status_myprofile_font_max_size) * GalaxySettings.getFontSize(getContext()));
-        this.f95b = (int) (getResources().getDimensionPixelSize(com.galaxytheme.common.R.dimen.kg_status_myprofile_font_min_size) * GalaxySettings.getFontSize(getContext()));
-        this.f96c = (int) (getResources().getDimensionPixelSize(com.galaxytheme.common.R.dimen.kg_status_myprofile_font_default_size) * GalaxySettings.getFontSize(getContext()));
-        this.f97d = getResources().getDimensionPixelSize(com.galaxytheme.common.R.dimen.kg_status_myprofile_font_size_slot);
+        this.f94a = (int) (getResources().getDimensionPixelSize(R.dimen.kg_status_myprofile_font_max_size) * GalaxySettings.getFontSize(getContext()));
+        this.f95b = (int) (getResources().getDimensionPixelSize(R.dimen.kg_status_myprofile_font_min_size) * GalaxySettings.getFontSize(getContext()));
+        this.f96c = (int) (getResources().getDimensionPixelSize(R.dimen.kg_status_myprofile_font_default_size) * GalaxySettings.getFontSize(getContext()));
+        this.f97d = getResources().getDimensionPixelSize(R.dimen.kg_status_myprofile_font_size_slot);
         setTextSize(0, this.f96c);
         addTextChangedListener(this.f100g);
     }

@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
+import com.galaxytheme.brilliantring.R;
 import com.galaxytheme.effect.KeyguardEffectViewBase;
 import com.xlocker.core.sdk.KeyguardSecurityCallback;
 import com.xlocker.core.sdk.LogUtil;
@@ -65,8 +66,8 @@ public class KeyguardUnlockView extends FrameLayout implements KeyguardSecurityV
     public KeyguardUnlockView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.f142e = context;
-        this.f148k = (int) context.getResources().getDimension(com.galaxytheme.common.R.dimen.keyguard_lockscreen_first_border);
-        this.f149l = (int) context.getResources().getDimension(com.galaxytheme.common.R.dimen.keyguard_lockscreen_second_border);
+        this.f148k = (int) context.getResources().getDimension(R.dimen.keyguard_lockscreen_first_border);
+        this.f149l = (int) context.getResources().getDimension(R.dimen.keyguard_lockscreen_second_border);
     }
 
     /* renamed from: a */

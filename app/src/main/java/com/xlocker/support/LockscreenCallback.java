@@ -4,6 +4,8 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+
+import com.galaxytheme.brilliantring.R;
 import com.xlocker.core.sdk.KeyguardSecurityCallback;
 import com.xlocker.core.sdk.OnPageMoveListener;
 
@@ -32,15 +34,15 @@ public class LockscreenCallback extends com.xlocker.core.sdk.LockscreenCallback 
     }
 
     public View getContentView() {
-        return this.mActivity.findViewById(com.xlocker.support.R.id.content_view);
+        return this.mActivity.findViewById(R.id.content_view);
     }
 
     public FrameLayout getForegroundLayer() {
-        return (FrameLayout) this.mActivity.findViewById(com.xlocker.support.R.id.foreground_layer);
+        return (FrameLayout) this.mActivity.findViewById(R.id.foreground_layer);
     }
 
     public FrameLayout getHostView() {
-        return (FrameLayout) this.mActivity.findViewById(com.xlocker.support.R.id.host_view);
+        return (FrameLayout) this.mActivity.findViewById(R.id.host_view);
     }
 
     public int getStatusBarHeight(Context context) {
@@ -52,16 +54,16 @@ public class LockscreenCallback extends com.xlocker.core.sdk.LockscreenCallback 
     }
 
     public FrameLayout getUnlockLayer() {
-        return (FrameLayout) this.mActivity.findViewById(com.xlocker.support.R.id.unlock_layer);
+        return (FrameLayout) this.mActivity.findViewById(R.id.unlock_layer);
     }
 
     public View getWallpaperView() {
-        return this.mActivity.findViewById(com.xlocker.support.R.id.wallpaper);
+        return this.mActivity.findViewById(R.id.wallpaper);
     }
 
     public void insertTopLevelView(ViewGroup viewGroup) {
         ViewGroup viewGroup2 = (ViewGroup) this.mActivity.f285b;
-        View findViewById = viewGroup2.findViewById(com.xlocker.support.R.id.content_view);
+        View findViewById = viewGroup2.findViewById(R.id.content_view);
         viewGroup2.removeView(findViewById);
         viewGroup.addView(findViewById);
         viewGroup2.addView(viewGroup, 0);

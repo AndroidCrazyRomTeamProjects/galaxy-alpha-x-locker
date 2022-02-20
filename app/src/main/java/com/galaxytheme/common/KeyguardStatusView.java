@@ -22,6 +22,7 @@ import android.widget.GridLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.galaxytheme.brilliantring.R;
 import com.xlocker.core.sdk.GlobalSettings;
 import com.xlocker.core.sdk.LockPatternUtils;
 import com.xlocker.core.sdk.LogUtil;
@@ -32,7 +33,7 @@ import java.util.Date;
 /* loaded from: classes.dex */
 public class KeyguardStatusView extends GridLayout implements AdapterView.OnItemSelectedListener {
 
-    public static final int IdleAlarm = com.galaxytheme.common.R.drawable.ic_lock_idle_alarm;
+    public static final int IdleAlarm = R.drawable.ic_lock_idle_alarm;
 
     /* renamed from: h */
     private static Typeface f116h;
@@ -188,9 +189,9 @@ public class KeyguardStatusView extends GridLayout implements AdapterView.OnItem
     /* renamed from: f */
     private void m124f() {
         Log.i("lockscreen", "loadAllTypeface, asset = " + getContext().getResources().getAssets());
-        this.f132r.add(new C0032c(1, getContext().getResources().getString(com.galaxytheme.common.R.string.default_typeface), "fonts/kaiti.ttf"));
+        this.f132r.add(new C0032c(1, getContext().getResources().getString(R.string.default_typeface), "fonts/kaiti.ttf"));
         this.f132r.addAll(getSavedExternalTypefaces());
-        this.f132r.add(new C0032c(3, getContext().getResources().getString(com.galaxytheme.common.R.string.custom_typeface), null));
+        this.f132r.add(new C0032c(3, getContext().getResources().getString(R.string.custom_typeface), null));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -198,9 +199,9 @@ public class KeyguardStatusView extends GridLayout implements AdapterView.OnItem
         String string = Settings.System.getString(getContext().getContentResolver(), "date_format");
         LogUtil.i("KeyguardStatusView", "date format: " + ((Object) this.f118b));
         if (TextUtils.isEmpty(string)) {
-            string = getContext().getString(com.galaxytheme.common.R.string.abbrev_wday_month_day_no_year);
+            string = getContext().getString(R.string.abbrev_wday_month_day_no_year);
         }
-        return ("yyyy-MM-dd".equals(string) || "MM-dd-yyyy".equals(string)) ? getContext().getString(com.galaxytheme.common.R.string.abbrev_wday_abbrev_month_day_no_year) : "dd-MM-yyyy".equals(string) ? getContext().getString(com.galaxytheme.common.R.string.abbrev_wday_day_abbrev_month_no_year) : string;
+        return ("yyyy-MM-dd".equals(string) || "MM-dd-yyyy".equals(string)) ? getContext().getString(R.string.abbrev_wday_abbrev_month_day_no_year) : "dd-MM-yyyy".equals(string) ? getContext().getString(R.string.abbrev_wday_day_abbrev_month_no_year) : string;
     }
 
     private String getNextAlarm() {
@@ -210,7 +211,7 @@ public class KeyguardStatusView extends GridLayout implements AdapterView.OnItem
     private ArrayList<C0032c> getSavedExternalTypefaces() {
         String[] split;
         ArrayList<C0032c> arrayList = new ArrayList<>();
-        String string = getContext().getSharedPreferences("myprofile", 1).getString("type_face_items", null);
+        String string = getContext().getSharedPreferences("myprofile", Context.MODE_WORLD_READABLE).getString("type_face_items", null);
         if (!(string == null || (split = string.split("*#110#*")) == null)) {
             for (String str : split) {
                 String[] split2 = str.split("#*#");
@@ -280,11 +281,11 @@ public class KeyguardStatusView extends GridLayout implements AdapterView.OnItem
         super.onFinishInflate();
         getContext().getResources();
         this.f118b = getDateFormat();
-        this.f119c = (TextView) findViewById(com.galaxytheme.common.R.id.date);
-        this.f120d = (TextView) findViewById(com.galaxytheme.common.R.id.alarm_status);
-        this.f121e = findViewById(com.galaxytheme.common.R.id.clock_view);
-        this.f122f = findViewById(com.galaxytheme.common.R.id.keyguard_status_area);
-        this.f123g = (AutoResizeEditText) findViewById(com.galaxytheme.common.R.id.keyguard_status_myprofile);
+        this.f119c = (TextView) findViewById(R.id.date);
+        this.f120d = (TextView) findViewById(R.id.alarm_status);
+        this.f121e = findViewById(R.id.clock_view);
+        this.f122f = findViewById(R.id.keyguard_status_area);
+        this.f123g = (AutoResizeEditText) findViewById(R.id.keyguard_status_myprofile);
         ViewGroup.LayoutParams layoutParams = this.f123g.getLayoutParams();
         if (layoutParams instanceof LinearLayout.LayoutParams) {
             ((LinearLayout.LayoutParams) layoutParams).gravity = m133a(GalaxySettings.getMyprofileAlign(getContext()));
@@ -301,7 +302,7 @@ public class KeyguardStatusView extends GridLayout implements AdapterView.OnItem
             this.f123g.setVisibility(GONE);
         }
         m125e();
-        this.f121e.setTextSize(0, (GalaxySettings.isEnableProfile(getContext()) ? 1.0f : 1.25f) * GalaxySettings.getClockSize(getContext()) * getContext().getResources().getDimensionPixelSize(com.galaxytheme.common.R.dimen.kg_status_clock_font_size));
+        this.f121e.setTextSize(0, (GalaxySettings.isEnableProfile(getContext()) ? 1.0f : 1.25f) * GalaxySettings.getClockSize(getContext()) * getContext().getResources().getDimensionPixelSize(R.dimen.kg_status_clock_font_size));
         ViewGroup.LayoutParams layoutParams2 = this.f121e.getLayoutParams();
         if (layoutParams2 instanceof LinearLayout.LayoutParams) {
             ((LinearLayout.LayoutParams) layoutParams2).gravity = m133a(GalaxySettings.getClockAlign(getContext()));
@@ -357,7 +358,7 @@ public class KeyguardStatusView extends GridLayout implements AdapterView.OnItem
     public boolean onTouchEvent(MotionEvent motionEvent) {
         if (motionEvent.getAction() == 1) {
             this.f119c.requestFocus();
-            ((InputMethodManager) getContext().getSystemService("input_method")).hideSoftInputFromWindow(getWindowToken(), 0);
+            ((InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(getWindowToken(), 0);
         } else if (motionEvent.getAction() == 0 && this.f131q && this.f126l != null) {
             this.f126l.m123a();
         }
