@@ -52,7 +52,7 @@ public class KeyguardEffectViewBrilliantRing extends EffectView implements Keygu
     }
 
     private void playSound(int soundId) throws Settings.SettingNotFoundException {
-        EnableLockscreenSounds();
+        PlayLockscreenSounds();
         LogUtil.d(TAG, "SOUND PLAY mSoundPool = " + this.mSoundPool + ", isSystemSoundChecked = " + this.LockscreenSounds);
         if (this.LockscreenSounds && this.mSoundPool != null) {
             LogUtil.d(TAG, "SOUND PLAY soundId = " + soundId);
@@ -64,8 +64,7 @@ public class KeyguardEffectViewBrilliantRing extends EffectView implements Keygu
         }
     }
 
-    /* renamed from: f */
-    private void EnableLockscreenSounds() throws Settings.SettingNotFoundException {
+    private void PlayLockscreenSounds() throws Settings.SettingNotFoundException {
         ContentResolver contentResolver = this.mContext.getContentResolver();
         while (Settings.System.getInt(contentResolver, "lockscreen_sounds_enabled") == 1) {
             //try {
@@ -191,7 +190,7 @@ public class KeyguardEffectViewBrilliantRing extends EffectView implements Keygu
                 if (this.mSoundPool == null) {
                     LogUtil.d(TAG, "ACTION_DOWN, mSoundPool == null");
                     makeSound();
-                    EnableLockscreenSounds();
+                    PlayLockscreenSounds();
                 }
                 LogUtil.d(TAG, "SOUND PLAY SOUND_ID_TAB");
                 playSound(0);
