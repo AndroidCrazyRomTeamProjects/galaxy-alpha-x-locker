@@ -33,6 +33,6 @@ android {
 }
 
 dependencies {
-    implementation files('libs\\x locker preview.jar')
+    compileOnly files('libs/x locker preview.jar')
     // some dependencies
 }
