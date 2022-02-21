@@ -141,7 +141,6 @@ public class KeyguardEffectViewNone extends FrameLayout implements KeyguardEffec
 
     @SuppressLint("LongLogTag")
     @Override // com.galaxytheme.p000a.AbstractC0012e
-    /* renamed from: b */
     public void handleUnlock(View view, MotionEvent motionEvent) {
         Log.d("VisualEffectCircleUnlockEffect", "KeyguardEffectViewNone : handleUnlock");
         if (this.f64c != null) {
@@ -152,7 +151,6 @@ public class KeyguardEffectViewNone extends FrameLayout implements KeyguardEffec
 
     @SuppressLint("LongLogTag")
     @Override // com.galaxytheme.p000a.AbstractC0012e
-    /* renamed from: c */
     public void show() {
         Log.d("VisualEffectCircleUnlockEffect", "KeyguardEffectViewNone : show");
         if (this.f64c != null) {

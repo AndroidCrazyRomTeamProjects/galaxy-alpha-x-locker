@@ -52,12 +52,11 @@ public class ThemeMainActivity extends Activity implements DialogInterface.OnCan
     /* loaded from: classes.dex */
     class AlertDialogC0073a extends AlertDialog implements View.OnClickListener {
 
-        /* renamed from: b */
-        private Context f289b;
+        private Context mContext;
 
         public AlertDialogC0073a(Context context) {
             super(context);
-            this.f289b = context;
+            this.mContext = context;
         }
 
         @Override // android.view.View.OnClickListener
@@ -73,7 +72,7 @@ public class ThemeMainActivity extends Activity implements DialogInterface.OnCan
         @Override // android.app.AlertDialog, android.app.Dialog
         protected void onCreate(Bundle bundle) {
             super.onCreate(bundle);
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.f289b).inflate(R.layout.download_dialog, (ViewGroup) null);
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.mContext).inflate(R.layout.download_dialog, (ViewGroup) null);
             setContentView(linearLayout);
             String string = ThemeMainActivity.this.getString(R.string.locker_app_name);
             ((TextView) linearLayout.findViewById(R.id.message)).setText(ThemeMainActivity.this.getString(R.string.need_locker_app, new Object[]{string, string}));
@@ -82,7 +81,7 @@ public class ThemeMainActivity extends Activity implements DialogInterface.OnCan
     }
 
     /* renamed from: a */
-    private String m28a() {
+    private String GetLockscreenMetadata() {
         try {
             PackageInfo packageInfo = getPackageManager().getPackageInfo(getPackageName(), PackageManager.GET_META_DATA);
             if (!(packageInfo == null || packageInfo.applicationInfo == null)) {
@@ -108,13 +107,12 @@ public class ThemeMainActivity extends Activity implements DialogInterface.OnCan
         return "";
     }
 
-    /* renamed from: b */
-    private void m26b() {
+    private void GetLockscreenClass() {
         try {
-            String a = m28a();
-            if (!TextUtils.isEmpty(a)) {
-                Log.i(f283d, "get lockscreen class name: " + a);
-                this.f287e = (Lockscreen) Class.forName(a).getConstructor(Context.class, Context.class).newInstance(this, this);
+            String Lockscreenclass = GetLockscreenMetadata();
+            if (!TextUtils.isEmpty(Lockscreenclass)) {
+                Log.i(f283d, "get lockscreen class name: " + Lockscreenclass);
+                this.f287e = (Lockscreen) Class.forName(Lockscreenclass).getConstructor(Context.class, Context.class).newInstance(this, this);
             }
         } catch (Throwable th) {
             Log.i(f283d, Log.getStackTraceString(th));
@@ -172,7 +170,7 @@ public class ThemeMainActivity extends Activity implements DialogInterface.OnCan
         this.f286c = new AlertDialogC0073a(this);
         this.f286c.setOnCancelListener(this);
         if (!m27a(this, getString(R.string.locker_app_package))) {
-            m26b();
+            GetLockscreenClass();
             if (this.f287e != null) {
                 setContentView(R.layout.preview);
                 this.f285b = findViewById(R.id.root_view);

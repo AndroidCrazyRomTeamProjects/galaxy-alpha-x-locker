@@ -177,8 +177,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         void destroySurface(EGL10 egl10, EGLDisplay eGLDisplay, EGLSurface eGLSurface);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public static class EglHelper {
+    private static class EglHelper {
         EGL10 mEgl;
         EGLConfig mEglConfig;
         EGLContext mEglContext;
@@ -296,8 +295,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static class GLThread extends Thread {
+    static class GLThread extends Thread {
 
         private EglHelper mEglHelper;
         private boolean mExited;
@@ -327,7 +325,6 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
             this.mGLTextureViewWeakRef = weakReference;
         }
 
-        /* renamed from: h */
         private void guardedRun() throws InterruptedException {
             boolean z = false;
             //int w;
@@ -717,8 +714,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public static class GLThreadManager {
+    private static class GLThreadManager {
 
         private static String TAG = "GLThreadManager";
         private GLThread mEglOwner;
@@ -896,9 +892,8 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         this.mDetached = false;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.View
-    public void onDetachedFromWindow() {
+    protected void onDetachedFromWindow() {
         if (this.mGLThread != null) {
             this.mGLThread.requestExitAndWait();
         }

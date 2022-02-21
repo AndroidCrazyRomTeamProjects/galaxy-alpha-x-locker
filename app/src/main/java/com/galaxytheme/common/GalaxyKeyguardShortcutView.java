@@ -8,7 +8,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import com.xlocker.core.sdk.widget.KeyguardShortcutView;
 
-/* loaded from: classes.dex */
 public class GalaxyKeyguardShortcutView extends KeyguardShortcutView {
     private static final long LAUNCH_DELAY = -100;
     private View mRootContainer;

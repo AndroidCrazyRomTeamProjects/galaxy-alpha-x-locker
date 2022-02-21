@@ -19,8 +19,6 @@ import com.galaxytheme.effect.KeyguardEffectViewBase;
 import com.xlocker.core.sdk.Lockscreen;
 import com.xlocker.core.sdk.widget.CarrierText;
 
-/* renamed from: com.galaxytheme.common.a */
-/* loaded from: classes.dex */
 public abstract class GalaxyLockscreen extends Lockscreen {
     private static final String TAG = "GalaxyLockscreen";
     private View mGalaxyView;

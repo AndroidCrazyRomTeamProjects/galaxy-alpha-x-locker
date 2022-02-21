@@ -6,18 +6,17 @@ import com.galaxytheme.common.KeyguardUnlockView;
 import com.galaxytheme.effect.KeyguardEffectViewBase;
 import com.galaxytheme.effect.KeyguardEffectViewBrilliantRing;
 
-/* loaded from: classes.dex */
 public class BrilliantringLockscreen extends GalaxyLockscreen {
     public BrilliantringLockscreen(Context context, Context context2) {
         super(context, context2);
     }
 
-    @Override // com.galaxytheme.common.AbstractC0037a
+    @Override // com.galaxytheme.common.GalaxyLockscreen
     protected KeyguardEffectViewBase createUnlockView() {
         return new KeyguardEffectViewBrilliantRing(getThemeContext());
     }
 
-    @Override // com.galaxytheme.common.AbstractC0037a
+    @Override // com.galaxytheme.common.GalaxyLockscreen
     protected KeyguardUnlockView getKeyguardUnlockView() {
         return new C0017b(getThemeContext());
     }
@@ -26,7 +25,7 @@ public class BrilliantringLockscreen extends GalaxyLockscreen {
         return R.raw.brilliantring_lock;
     }
 
-    @Override // com.galaxytheme.common.AbstractC0037a
+    @Override // com.galaxytheme.common.GalaxyLockscreen
     public void onActivityCreated() {
         super.onActivityCreated();
     }

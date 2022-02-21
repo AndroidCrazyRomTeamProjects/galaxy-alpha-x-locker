@@ -10,7 +10,6 @@ import android.widget.TextView;
 import com.galaxytheme.brilliantring.R;
 import com.xlocker.core.sdk.LogUtil;
 
-/* loaded from: classes.dex */
 public class AutoResizeEditText extends TextView {
 
     /* renamed from: a */

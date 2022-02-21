@@ -29,7 +29,7 @@ public class KeyguardEffectViewBrilliantRing extends EffectView implements Keygu
     final int SOUND_ID_TAB = 0;
     final int SOUND_ID_DRAG = 1;
     final int f70c = 2;
-    private boolean f78k = true;
+    private boolean LockscreenSounds = true;
     private float leftVolumeMax = GlobalSettings.getSoundVolume(getContext().getApplicationContext());
     private float rightVolumeMax = GlobalSettings.getSoundVolume(getContext().getApplicationContext());
     private int dragStreamID = 0;
@@ -52,9 +52,9 @@ public class KeyguardEffectViewBrilliantRing extends EffectView implements Keygu
     }
 
     private void playSound(int soundId) throws Settings.SettingNotFoundException {
-        m142f();
-        LogUtil.d(TAG, "SOUND PLAY mSoundPool = " + this.mSoundPool + ", isSystemSoundChecked = " + this.f78k);
-        if (this.f78k && this.mSoundPool != null) {
+        EnableLockscreenSounds();
+        LogUtil.d(TAG, "SOUND PLAY mSoundPool = " + this.mSoundPool + ", isSystemSoundChecked = " + this.LockscreenSounds);
+        if (this.LockscreenSounds && this.mSoundPool != null) {
             LogUtil.d(TAG, "SOUND PLAY soundId = " + soundId);
             if (soundId != 1) {
                 this.mSoundPool.play(this.sounds[soundId], this.leftVolumeMax, this.rightVolumeMax, 0, 0, 1.0f);
@@ -65,21 +65,20 @@ public class KeyguardEffectViewBrilliantRing extends EffectView implements Keygu
     }
 
     /* renamed from: f */
-    private void m142f() throws Settings.SettingNotFoundException {
+    private void EnableLockscreenSounds() throws Settings.SettingNotFoundException {
         ContentResolver contentResolver = this.mContext.getContentResolver();
         while (Settings.System.getInt(contentResolver, "lockscreen_sounds_enabled") == 1) {
             //try {
-                this.f78k = true;
+                this.LockscreenSounds = true;
                 return;
             /*} catch (Settings.SettingNotFoundException e) {
                 e.printStackTrace();
             }*/
         }
-        this.f78k = false;
+        this.LockscreenSounds = false;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void fadeOutSound() {
+    private void fadeOutSound() {
         if (this.isFadeOutSound && this.mSoundPool != null) {
             if (this.dragSoudVolume < 0.0f) {
                 this.dragSoudVolume = 0.0f;
@@ -192,7 +191,7 @@ public class KeyguardEffectViewBrilliantRing extends EffectView implements Keygu
                 if (this.mSoundPool == null) {
                     LogUtil.d(TAG, "ACTION_DOWN, mSoundPool == null");
                     makeSound();
-                    m142f();
+                    EnableLockscreenSounds();
                 }
                 LogUtil.d(TAG, "SOUND PLAY SOUND_ID_TAB");
                 playSound(0);

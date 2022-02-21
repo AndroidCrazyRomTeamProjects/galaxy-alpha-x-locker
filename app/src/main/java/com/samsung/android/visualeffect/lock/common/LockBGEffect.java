@@ -11,8 +11,6 @@ import com.samsung.android.visualeffect.common.GLTextureView;
 import com.xlocker.core.sdk.LogUtil;
 import java.util.HashMap;
 
-/* renamed from: com.samsung.android.visualeffect.lock.common.b */
-/* loaded from: classes.dex */
 public class LockBGEffect extends GLTextureView implements IEffectView {
 
     protected String TAG;
@@ -37,8 +35,7 @@ public class LockBGEffect extends GLTextureView implements IEffectView {
         }
     }
 
-    @Override // com.samsung.android.visualeffect.AbstractC0063c
-    /* renamed from: a */
+    @Override // com.samsung.android.visualeffect.IEffectView
     public void handleCustomEvent(final int cmd, final HashMap<?, ?> param) {
         queueEvent(new Runnable() { // from class: com.samsung.android.visualeffect.lock.common.LockBGEffect.2
             @Override // java.lang.Runnable
@@ -127,9 +124,8 @@ public class LockBGEffect extends GLTextureView implements IEffectView {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.samsung.android.visualeffect.common.GLTextureView, android.view.View
-    public void onDetachedFromWindow() {
+    protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         LogUtil.i(this.TAG, "onDetachedFromWindow");
     }

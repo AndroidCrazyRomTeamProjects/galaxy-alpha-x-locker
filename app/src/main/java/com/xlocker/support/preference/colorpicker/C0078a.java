@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.ColorFilter;
 import android.graphics.Paint;
+import android.graphics.PixelFormat;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 
@@ -68,7 +69,7 @@ public class C0078a extends Drawable {
 
     @Override // android.graphics.drawable.Drawable
     public int getOpacity() {
-        return 0;
+        return PixelFormat.UNKNOWN;
     }
 
     @Override // android.graphics.drawable.Drawable
