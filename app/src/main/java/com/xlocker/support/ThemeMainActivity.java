@@ -33,8 +33,7 @@ import org.xmlpull.v1.XmlPullParserException;
 /* loaded from: classes.dex */
 public class ThemeMainActivity extends Activity implements DialogInterface.OnCancelListener {
 
-    /* renamed from: d */
-    private static final String f283d = ThemeMainActivity.class.getSimpleName();
+    private static final String TAG = ThemeMainActivity.class.getSimpleName();
 
     /* renamed from: a */
     Object f284a;
@@ -80,7 +79,6 @@ public class ThemeMainActivity extends Activity implements DialogInterface.OnCan
         }
     }
 
-    /* renamed from: a */
     private String GetLockscreenMetadata() {
         try {
             PackageInfo packageInfo = getPackageManager().getPackageInfo(getPackageName(), PackageManager.GET_META_DATA);
@@ -111,11 +109,11 @@ public class ThemeMainActivity extends Activity implements DialogInterface.OnCan
         try {
             String Lockscreenclass = GetLockscreenMetadata();
             if (!TextUtils.isEmpty(Lockscreenclass)) {
-                Log.i(f283d, "get lockscreen class name: " + Lockscreenclass);
+                Log.i(TAG, "get lockscreen class name: " + Lockscreenclass);
                 this.f287e = (Lockscreen) Class.forName(Lockscreenclass).getConstructor(Context.class, Context.class).newInstance(this, this);
             }
         } catch (Throwable th) {
-            Log.i(f283d, Log.getStackTraceString(th));
+            Log.i(TAG, Log.getStackTraceString(th));
         }
     }
 
