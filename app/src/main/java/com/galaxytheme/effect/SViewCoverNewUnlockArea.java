@@ -20,7 +20,7 @@ import com.xlocker.core.sdk.widget.KeyguardShortcutView;
 /* renamed from: com.galaxytheme.a.b */
 /* loaded from: classes.dex */
 // seams to be an s view cover thing? basted on SViewCoverNewUnlockArea.java found on SystemUI
-public class LockSequenceImage extends FrameLayout {
+public class SViewCoverNewUnlockArea extends FrameLayout {
 
     /* renamed from: C */
     private float f17C;
@@ -133,7 +133,7 @@ public class LockSequenceImage extends FrameLayout {
     private float strokeAnimationValue = 0.0f;
 
     @SuppressLint("LongLogTag")
-    public LockSequenceImage(Context context, int i, int i2, int i3, int[] iArr, int i4) {
+    public SViewCoverNewUnlockArea(Context context, int i, int i2, int i3, int[] iArr, int i4) {
         super(context);
         Log.d("VisualEffectCircleUnlockEffect", "Constructor");
         this.mContext = context;
@@ -180,7 +180,7 @@ public class LockSequenceImage extends FrameLayout {
             this.circleAnimationMin = 0.0f;
             this.f47q = 1.0f;
             this.f42l = 1.0f;
-            this.f46p.m191a(this.f16B);
+            this.f46p.dragAnimationUpdate(this.f16B);
             setImageInLockImageView(this.f16B);
             this.f41k.setAlpha(1.0f);
             m188a(f, f2);
@@ -283,9 +283,9 @@ public class LockSequenceImage extends FrameLayout {
         this.mCameraCircleInAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.galaxytheme.a.b.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                LockSequenceImage.this.strokeAnimationValue = (((Float) valueAnimator.getAnimatedValue()).floatValue() * (1.0f - LockSequenceImage.this.circleAnimationMin)) + LockSequenceImage.this.circleAnimationMin;
-                LockSequenceImage.this.mCameraCircleEffect(LockSequenceImage.this.mFrameLayout, LockSequenceImage.this.strokeAnimationValue);
-                LockSequenceImage.this.f46p.m190b(LockSequenceImage.this.strokeAnimationValue);
+                SViewCoverNewUnlockArea.this.strokeAnimationValue = (((Float) valueAnimator.getAnimatedValue()).floatValue() * (1.0f - SViewCoverNewUnlockArea.this.circleAnimationMin)) + SViewCoverNewUnlockArea.this.circleAnimationMin;
+                SViewCoverNewUnlockArea.this.mCameraCircleEffect(SViewCoverNewUnlockArea.this.mFrameLayout, SViewCoverNewUnlockArea.this.strokeAnimationValue);
+                SViewCoverNewUnlockArea.this.f46p.strokeAnimationUpdate(SViewCoverNewUnlockArea.this.strokeAnimationValue);
             }
         });
         this.mCameraCircleOutAnimator = ValueAnimator.ofFloat(1.0f, 0.0f);
@@ -294,18 +294,18 @@ public class LockSequenceImage extends FrameLayout {
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float f;
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                LockSequenceImage.this.strokeAnimationValue = LockSequenceImage.this.f47q * floatValue;
-                LockSequenceImage.this.f16B = LockSequenceImage.this.f17C * floatValue;
-                LockSequenceImage.this.f46p.m190b(LockSequenceImage.this.strokeAnimationValue);
-                LockSequenceImage.this.f46p.m191a(LockSequenceImage.this.f16B);
-                LockSequenceImage.this.setImageInLockImageView(LockSequenceImage.this.f16B);
-                LockSequenceImage.this.mCameraCircleEffect(LockSequenceImage.this.mFrameLayout, LockSequenceImage.this.strokeAnimationValue);
+                SViewCoverNewUnlockArea.this.strokeAnimationValue = SViewCoverNewUnlockArea.this.f47q * floatValue;
+                SViewCoverNewUnlockArea.this.f16B = SViewCoverNewUnlockArea.this.f17C * floatValue;
+                SViewCoverNewUnlockArea.this.f46p.strokeAnimationUpdate(SViewCoverNewUnlockArea.this.strokeAnimationValue);
+                SViewCoverNewUnlockArea.this.f46p.dragAnimationUpdate(SViewCoverNewUnlockArea.this.f16B);
+                SViewCoverNewUnlockArea.this.setImageInLockImageView(SViewCoverNewUnlockArea.this.f16B);
+                SViewCoverNewUnlockArea.this.mCameraCircleEffect(SViewCoverNewUnlockArea.this.mFrameLayout, SViewCoverNewUnlockArea.this.strokeAnimationValue);
                 if (floatValue > 0.4f) {
-                    f = ((floatValue - 0.4f) * LockSequenceImage.this.f42l) / 0.6f;
+                    f = ((floatValue - 0.4f) * SViewCoverNewUnlockArea.this.f42l) / 0.6f;
                 } else {
                     f = 0.0f;
                 }
-                LockSequenceImage.this.f41k.setAlpha(f);
+                SViewCoverNewUnlockArea.this.f41k.setAlpha(f);
             }
         });
         this.mCameraCircleOutAnimator.addListener(new Animator.AnimatorListener() { // from class: com.galaxytheme.a.b.3
@@ -336,10 +336,10 @@ public class LockSequenceImage extends FrameLayout {
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                if (LockSequenceImage.this.f43m) {
+                if (SViewCoverNewUnlockArea.this.f43m) {
                     floatValue = 1.0f - floatValue;
                 }
-                LockSequenceImage.this.f41k.setAlpha(LockSequenceImage.this.f16B > 0.4f ? 0.0f : (floatValue * (0.4f - LockSequenceImage.this.f16B)) / 0.4f);
+                SViewCoverNewUnlockArea.this.f41k.setAlpha(SViewCoverNewUnlockArea.this.f16B > 0.4f ? 0.0f : (floatValue * (0.4f - SViewCoverNewUnlockArea.this.f16B)) / 0.4f);
             }
         });
         this.f44n.addListener(new Animator.AnimatorListener() { // from class: com.galaxytheme.a.b.5
@@ -353,7 +353,7 @@ public class LockSequenceImage extends FrameLayout {
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationRepeat(Animator animator) {
-                LockSequenceImage.this.f43m = !LockSequenceImage.this.f43m;
+                SViewCoverNewUnlockArea.this.f43m = !SViewCoverNewUnlockArea.this.f43m;
             }
 
             @Override // android.animation.Animator.AnimatorListener
@@ -455,7 +455,7 @@ public class LockSequenceImage extends FrameLayout {
                 sqrt = 1.0f;
             }
             this.f16B = sqrt;
-            this.f46p.m191a(this.f16B);
+            this.f46p.dragAnimationUpdate(this.f16B);
             setImageInLockImageView(this.f16B);
         } else if (motionEvent.getActionMasked() == 1 || motionEvent.getActionMasked() == 3) {
             cancelAllAnimator();
@@ -475,7 +475,7 @@ public class LockSequenceImage extends FrameLayout {
         mCameraCircleEffect(this.mFrameLayout, 0.0f);
         cancelAllAnimator();
         if (this.f46p != null) {
-            this.f46p.m191a(0.0f);
+            this.f46p.dragAnimationUpdate(0.0f);
         }
     }
 
