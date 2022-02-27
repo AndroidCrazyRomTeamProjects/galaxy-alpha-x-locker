@@ -20,9 +20,7 @@ public class KeyguardEffectViewNone extends FrameLayout implements KeyguardEffec
     /* renamed from: a */
     private final boolean f62a = true;
     private final String TAG = "VisualEffectCircleUnlockEffect";
-
-    /* renamed from: c */
-    private C0004b f64c;
+    private LockSequenceImage mLockSequenceImage;
     private Context mContext;
 
     /* renamed from: e */
@@ -47,7 +45,7 @@ public class KeyguardEffectViewNone extends FrameLayout implements KeyguardEffec
         Log.d("VisualEffectCircleUnlockEffect", "screenWidth : " + i);
         Log.d("VisualEffectCircleUnlockEffect", "screenHeight : " + i2);
         Log.d("VisualEffectCircleUnlockEffect", "ratio : " + f);
-        this.f64c = new C0004b(this.mContext, ((int) this.mContext.getResources().getDimension(R.dimen.keyguard_lockscreen_camera_shortcut_circle_max_radius)) * 2, (int) (4.0f * f), (int) (6.0f * f), new int[] {
+        this.mLockSequenceImage = new LockSequenceImage(this.mContext, ((int) this.mContext.getResources().getDimension(R.dimen.keyguard_lockscreen_camera_shortcut_circle_max_radius)) * 2, (int) (4.0f * f), (int) (6.0f * f), new int[] {
                 R.drawable.keyguard_none_lock_01,
                 R.drawable.keyguard_none_lock_02,
                 R.drawable.keyguard_none_lock_03,
@@ -80,8 +78,8 @@ public class KeyguardEffectViewNone extends FrameLayout implements KeyguardEffec
                 R.drawable.keyguard_none_lock_30
         }
         , R.drawable.keyguard_none_arrow);
-        this.f64c.setLockscreen(aVar);
-        addView(this.f64c);
+        this.mLockSequenceImage.setLockscreen(aVar);
+        addView(this.mLockSequenceImage);
     }
 
     /* renamed from: e */
@@ -96,8 +94,8 @@ public class KeyguardEffectViewNone extends FrameLayout implements KeyguardEffec
     /* renamed from: a */
     public void reset() {
         Log.d("VisualEffectCircleUnlockEffect", "KeyguardEffectViewNone : reset");
-        if (this.f64c != null) {
-            this.f64c.m175b();
+        if (this.mLockSequenceImage != null) {
+            this.mLockSequenceImage.m175b();
         }
     }
 
@@ -106,8 +104,8 @@ public class KeyguardEffectViewNone extends FrameLayout implements KeyguardEffec
     /* renamed from: a */
     public void showUnlockAffordance(long j, Rect rect) {
         Log.d("VisualEffectCircleUnlockEffect", "KeyguardEffectViewNone : showUnlockAffordance");
-        if (this.f64c != null) {
-            this.f64c.m184a(j, rect);
+        if (this.mLockSequenceImage != null) {
+            this.mLockSequenceImage.m184a(j, rect);
         }
     }
 
@@ -124,12 +122,12 @@ public class KeyguardEffectViewNone extends FrameLayout implements KeyguardEffec
     public boolean handleTouchEvent(View view, MotionEvent motionEvent) {
         if (motionEvent.getActionMasked() == 0) {
             if (!(view instanceof KeyguardEffectViewBase)) {
-                this.f64c.m187a(view.getWidth());
+                this.mLockSequenceImage.m187a(view.getWidth());
             } else {
-                this.f64c.m189a();
+                this.mLockSequenceImage.m189a();
             }
         }
-        this.f64c.m180a(view, motionEvent);
+        this.mLockSequenceImage.m180a(view, motionEvent);
         return true;
     }
 
@@ -143,8 +141,8 @@ public class KeyguardEffectViewNone extends FrameLayout implements KeyguardEffec
     @Override // com.galaxytheme.p000a.AbstractC0012e
     public void handleUnlock(View view, MotionEvent motionEvent) {
         Log.d("VisualEffectCircleUnlockEffect", "KeyguardEffectViewNone : handleUnlock");
-        if (this.f64c != null) {
-            this.f64c.m172c();
+        if (this.mLockSequenceImage != null) {
+            this.mLockSequenceImage.m172c();
         }
         m158e();
     }
@@ -153,8 +151,8 @@ public class KeyguardEffectViewNone extends FrameLayout implements KeyguardEffec
     @Override // com.galaxytheme.p000a.AbstractC0012e
     public void show() {
         Log.d("VisualEffectCircleUnlockEffect", "KeyguardEffectViewNone : show");
-        if (this.f64c != null) {
-            this.f64c.m175b();
+        if (this.mLockSequenceImage != null) {
+            this.mLockSequenceImage.m175b();
         }
     }
 
@@ -168,8 +166,8 @@ public class KeyguardEffectViewNone extends FrameLayout implements KeyguardEffec
     }
 
     public void setHidden(boolean z) {
-        if (this.f64c != null) {
-            this.f64c.m175b();
+        if (this.mLockSequenceImage != null) {
+            this.mLockSequenceImage.m175b();
         }
     }
 }

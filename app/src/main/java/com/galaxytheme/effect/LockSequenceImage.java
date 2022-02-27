@@ -19,7 +19,8 @@ import com.xlocker.core.sdk.widget.KeyguardShortcutView;
 
 /* renamed from: com.galaxytheme.a.b */
 /* loaded from: classes.dex */
-public class C0004b extends FrameLayout {
+// seams to be an s view cover thing? basted on SViewCoverNewUnlockArea.java found on SystemUI
+public class LockSequenceImage extends FrameLayout {
 
     /* renamed from: C */
     private float f17C;
@@ -52,7 +53,8 @@ public class C0004b extends FrameLayout {
 
     /* renamed from: b */
     float f32b;
-    private ImageView mImageView;
+    /* renamed from: k */
+    private ImageView f41k;
 
     /* renamed from: l */
     private float f42l;
@@ -69,14 +71,9 @@ public class C0004b extends FrameLayout {
     /* renamed from: q */
     private float f47q;
 
-    /* renamed from: s */
-    private FrameLayout f49s;
-
-    /* renamed from: t */
-    private ValueAnimator f50t;
-
-    /* renamed from: u */
-    private ValueAnimator f51u;
+    private FrameLayout mFrameLayout;
+    private ValueAnimator mCameraCircleInAnimator;
+    private ValueAnimator mCameraCircleOutAnimator;
 
     /* renamed from: v */
     private int f52v;
@@ -117,9 +114,7 @@ public class C0004b extends FrameLayout {
 
     /* renamed from: m */
     private boolean f43m = false;
-
-    /* renamed from: r */
-    private float f48r = 0.0f;
+    private float circleAnimationMin = 0.0f;
 
     /* renamed from: A */
     private int f15A = 0;
@@ -135,12 +130,10 @@ public class C0004b extends FrameLayout {
 
     /* renamed from: G */
     private boolean f21G = false;
-
-    /* renamed from: O */
-    private float f29O = 0.0f;
+    private float strokeAnimationValue = 0.0f;
 
     @SuppressLint("LongLogTag")
-    public C0004b(Context context, int i, int i2, int i3, int[] iArr, int i4) {
+    public LockSequenceImage(Context context, int i, int i2, int i3, int[] iArr, int i4) {
         super(context);
         Log.d("VisualEffectCircleUnlockEffect", "Constructor");
         this.mContext = context;
@@ -161,7 +154,7 @@ public class C0004b extends FrameLayout {
         Log.d("VisualEffectCircleUnlockEffect", "innerStrokeWidth = " + i3);
         Log.d("VisualEffectCircleUnlockEffect", "lockSequenceTotal = " + this.f24J);
         m163g();
-        m165f();
+        setAllAnimator();
     }
 
     /* renamed from: a */
@@ -172,8 +165,8 @@ public class C0004b extends FrameLayout {
 
     /* renamed from: a */
     private void m188a(float f, float f2) {
-        this.f49s.setX(f - (this.f54x / 2.0f));
-        this.f49s.setY(f2 - (this.f52v / 2.0f));
+        this.mFrameLayout.setX(f - (this.f54x / 2.0f));
+        this.mFrameLayout.setY(f2 - (this.f52v / 2.0f));
     }
 
     /* renamed from: a */
@@ -182,35 +175,35 @@ public class C0004b extends FrameLayout {
             this.f19E = true;
             m189a();
             this.f16B = 0.0f;
-            this.f29O = 0.0f;
+            this.strokeAnimationValue = 0.0f;
             this.f17C = 0.0f;
-            this.f48r = 0.0f;
+            this.circleAnimationMin = 0.0f;
             this.f47q = 1.0f;
             this.f42l = 1.0f;
             this.f46p.m191a(this.f16B);
             setImageInLockImageView(this.f16B);
-            this.mImageView.setAlpha(1.0f);
+            this.f41k.setAlpha(1.0f);
             m188a(f, f2);
-            this.f50t.setStartDelay(j);
-            this.f50t.setDuration(666L);
-            this.f50t.setInterpolator(new QuintEaseIn());
-            this.f50t.start();
-            this.f51u.setStartDelay((-200) + j + 666);
-            this.f51u.setDuration(700L);
-            this.f51u.setInterpolator(new QuintEaseIn());
-            this.f51u.start();
+            this.mCameraCircleInAnimator.setStartDelay(j);
+            this.mCameraCircleInAnimator.setDuration(666L);
+            this.mCameraCircleInAnimator.setInterpolator(new QuintEaseOut());
+            this.mCameraCircleInAnimator.start();
+            this.mCameraCircleOutAnimator.setStartDelay((-200) + j + 666);
+            this.mCameraCircleOutAnimator.setDuration(700L);
+            this.mCameraCircleOutAnimator.setInterpolator(new QuintEaseOut());
+            this.mCameraCircleOutAnimator.start();
         }
     }
 
     /* renamed from: a */
-    private void m183a(Animator animator) {
+    private void cancelAnimator(Animator animator) {
         if (animator != null && animator.isRunning()) {
             animator.cancel();
         }
     }
 
     /* renamed from: a */
-    public void m182a(View view, float f) {
+    public void mCameraCircleEffect(View view, float f) {
         int i = 8;
         if (f != 0.0f) {
             if (view.getVisibility() != View.VISIBLE) {
@@ -264,61 +257,58 @@ public class C0004b extends FrameLayout {
         Log.i("shortcut", "x = " + point.x + ", y = " + point.y);
     }
 
-    /* renamed from: d */
-    private void m169d() {
-        m167e();
-        m183a(this.f50t);
-        m183a(this.f51u);
-        m183a(this.f44n);
+    private void cancelAllAnimator() {
+        resetCircleAnimator();
+        cancelAnimator(this.mCameraCircleInAnimator);
+        cancelAnimator(this.mCameraCircleOutAnimator);
+        cancelAnimator(this.f44n);
     }
 
-    /* renamed from: e */
-    private void m167e() {
+    private void resetCircleAnimator() {
         if (this.f19E) {
             this.f19E = false;
-            this.f50t.end();
-            this.f50t.setStartDelay(0L);
-            this.f50t.setDuration(666L);
-            this.f50t.setInterpolator(new QuintEaseIn());
-            this.f51u.end();
-            this.f51u.setStartDelay(0L);
-            this.f51u.setDuration(333L);
-            this.f51u.setInterpolator(new QuintEaseIn());
+            this.mCameraCircleInAnimator.end();
+            this.mCameraCircleInAnimator.setStartDelay(0L);
+            this.mCameraCircleInAnimator.setDuration(666L);
+            this.mCameraCircleInAnimator.setInterpolator(new QuintEaseOut());
+            this.mCameraCircleOutAnimator.end();
+            this.mCameraCircleOutAnimator.setStartDelay(0L);
+            this.mCameraCircleOutAnimator.setDuration(333L);
+            this.mCameraCircleOutAnimator.setInterpolator(new QuintEaseOut());
         }
     }
 
-    /* renamed from: f */
-    private void m165f() {
-        this.f50t = ValueAnimator.ofFloat(0.0f, 1.0f);
-        this.f50t.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.galaxytheme.a.b.1
+    private void setAllAnimator() {
+        this.mCameraCircleInAnimator = ValueAnimator.ofFloat(0.0f, 1.0f);
+        this.mCameraCircleInAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.galaxytheme.a.b.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                C0004b.this.f29O = (((Float) valueAnimator.getAnimatedValue()).floatValue() * (1.0f - C0004b.this.f48r)) + C0004b.this.f48r;
-                C0004b.this.m182a(C0004b.this.f49s, C0004b.this.f29O);
-                C0004b.this.f46p.m190b(C0004b.this.f29O);
+                LockSequenceImage.this.strokeAnimationValue = (((Float) valueAnimator.getAnimatedValue()).floatValue() * (1.0f - LockSequenceImage.this.circleAnimationMin)) + LockSequenceImage.this.circleAnimationMin;
+                LockSequenceImage.this.mCameraCircleEffect(LockSequenceImage.this.mFrameLayout, LockSequenceImage.this.strokeAnimationValue);
+                LockSequenceImage.this.f46p.m190b(LockSequenceImage.this.strokeAnimationValue);
             }
         });
-        this.f51u = ValueAnimator.ofFloat(1.0f, 0.0f);
-        this.f51u.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.galaxytheme.a.b.2
+        this.mCameraCircleOutAnimator = ValueAnimator.ofFloat(1.0f, 0.0f);
+        this.mCameraCircleOutAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.galaxytheme.a.b.2
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float f;
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                C0004b.this.f29O = C0004b.this.f47q * floatValue;
-                C0004b.this.f16B = C0004b.this.f17C * floatValue;
-                C0004b.this.f46p.m190b(C0004b.this.f29O);
-                C0004b.this.f46p.m191a(C0004b.this.f16B);
-                C0004b.this.setImageInLockImageView(C0004b.this.f16B);
-                C0004b.this.m182a(C0004b.this.f49s, C0004b.this.f29O);
+                LockSequenceImage.this.strokeAnimationValue = LockSequenceImage.this.f47q * floatValue;
+                LockSequenceImage.this.f16B = LockSequenceImage.this.f17C * floatValue;
+                LockSequenceImage.this.f46p.m190b(LockSequenceImage.this.strokeAnimationValue);
+                LockSequenceImage.this.f46p.m191a(LockSequenceImage.this.f16B);
+                LockSequenceImage.this.setImageInLockImageView(LockSequenceImage.this.f16B);
+                LockSequenceImage.this.mCameraCircleEffect(LockSequenceImage.this.mFrameLayout, LockSequenceImage.this.strokeAnimationValue);
                 if (floatValue > 0.4f) {
-                    f = ((floatValue - 0.4f) * C0004b.this.f42l) / 0.6f;
+                    f = ((floatValue - 0.4f) * LockSequenceImage.this.f42l) / 0.6f;
                 } else {
                     f = 0.0f;
                 }
-                C0004b.this.mImageView.setAlpha(f);
+                LockSequenceImage.this.f41k.setAlpha(f);
             }
         });
-        this.f51u.addListener(new Animator.AnimatorListener() { // from class: com.galaxytheme.a.b.3
+        this.mCameraCircleOutAnimator.addListener(new Animator.AnimatorListener() { // from class: com.galaxytheme.a.b.3
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationCancel(Animator animator) {
             }
@@ -337,7 +327,7 @@ public class C0004b extends FrameLayout {
             public void onAnimationStart(Animator animator) {
             }
         });
-        m167e();
+        resetCircleAnimator();
         this.f44n = ValueAnimator.ofFloat(0.0f, 1.0f);
         this.f44n.setInterpolator(new LinearInterpolator());
         this.f44n.setDuration(500L);
@@ -346,10 +336,10 @@ public class C0004b extends FrameLayout {
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                if (C0004b.this.f43m) {
+                if (LockSequenceImage.this.f43m) {
                     floatValue = 1.0f - floatValue;
                 }
-                C0004b.this.mImageView.setAlpha(C0004b.this.f16B > 0.4f ? 0.0f : (floatValue * (0.4f - C0004b.this.f16B)) / 0.4f);
+                LockSequenceImage.this.f41k.setAlpha(LockSequenceImage.this.f16B > 0.4f ? 0.0f : (floatValue * (0.4f - LockSequenceImage.this.f16B)) / 0.4f);
             }
         });
         this.f44n.addListener(new Animator.AnimatorListener() { // from class: com.galaxytheme.a.b.5
@@ -363,7 +353,7 @@ public class C0004b extends FrameLayout {
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationRepeat(Animator animator) {
-                C0004b.this.f43m = !C0004b.this.f43m;
+                LockSequenceImage.this.f43m = !LockSequenceImage.this.f43m;
             }
 
             @Override // android.animation.Animator.AnimatorListener
@@ -374,20 +364,20 @@ public class C0004b extends FrameLayout {
 
     /* renamed from: g */
     private void m163g() {
-        this.f49s = new FrameLayout(this.mContext);
-        this.f49s.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
-        addView(this.f49s, this.f54x, this.f52v);
-        m182a(this.f49s, 0.0f);
+        this.mFrameLayout = new FrameLayout(this.mContext);
+        this.mFrameLayout.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
+        addView(this.mFrameLayout, this.f54x, this.f52v);
+        mCameraCircleEffect(this.mFrameLayout, 0.0f);
         this.f46p = new C0003a(this.mContext, this.f54x, this.f56z, this.f26L, this.f18D);
-        this.f49s.addView(this.f46p);
-        this.mImageView = new ImageView(this.mContext);
-        this.mImageView.setImageResource(this.f45o);
-        this.f49s.addView(this.mImageView, -2, -2);
-        this.mImageView.setX((this.f54x - m186a(this.f45o, true)) / 2);
-        this.mImageView.setY((this.f52v - m186a(this.f45o, false)) / 2);
+        this.mFrameLayout.addView(this.f46p);
+        this.f41k = new ImageView(this.mContext);
+        this.f41k.setImageResource(this.f45o);
+        this.mFrameLayout.addView(this.f41k, -2, -2);
+        this.f41k.setX((this.f54x - m186a(this.f45o, true)) / 2);
+        this.f41k.setY((this.f52v - m186a(this.f45o, false)) / 2);
         this.f22H = new ImageView(this.mContext);
         this.f22H.setImageResource(this.f23I[0]);
-        this.f49s.addView(this.f22H, -2, -2);
+        this.mFrameLayout.addView(this.f22H, -2, -2);
         this.f22H.setX((this.f54x - m186a(this.f23I[0], true)) / 2);
         this.f22H.setY((this.f52v - m186a(this.f23I[0], false)) / 2);
     }
@@ -402,7 +392,7 @@ public class C0004b extends FrameLayout {
 
     /* renamed from: a */
     public void m189a() {
-        m182a(this.f22H, 1.0f);
+        mCameraCircleEffect(this.f22H, 1.0f);
         this.f20F = false;
         if (this.f46p != null) {
             this.f46p.setIsForShortcut(this.f20F);
@@ -412,7 +402,7 @@ public class C0004b extends FrameLayout {
 
     /* renamed from: a */
     public void m187a(int i) {
-        m182a(this.f22H, 0.0f);
+        mCameraCircleEffect(this.f22H, 0.0f);
         this.f20F = true;
         if (this.f46p != null) {
             this.f46p.setIsForShortcut(this.f20F);
@@ -451,9 +441,9 @@ public class C0004b extends FrameLayout {
                 this.f28N = y;
             }
             this.f43m = false;
-            m169d();
+            cancelAllAnimator();
             m188a(this.f27M, this.f28N);
-            this.f50t.start();
+            this.mCameraCircleInAnimator.start();
             this.f44n.start();
         } else if (motionEvent.getActionMasked() == 2 && motionEvent.getActionIndex() == 0) {
             float f = x - this.f27M;
@@ -468,12 +458,12 @@ public class C0004b extends FrameLayout {
             this.f46p.m191a(this.f16B);
             setImageInLockImageView(this.f16B);
         } else if (motionEvent.getActionMasked() == 1 || motionEvent.getActionMasked() == 3) {
-            m169d();
-            this.f47q = this.f29O;
+            cancelAllAnimator();
+            this.f47q = this.strokeAnimationValue;
             this.f17C = this.f16B;
-            this.f42l = this.mImageView.getAlpha();
+            this.f42l = this.f41k.getAlpha();
             if (!this.f21G) {
-                this.f51u.start();
+                this.mCameraCircleOutAnimator.start();
             }
         }
         return false;
@@ -482,8 +472,8 @@ public class C0004b extends FrameLayout {
     /* renamed from: b */
     public void m175b() {
         this.f43m = false;
-        m182a(this.f49s, 0.0f);
-        m169d();
+        mCameraCircleEffect(this.mFrameLayout, 0.0f);
+        cancelAllAnimator();
         if (this.f46p != null) {
             this.f46p.m191a(0.0f);
         }
