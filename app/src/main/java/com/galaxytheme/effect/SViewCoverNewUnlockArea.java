@@ -66,7 +66,7 @@ public class SViewCoverNewUnlockArea extends FrameLayout {
     private int f45o;
 
     /* renamed from: p */
-    private C0003a f46p;
+    private SViewCoverUnlockCircleEffect f46p;
 
     /* renamed from: q */
     private float f47q;
@@ -368,7 +368,7 @@ public class SViewCoverNewUnlockArea extends FrameLayout {
         this.mFrameLayout.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
         addView(this.mFrameLayout, this.f54x, this.f52v);
         mCameraCircleEffect(this.mFrameLayout, 0.0f);
-        this.f46p = new C0003a(this.mContext, this.f54x, this.f56z, this.f26L, this.f18D);
+        this.f46p = new SViewCoverUnlockCircleEffect(this.mContext, this.f54x, this.f56z, this.f26L, this.f18D);
         this.mFrameLayout.addView(this.f46p);
         this.f41k = new ImageView(this.mContext);
         this.f41k.setImageResource(this.f45o);

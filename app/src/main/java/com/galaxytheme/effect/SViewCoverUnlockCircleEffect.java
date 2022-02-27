@@ -7,7 +7,7 @@ import android.view.View;
 
 /* renamed from: com.galaxytheme.a.a */
 /* loaded from: classes.dex */
-public class C0003a extends View {
+public class SViewCoverUnlockCircleEffect extends View {
     private int betweenRadius;
     private int centerX;
     private int centerY;
@@ -26,7 +26,7 @@ public class C0003a extends View {
     private boolean isForShortcut = false;
     private float strokeAnimationValue = 0.0f;
 
-    public C0003a(Context context, int circleMaxWidth, int circleMinWidth, int outerStrokeWidth, int innerStrokeWidth) {
+    public SViewCoverUnlockCircleEffect(Context context, int circleMaxWidth, int circleMinWidth, int outerStrokeWidth, int innerStrokeWidth) {
         super(context);
         int coordinate = circleMaxWidth / 2;
         this.centerY = coordinate;
