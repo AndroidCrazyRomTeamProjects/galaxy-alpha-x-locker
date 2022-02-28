@@ -33,7 +33,7 @@ import java.util.Date;
 /* loaded from: classes.dex */
 public class KeyguardStatusView extends GridLayout implements AdapterView.OnItemSelectedListener {
 
-    public static final int IdleAlarm = R.drawable.ic_lock_idle_alarm;
+    public static final int idleAlarm = R.drawable.ic_lock_idle_alarm;
 
     /* renamed from: h */
     private static Typeface f116h;
@@ -249,7 +249,7 @@ public class KeyguardStatusView extends GridLayout implements AdapterView.OnItem
             return;
         }
         m132a(this.f120d, nextAlarm);
-        this.f120d.setCompoundDrawablesWithIntrinsicBounds(IdleAlarm, 0, 0, 0);
+        this.f120d.setCompoundDrawablesWithIntrinsicBounds(idleAlarm, 0, 0, 0);
         this.f120d.setVisibility(VISIBLE);
     }
 

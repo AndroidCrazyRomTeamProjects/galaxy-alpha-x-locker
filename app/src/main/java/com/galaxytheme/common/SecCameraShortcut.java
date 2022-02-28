@@ -27,9 +27,7 @@ public class SecCameraShortcut extends FrameLayout implements KeyguardSecurityCa
 
     /* renamed from: a */
     InputMethodManager f151a;
-
-    /* renamed from: c */
-    private ImageView f153c;
+    private ImageView cameraStatus;
 
     /* renamed from: f */
     private int f156f;
@@ -52,19 +50,10 @@ public class SecCameraShortcut extends FrameLayout implements KeyguardSecurityCa
     /* renamed from: m */
     private float f163m;
 
-    /* renamed from: n */
-    private KeyguardEffectViewBase f164n;
-
-    /* renamed from: o */
-    private KeyguardEffectViewNone f165o;
-
-    /* renamed from: p */
-    private Context f166p;
-
-    /* renamed from: q */
-    private Lockscreen f167q;
-
-    /* renamed from: b */
+    private KeyguardEffectViewBase mEffectViewBase;
+    private KeyguardEffectViewNone mEffectViewNone;
+    private Context mContext;
+    private Lockscreen mLockscreen;
     private String TAG = "SecCameraShortcut";
 
     /* renamed from: d */
@@ -75,29 +64,26 @@ public class SecCameraShortcut extends FrameLayout implements KeyguardSecurityCa
 
     /* renamed from: g */
     private boolean f157g = true;
-
-    /* renamed from: r */
-    private LockPatternUtils f168r = new LockPatternUtils(getContext());
+    private LockPatternUtils mLockPatternUtils = new LockPatternUtils(getContext());
 
     public SecCameraShortcut(Context context) {
         super(context);
-        this.f166p = context;
+        this.mContext = context;
     }
 
     public SecCameraShortcut(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f166p = context;
+        this.mContext = context;
     }
 
     public SecCameraShortcut(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f166p = context;
+        this.mContext = context;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: a */
-    public void m116a() {
-        if (this.f168r.isSecure()) {
+    private void m116a() {
+        if (this.mLockPatternUtils.isSecure()) {
             try {
                 Intent intent = new Intent("android.media.action.STILL_IMAGE_CAMERA_SECURE");
                 intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
@@ -110,38 +96,38 @@ public class SecCameraShortcut extends FrameLayout implements KeyguardSecurityCa
             this.f157g = true;
             return;
         }
-        this.f167q.authenticate(true, this);
+        this.mLockscreen.authenticate(true, this);
     }
 
     /* renamed from: a */
     private void m114a(View view, MotionEvent motionEvent) throws Settings.SettingNotFoundException {
-        if (this.f165o != null) {
+        if (this.mEffectViewNone != null) {
             Log.d(this.TAG, "mAdditionalUnlockView != null");
-            this.f165o.handleTouchEvent(view, motionEvent);
+            this.mEffectViewNone.handleTouchEvent(view, motionEvent);
             return;
         }
         Log.d(this.TAG, "mAdditionalUnlockView == null");
-        this.f164n.handleTouchEvent(view, motionEvent);
+        this.mEffectViewBase.handleTouchEvent(view, motionEvent);
     }
 
     /* renamed from: b */
     private void m112b(View view, MotionEvent motionEvent) throws Settings.SettingNotFoundException {
-        if (this.f165o != null) {
+        if (this.mEffectViewNone != null) {
             Log.d(this.TAG, "mAdditionalUnlockView != null");
-            this.f165o.handleUnlock(view, motionEvent);
-            this.f165o.reset();
+            this.mEffectViewNone.handleUnlock(view, motionEvent);
+            this.mEffectViewNone.reset();
             return;
         }
         Log.d(this.TAG, "mAdditionalUnlockView == null");
-        this.f164n.handleUnlock(view, motionEvent);
+        this.mEffectViewBase.handleUnlock(view, motionEvent);
     }
 
     private long getUnlockDelay() {
-        if (this.f165o != null) {
-            return this.f165o.getUnlockDelay();
+        if (this.mEffectViewNone != null) {
+            return this.mEffectViewNone.getUnlockDelay();
         }
         Log.d(this.TAG, "mAdditionalUnlockView == null");
-        return this.f164n.getUnlockDelay();
+        return this.mEffectViewBase.getUnlockDelay();
     }
 
     /* renamed from: a */
@@ -158,7 +144,7 @@ public class SecCameraShortcut extends FrameLayout implements KeyguardSecurityCa
             this.f160j = new RotateAnimation(f3, f2, 1, 0.5f, 1, 0.5f);
             this.f160j.setDuration(300L);
             this.f160j.setFillAfter(true);
-            this.f153c.startAnimation(this.f160j);
+            this.cameraStatus.startAnimation(this.f160j);
             this.f154d = f;
         }
     }
@@ -201,9 +187,9 @@ public class SecCameraShortcut extends FrameLayout implements KeyguardSecurityCa
     @Override // android.view.View
     protected void onFinishInflate() {
         super.onFinishInflate();
-        this.f159i = (PowerManager) this.f166p.getSystemService(Context.POWER_SERVICE);
+        this.f159i = (PowerManager) this.mContext.getSystemService(Context.POWER_SERVICE);
         this.f151a = (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-        this.f153c = (ImageView) findViewById(R.id.camera_button);
+        this.cameraStatus = (ImageView) findViewById(R.id.camera_button);
         this.f156f = (int) getContext().getResources().getDimension(R.dimen.keyguard_lockscreen_first_border);
         this.f161k = (int) getContext().getResources().getDimension(R.dimen.keyguard_lockscreen_second_border);
     }
@@ -233,7 +219,7 @@ public class SecCameraShortcut extends FrameLayout implements KeyguardSecurityCa
                 this.f162l = x;
                 this.f163m = y;
                 this.f155e = 0.0d;
-                this.f153c.setImageResource(R.drawable.camera_press);
+                this.cameraStatus.setImageResource(R.drawable.camera_press);
                 break;
             case 1:
             case 3:
@@ -249,11 +235,11 @@ public class SecCameraShortcut extends FrameLayout implements KeyguardSecurityCa
                         @Override // java.lang.Runnable
                         public void run() {
                             SecCameraShortcut.this.m116a();
-                            SecCameraShortcut.this.f153c.setImageResource(R.drawable.camera_default);
+                            SecCameraShortcut.this.cameraStatus.setImageResource(R.drawable.camera_default);
                         }
-                    }, this.f164n.getUnlockDelay());
+                    }, this.mEffectViewBase.getUnlockDelay());
                 }
-                this.f153c.setImageResource(R.drawable.camera_default);
+                this.cameraStatus.setImageResource(R.drawable.camera_default);
                 break;
             case 2:
                 this.f155e = Math.sqrt(Math.pow((int) (y - this.f163m), 2.0d) + Math.pow((int) (x - this.f162l), 2.0d));
@@ -269,21 +255,21 @@ public class SecCameraShortcut extends FrameLayout implements KeyguardSecurityCa
                         @Override // java.lang.Runnable
                         public void run() {
                             SecCameraShortcut.this.m116a();
-                            SecCameraShortcut.this.f153c.setImageResource(R.drawable.camera_default);
+                            SecCameraShortcut.this.cameraStatus.setImageResource(R.drawable.camera_default);
                         }
-                    }, this.f164n.getUnlockDelay());
+                    }, this.mEffectViewBase.getUnlockDelay());
                 }
                 if (getHeight() / 2 >= this.f155e) {
-                    this.f153c.setImageResource(R.drawable.camera_press);
+                    this.cameraStatus.setImageResource(R.drawable.camera_press);
                     break;
                 } else {
-                    this.f153c.setImageResource(R.drawable.camera_swipe);
+                    this.cameraStatus.setImageResource(R.drawable.camera_swipe);
                     break;
                 }
         }
         setTag("ShortcutWidget");
         try {
-            m114a(this.f153c, motionEvent);
+            m114a(this.cameraStatus, motionEvent);
         } catch (Settings.SettingNotFoundException e) {
             e.printStackTrace();
         }
@@ -291,14 +277,14 @@ public class SecCameraShortcut extends FrameLayout implements KeyguardSecurityCa
     }
 
     public void setAdditionalUnlockView(KeyguardEffectViewNone cVar) {
-        this.f165o = cVar;
+        this.mEffectViewNone = cVar;
     }
 
     public void setLockscreen(Lockscreen lockscreen) {
-        this.f167q = lockscreen;
+        this.mLockscreen = lockscreen;
     }
 
     public void setUnlockView(KeyguardEffectViewBase eVar) {
-        this.f164n = eVar;
+        this.mEffectViewBase = eVar;
     }
 }

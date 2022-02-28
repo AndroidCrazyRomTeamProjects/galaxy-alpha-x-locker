@@ -23,6 +23,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.galaxytheme.brilliantring.R;
+import com.xlocker.core.sdk.GlobalIntent;
 import com.xlocker.core.sdk.ILockscreenCallback;
 import com.xlocker.core.sdk.KeyguardSecurityCallback;
 import com.xlocker.core.sdk.Lockscreen;
@@ -42,18 +43,18 @@ public class ThemeMainActivity extends Activity implements DialogInterface.OnCan
     View f285b;
 
     /* renamed from: c */
-    AlertDialogC0073a f286c;
+    DownloadDialog f286c;
 
     /* renamed from: e */
     private Object f287e;
 
     /* renamed from: com.xlocker.support.ThemeMainActivity$a */
     /* loaded from: classes.dex */
-    class AlertDialogC0073a extends AlertDialog implements View.OnClickListener {
+    class DownloadDialog extends AlertDialog implements View.OnClickListener {
 
         private Context mContext;
 
-        public AlertDialogC0073a(Context context) {
+        public DownloadDialog(Context context) {
             super(context);
             this.mContext = context;
         }
@@ -165,7 +166,7 @@ public class ThemeMainActivity extends Activity implements DialogInterface.OnCan
     @Override // android.app.Activity
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.f286c = new AlertDialogC0073a(this);
+        this.f286c = new DownloadDialog(this);
         this.f286c.setOnCancelListener(this);
         if (!m27a(this, getString(R.string.locker_app_package))) {
             GetLockscreenClass();
@@ -184,8 +185,8 @@ public class ThemeMainActivity extends Activity implements DialogInterface.OnCan
             this.f286c.show();
             return;
         }
-        Intent intent = new Intent("com.xlocker.intent.action.THEME_DETAIL");
-        intent.putExtra("com.xlocker.intent.extra.THEME_PACKAGE", getPackageName());
+        Intent intent = new Intent(GlobalIntent.ACTION_THEME_DETAIL);
+        intent.putExtra(GlobalIntent.EXTRA_THEME_PACKAGE, getPackageName());
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);

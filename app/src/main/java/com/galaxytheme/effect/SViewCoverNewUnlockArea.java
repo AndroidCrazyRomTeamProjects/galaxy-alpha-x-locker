@@ -64,9 +64,7 @@ public class SViewCoverNewUnlockArea extends FrameLayout {
 
     /* renamed from: o */
     private int f45o;
-
-    /* renamed from: p */
-    private SViewCoverUnlockCircleEffect f46p;
+    private SViewCoverUnlockCircleEffect mSViewCoverUnlockCircleEffect;
 
     /* renamed from: q */
     private float f47q;
@@ -135,7 +133,7 @@ public class SViewCoverNewUnlockArea extends FrameLayout {
     @SuppressLint("LongLogTag")
     public SViewCoverNewUnlockArea(Context context, int i, int i2, int i3, int[] iArr, int i4) {
         super(context);
-        Log.d("VisualEffectCircleUnlockEffect", "Constructor");
+        Log.d(TAG, "Constructor");
         this.mContext = context;
         this.f45o = i4;
         this.f54x = i;
@@ -147,12 +145,12 @@ public class SViewCoverNewUnlockArea extends FrameLayout {
         this.f53w = this.f54x / 2;
         this.f23I = iArr;
         this.f24J = iArr.length;
-        Log.d("VisualEffectCircleUnlockEffect", "arrowImageId = " + i4);
-        Log.d("VisualEffectCircleUnlockEffect", "circleUnlockMaxWidth = " + this.f54x);
-        Log.d("VisualEffectCircleUnlockEffect", "circleUnlockMinWidth = " + this.f56z);
-        Log.d("VisualEffectCircleUnlockEffect", "outerStrokeWidth = " + i2);
-        Log.d("VisualEffectCircleUnlockEffect", "innerStrokeWidth = " + i3);
-        Log.d("VisualEffectCircleUnlockEffect", "lockSequenceTotal = " + this.f24J);
+        Log.d(TAG, "arrowImageId = " + i4);
+        Log.d(TAG, "circleUnlockMaxWidth = " + this.f54x);
+        Log.d(TAG, "circleUnlockMinWidth = " + this.f56z);
+        Log.d(TAG, "outerStrokeWidth = " + i2);
+        Log.d(TAG, "innerStrokeWidth = " + i3);
+        Log.d(TAG, "lockSequenceTotal = " + this.f24J);
         m163g();
         setAllAnimator();
     }
@@ -180,7 +178,7 @@ public class SViewCoverNewUnlockArea extends FrameLayout {
             this.circleAnimationMin = 0.0f;
             this.f47q = 1.0f;
             this.f42l = 1.0f;
-            this.f46p.dragAnimationUpdate(this.f16B);
+            this.mSViewCoverUnlockCircleEffect.dragAnimationUpdate(this.f16B);
             setImageInLockImageView(this.f16B);
             this.f41k.setAlpha(1.0f);
             m188a(f, f2);
@@ -285,7 +283,7 @@ public class SViewCoverNewUnlockArea extends FrameLayout {
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 SViewCoverNewUnlockArea.this.strokeAnimationValue = (((Float) valueAnimator.getAnimatedValue()).floatValue() * (1.0f - SViewCoverNewUnlockArea.this.circleAnimationMin)) + SViewCoverNewUnlockArea.this.circleAnimationMin;
                 SViewCoverNewUnlockArea.this.mCameraCircleEffect(SViewCoverNewUnlockArea.this.mFrameLayout, SViewCoverNewUnlockArea.this.strokeAnimationValue);
-                SViewCoverNewUnlockArea.this.f46p.strokeAnimationUpdate(SViewCoverNewUnlockArea.this.strokeAnimationValue);
+                SViewCoverNewUnlockArea.this.mSViewCoverUnlockCircleEffect.strokeAnimationUpdate(SViewCoverNewUnlockArea.this.strokeAnimationValue);
             }
         });
         this.mCameraCircleOutAnimator = ValueAnimator.ofFloat(1.0f, 0.0f);
@@ -296,8 +294,8 @@ public class SViewCoverNewUnlockArea extends FrameLayout {
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
                 SViewCoverNewUnlockArea.this.strokeAnimationValue = SViewCoverNewUnlockArea.this.f47q * floatValue;
                 SViewCoverNewUnlockArea.this.f16B = SViewCoverNewUnlockArea.this.f17C * floatValue;
-                SViewCoverNewUnlockArea.this.f46p.strokeAnimationUpdate(SViewCoverNewUnlockArea.this.strokeAnimationValue);
-                SViewCoverNewUnlockArea.this.f46p.dragAnimationUpdate(SViewCoverNewUnlockArea.this.f16B);
+                SViewCoverNewUnlockArea.this.mSViewCoverUnlockCircleEffect.strokeAnimationUpdate(SViewCoverNewUnlockArea.this.strokeAnimationValue);
+                SViewCoverNewUnlockArea.this.mSViewCoverUnlockCircleEffect.dragAnimationUpdate(SViewCoverNewUnlockArea.this.f16B);
                 SViewCoverNewUnlockArea.this.setImageInLockImageView(SViewCoverNewUnlockArea.this.f16B);
                 SViewCoverNewUnlockArea.this.mCameraCircleEffect(SViewCoverNewUnlockArea.this.mFrameLayout, SViewCoverNewUnlockArea.this.strokeAnimationValue);
                 if (floatValue > 0.4f) {
@@ -368,8 +366,8 @@ public class SViewCoverNewUnlockArea extends FrameLayout {
         this.mFrameLayout.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
         addView(this.mFrameLayout, this.f54x, this.f52v);
         mCameraCircleEffect(this.mFrameLayout, 0.0f);
-        this.f46p = new SViewCoverUnlockCircleEffect(this.mContext, this.f54x, this.f56z, this.f26L, this.f18D);
-        this.mFrameLayout.addView(this.f46p);
+        this.mSViewCoverUnlockCircleEffect = new SViewCoverUnlockCircleEffect(this.mContext, this.f54x, this.f56z, this.f26L, this.f18D);
+        this.mFrameLayout.addView(this.mSViewCoverUnlockCircleEffect);
         this.f41k = new ImageView(this.mContext);
         this.f41k.setImageResource(this.f45o);
         this.mFrameLayout.addView(this.f41k, -2, -2);
@@ -394,9 +392,9 @@ public class SViewCoverNewUnlockArea extends FrameLayout {
     public void m189a() {
         mCameraCircleEffect(this.f22H, 1.0f);
         this.f20F = false;
-        if (this.f46p != null) {
-            this.f46p.setIsForShortcut(this.f20F);
-            this.f46p.setCircleMinWidth(this.f56z);
+        if (this.mSViewCoverUnlockCircleEffect != null) {
+            this.mSViewCoverUnlockCircleEffect.setIsForShortcut(this.f20F);
+            this.mSViewCoverUnlockCircleEffect.setCircleMinWidth(this.f56z);
         }
     }
 
@@ -404,9 +402,9 @@ public class SViewCoverNewUnlockArea extends FrameLayout {
     public void m187a(int i) {
         mCameraCircleEffect(this.f22H, 0.0f);
         this.f20F = true;
-        if (this.f46p != null) {
-            this.f46p.setIsForShortcut(this.f20F);
-            this.f46p.setCircleMinWidth(i - 4);
+        if (this.mSViewCoverUnlockCircleEffect != null) {
+            this.mSViewCoverUnlockCircleEffect.setIsForShortcut(this.f20F);
+            this.mSViewCoverUnlockCircleEffect.setCircleMinWidth(i - 4);
         }
     }
 
@@ -455,7 +453,7 @@ public class SViewCoverNewUnlockArea extends FrameLayout {
                 sqrt = 1.0f;
             }
             this.f16B = sqrt;
-            this.f46p.dragAnimationUpdate(this.f16B);
+            this.mSViewCoverUnlockCircleEffect.dragAnimationUpdate(this.f16B);
             setImageInLockImageView(this.f16B);
         } else if (motionEvent.getActionMasked() == 1 || motionEvent.getActionMasked() == 3) {
             cancelAllAnimator();
@@ -474,8 +472,8 @@ public class SViewCoverNewUnlockArea extends FrameLayout {
         this.f43m = false;
         mCameraCircleEffect(this.mFrameLayout, 0.0f);
         cancelAllAnimator();
-        if (this.f46p != null) {
-            this.f46p.dragAnimationUpdate(0.0f);
+        if (this.mSViewCoverUnlockCircleEffect != null) {
+            this.mSViewCoverUnlockCircleEffect.dragAnimationUpdate(0.0f);
         }
     }
 

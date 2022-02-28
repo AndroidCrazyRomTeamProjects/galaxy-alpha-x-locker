@@ -19,21 +19,13 @@ import com.xlocker.core.sdk.LogUtil;
 
 /* loaded from: classes.dex */
 public class KeyguardUnlockView extends FrameLayout implements KeyguardSecurityView, KeyguardSecurityCallback.OnSecurityResult {
-
-    /* renamed from: a */
     protected KeyguardEffectViewBase mUnlockView;
 
     /* renamed from: b */
     protected ImageView f139b;
-
-    /* renamed from: c */
-    protected WallpaperSurfaceView f140c;
-
-    /* renamed from: d */
-    protected GalaxyLockscreen f141d;
-
-    /* renamed from: e */
-    protected Context f142e;
+    protected WallpaperSurfaceView mWallpaperSurfaceView;
+    protected GalaxyLockscreen mGalaxyLockscreen;
+    protected Context mContext;
 
     /* renamed from: f */
     private View f143f;
@@ -66,7 +58,7 @@ public class KeyguardUnlockView extends FrameLayout implements KeyguardSecurityV
 
     public KeyguardUnlockView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f142e = context;
+        this.mContext = context;
         this.f148k = (int) context.getResources().getDimension(R.dimen.keyguard_lockscreen_first_border);
         this.f149l = (int) context.getResources().getDimension(R.dimen.keyguard_lockscreen_second_border);
     }
@@ -88,7 +80,7 @@ public class KeyguardUnlockView extends FrameLayout implements KeyguardSecurityV
             @Override // java.lang.Runnable
             public void run() {
                 LogUtil.i("KeyguardUnlockView", "finish, this = " + KeyguardUnlockView.this);
-                KeyguardUnlockView.this.f141d.authenticate(true, KeyguardUnlockView.this);
+                KeyguardUnlockView.this.mGalaxyLockscreen.authenticate(true, KeyguardUnlockView.this);
             }
         }, getUnlockDelay());
     }
@@ -100,7 +92,7 @@ public class KeyguardUnlockView extends FrameLayout implements KeyguardSecurityV
 
     /* renamed from: a */
     public void m118a(GalaxyLockscreen aVar, ImageView imageView) {
-        this.f141d = aVar;
+        this.mGalaxyLockscreen = aVar;
         this.f139b = imageView;
     }
 
@@ -207,9 +199,9 @@ public class KeyguardUnlockView extends FrameLayout implements KeyguardSecurityV
     }
 
     public void setWindowInsets(Rect rect) {
-        LogUtil.i("draw", "KeyguardUnlockView, setWindowInsets, mWallpaperSurface = " + this.f140c);
-        if (this.f140c != null) {
-            this.f140c.setWindowInsets(rect);
+        LogUtil.i("draw", "KeyguardUnlockView, setWindowInsets, mWallpaperSurface = " + this.mWallpaperSurfaceView);
+        if (this.mWallpaperSurfaceView != null) {
+            this.mWallpaperSurfaceView.setWindowInsets(rect);
         }
     }
 }

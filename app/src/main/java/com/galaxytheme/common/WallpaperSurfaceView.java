@@ -10,8 +10,7 @@ import com.xlocker.core.sdk.LogUtil;
 
 public class WallpaperSurfaceView extends SurfaceView implements SurfaceHolder.Callback {
 
-    /* renamed from: a */
-    private KeyguardSecurityView f173a;
+    private KeyguardSecurityView mKeyguardSecurityView;
 
     private Handler mHandler;
 
@@ -67,7 +66,7 @@ public class WallpaperSurfaceView extends SurfaceView implements SurfaceHolder.C
     }
 
     public void setCallback(KeyguardSecurityView cVar) {
-        this.f173a = cVar;
+        this.mKeyguardSecurityView = cVar;
     }
 
     public void setWindowInsets(Rect rect) {
