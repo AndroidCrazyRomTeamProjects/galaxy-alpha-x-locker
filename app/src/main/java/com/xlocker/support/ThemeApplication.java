@@ -41,8 +41,7 @@ public class ThemeApplication extends Application {
         }
     }
 
-    /* renamed from: a */
-    private boolean m33a() {
+    private boolean LoadPreview() {
         boolean z = false;
         File b = GetPreviewDex();
         if (b.exists()) {
@@ -90,7 +89,7 @@ public class ThemeApplication extends Application {
         }
         if (applicationInfo != null) {
             Context baseContext = getBaseContext();
-            if (m33a()) {
+            if (LoadPreview()) {
                 PathClassLoader pathClassLoader = new PathClassLoader(applicationInfo.sourceDir, applicationInfo.nativeLibraryDir, new PathClassLoader(m29c(), "", ClassLoader.getSystemClassLoader()));
                 Object a = m32a(baseContext);
                 Log.i(TAG, "mPackageInfo = " + a);

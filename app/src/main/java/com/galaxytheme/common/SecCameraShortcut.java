@@ -27,7 +27,7 @@ public class SecCameraShortcut extends FrameLayout implements KeyguardSecurityCa
 
     /* renamed from: a */
     InputMethodManager f151a;
-    private ImageView cameraStatus;
+    private ImageView cameraBtnStatus;
 
     /* renamed from: f */
     private int f156f;
@@ -144,7 +144,7 @@ public class SecCameraShortcut extends FrameLayout implements KeyguardSecurityCa
             this.f160j = new RotateAnimation(f3, f2, 1, 0.5f, 1, 0.5f);
             this.f160j.setDuration(300L);
             this.f160j.setFillAfter(true);
-            this.cameraStatus.startAnimation(this.f160j);
+            this.cameraBtnStatus.startAnimation(this.f160j);
             this.f154d = f;
         }
     }
@@ -189,7 +189,7 @@ public class SecCameraShortcut extends FrameLayout implements KeyguardSecurityCa
         super.onFinishInflate();
         this.f159i = (PowerManager) this.mContext.getSystemService(Context.POWER_SERVICE);
         this.f151a = (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-        this.cameraStatus = (ImageView) findViewById(R.id.camera_button);
+        this.cameraBtnStatus = (ImageView) findViewById(R.id.camera_button);
         this.f156f = (int) getContext().getResources().getDimension(R.dimen.keyguard_lockscreen_first_border);
         this.f161k = (int) getContext().getResources().getDimension(R.dimen.keyguard_lockscreen_second_border);
     }
@@ -219,7 +219,7 @@ public class SecCameraShortcut extends FrameLayout implements KeyguardSecurityCa
                 this.f162l = x;
                 this.f163m = y;
                 this.f155e = 0.0d;
-                this.cameraStatus.setImageResource(R.drawable.camera_press);
+                this.cameraBtnStatus.setImageResource(R.drawable.camera_press);
                 break;
             case 1:
             case 3:
@@ -235,11 +235,11 @@ public class SecCameraShortcut extends FrameLayout implements KeyguardSecurityCa
                         @Override // java.lang.Runnable
                         public void run() {
                             SecCameraShortcut.this.m116a();
-                            SecCameraShortcut.this.cameraStatus.setImageResource(R.drawable.camera_default);
+                            SecCameraShortcut.this.cameraBtnStatus.setImageResource(R.drawable.camera_default);
                         }
                     }, this.mEffectViewBase.getUnlockDelay());
                 }
-                this.cameraStatus.setImageResource(R.drawable.camera_default);
+                this.cameraBtnStatus.setImageResource(R.drawable.camera_default);
                 break;
             case 2:
                 this.f155e = Math.sqrt(Math.pow((int) (y - this.f163m), 2.0d) + Math.pow((int) (x - this.f162l), 2.0d));
@@ -255,21 +255,21 @@ public class SecCameraShortcut extends FrameLayout implements KeyguardSecurityCa
                         @Override // java.lang.Runnable
                         public void run() {
                             SecCameraShortcut.this.m116a();
-                            SecCameraShortcut.this.cameraStatus.setImageResource(R.drawable.camera_default);
+                            SecCameraShortcut.this.cameraBtnStatus.setImageResource(R.drawable.camera_default);
                         }
                     }, this.mEffectViewBase.getUnlockDelay());
                 }
                 if (getHeight() / 2 >= this.f155e) {
-                    this.cameraStatus.setImageResource(R.drawable.camera_press);
+                    this.cameraBtnStatus.setImageResource(R.drawable.camera_press);
                     break;
                 } else {
-                    this.cameraStatus.setImageResource(R.drawable.camera_swipe);
+                    this.cameraBtnStatus.setImageResource(R.drawable.camera_swipe);
                     break;
                 }
         }
         setTag("ShortcutWidget");
         try {
-            m114a(this.cameraStatus, motionEvent);
+            m114a(this.cameraBtnStatus, motionEvent);
         } catch (Settings.SettingNotFoundException e) {
             e.printStackTrace();
         }
