@@ -44,5 +44,5 @@
     <string name="abbrev_wday_month_day_no_year">EEE, MMMM d</string>
     <string name="default_clock_size_factor">1</string>
     <string name="default_date_size_factor">1</string>
-    <string name="locker_app_package">com.xlocker.host</string>
+    <string name="locker_app_package" translatable="false">com.xlocker.host</string>
 </resources>
