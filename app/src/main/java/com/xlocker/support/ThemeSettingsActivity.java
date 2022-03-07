@@ -18,7 +18,7 @@ public class ThemeSettingsActivity extends Activity {
                 Fragment instantiate = Fragment.instantiate(this, applicationInfo.metaData.getString("com.xlocker.theme.settings"), bundle);
                 FragmentTransaction beginTransaction = getFragmentManager().beginTransaction();
                 beginTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-                beginTransaction.replace(16908290, instantiate);
+                beginTransaction.replace(android.R.id.content, instantiate);
                 beginTransaction.commitAllowingStateLoss();
             }
         } catch (Exception e) {

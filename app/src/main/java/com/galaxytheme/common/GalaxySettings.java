@@ -1,6 +1,5 @@
 package com.galaxytheme.common;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -90,9 +89,8 @@ public class GalaxySettings extends PreferenceFragment implements Preference.OnP
         }
     }
 
-    @SuppressLint("WrongConstant")
     public static int getClockAlign(Context context) {
-        return context.getSharedPreferences(SP_NAME, 7).getInt("clock_align", 1);
+        return context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE).getInt("clock_align", 1);
     }
 
     public static Typeface getClockFont(Context context) {
@@ -148,44 +146,36 @@ public class GalaxySettings extends PreferenceFragment implements Preference.OnP
         }
     }
 
-    @SuppressLint("WrongConstant")
     public static float getClockSize(Context context) {
-        return context.getSharedPreferences(SP_NAME, 7).getFloat("clock_size", 1.0f);
+        return context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE).getFloat("clock_size", 1.0f);
     }
 
-    @SuppressLint("WrongConstant")
     private static String getCustomClockFontPath(Context context) {
-        return context.getSharedPreferences(SP_NAME, 7).getString(SP_KEY_LOCKSCREEN_CLOCK_FONT_PATH, null);
+        return context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE).getString(SP_KEY_LOCKSCREEN_CLOCK_FONT_PATH, null);
     }
 
-    @SuppressLint("WrongConstant")
     private static String getCustomTypeFacePath(Context context) {
-        return context.getSharedPreferences(SP_NAME, 7).getString(SP_KEY_LOCKSCREEN_FONT_PATH, null);
+        return context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE).getString(SP_KEY_LOCKSCREEN_FONT_PATH, null);
     }
 
-    @SuppressLint("WrongConstant")
     public static float getFontSize(Context context) {
-        return context.getSharedPreferences(SP_NAME, 7).getFloat("myprofile_size", 1.0f);
+        return context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE).getFloat("myprofile_size", 1.0f);
     }
 
-    @SuppressLint("WrongConstant")
     public static int getLockscreenClockFontType(Context context) {
-        return context.getSharedPreferences(SP_NAME, 7).getInt("clock_font", 1);
+        return context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE).getInt("clock_font", 1);
     }
 
-    @SuppressLint("WrongConstant")
     public static int getLockscreenFontStyleType(Context context) {
-        return context.getSharedPreferences(SP_NAME, 7).getInt("myprofile_font", 2);
+        return context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE).getInt("myprofile_font", 2);
     }
 
-    @SuppressLint("WrongConstant")
     public static int getMyprofileAlign(Context context) {
-        return context.getSharedPreferences(SP_NAME, 7).getInt("myprofile_align", 1);
+        return context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE).getInt("myprofile_align", 1);
     }
 
-    @SuppressLint("WrongConstant")
     public static String getProfile(Context context) {
-        return context.getSharedPreferences(SP_NAME, 7).getString("edit_profile", context.getString(R.string.keyguard_status_view_myprofile));
+        return context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE).getString("edit_profile", context.getString(R.string.keyguard_status_view_myprofile));
     }
 
     public static Typeface getTypeface(Context context) {
@@ -259,89 +249,86 @@ public class GalaxySettings extends PreferenceFragment implements Preference.OnP
         this.mPreferenceHelpText.setOnPreferenceChangeListener(this);
     }
 
-    @SuppressLint("WrongConstant")
     public static boolean isEnableProfile(Context context) {
-        return context.getSharedPreferences(SP_NAME, 7).getBoolean("enable_profile", context.getResources().getBoolean(R.bool.default_enable_profile));
+        return context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE).getBoolean("enable_profile", context.getResources().getBoolean(R.bool.default_enable_profile));
     }
 
-    @SuppressLint("WrongConstant")
     public static boolean isShowCameraShortcut(Context context) {
-        return context.getSharedPreferences(SP_NAME, 7).getBoolean("enable_camera_shortcut", context.getResources().getBoolean(R.bool.default_enable_camera));
+        return context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE).getBoolean("enable_camera_shortcut", context.getResources().getBoolean(R.bool.default_enable_camera));
     }
 
-    @SuppressLint("WrongConstant")
     public static boolean isShowHelpText(Context context) {
-        return context.getSharedPreferences(SP_NAME, 7).getBoolean("help_text", context.getResources().getBoolean(R.bool.default_show_help_text));
+        return context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE).getBoolean("help_text", context.getResources().getBoolean(R.bool.default_show_help_text));
     }
 
     private void setClockAlign(int i) {
-        @SuppressLint("WrongConstant") SharedPreferences.Editor edit = getActivity().getSharedPreferences(SP_NAME, 7).edit();
+        SharedPreferences.Editor edit = getActivity().getSharedPreferences(SP_NAME, Context.MODE_PRIVATE).edit();
         edit.putInt("clock_align", i);
         edit.commit();
     }
 
     private void setClockSize(float f) {
-        @SuppressLint("WrongConstant") SharedPreferences.Editor edit = getActivity().getSharedPreferences(SP_NAME, 7).edit();
+        SharedPreferences.Editor edit = getActivity().getSharedPreferences(SP_NAME, Context.MODE_PRIVATE).edit();
         edit.putFloat("clock_size", f);
         edit.commit();
     }
 
     private void setCustomClockFontPath(String str) {
-        @SuppressLint("WrongConstant") SharedPreferences.Editor edit = getActivity().getSharedPreferences(SP_NAME, 7).edit();
+        SharedPreferences.Editor edit = getActivity().getSharedPreferences(SP_NAME, Context.MODE_PRIVATE).edit();
         edit.putString(SP_KEY_LOCKSCREEN_CLOCK_FONT_PATH, str);
         edit.commit();
     }
 
     private void setCustomTypeFacePath(String str) {
-        @SuppressLint("WrongConstant") SharedPreferences.Editor edit = getActivity().getSharedPreferences(SP_NAME, 7).edit();
+        SharedPreferences.Editor edit = getActivity().getSharedPreferences(SP_NAME, Context.MODE_PRIVATE).edit();
         edit.putString(SP_KEY_LOCKSCREEN_FONT_PATH, str);
         edit.commit();
     }
 
     private void setEnableProfile(boolean z) {
-        @SuppressLint("WrongConstant") SharedPreferences.Editor edit = getActivity().getSharedPreferences(SP_NAME, 7).edit();
+        SharedPreferences.Editor edit = getActivity().getSharedPreferences(SP_NAME, Context.MODE_PRIVATE).edit();
         edit.putBoolean("enable_profile", z);
         edit.commit();
     }
 
     private void setFontSize(float f) {
-        @SuppressLint("WrongConstant") SharedPreferences.Editor edit = getActivity().getSharedPreferences(SP_NAME, 7).edit();
+        SharedPreferences.Editor edit = getActivity().getSharedPreferences(SP_NAME, Context.MODE_PRIVATE).edit();
         edit.putFloat("myprofile_size", f);
         edit.commit();
     }
 
     private void setLockscreenClockFontType(int i) {
-        @SuppressLint("WrongConstant") SharedPreferences.Editor edit = getActivity().getSharedPreferences(SP_NAME, 7).edit();
+        SharedPreferences.Editor edit = getActivity().getSharedPreferences(SP_NAME, Context.MODE_PRIVATE).edit();
         edit.putInt("clock_font", i);
         edit.commit();
     }
 
     private void setLockscreenFontStyleType(int i) {
-        @SuppressLint("WrongConstant") SharedPreferences.Editor edit = getActivity().getSharedPreferences(SP_NAME, 7).edit();
+        SharedPreferences.Editor edit = getActivity().getSharedPreferences(SP_NAME, Context.MODE_PRIVATE).edit();
         edit.putInt("myprofile_font", i);
         edit.commit();
     }
 
     private void setMyprofileAlign(int i) {
-        @SuppressLint("WrongConstant") SharedPreferences.Editor edit = getActivity().getSharedPreferences(SP_NAME, 7).edit();
+        SharedPreferences.Editor edit = getActivity().getSharedPreferences(SP_NAME, Context.MODE_PRIVATE).edit();
         edit.putInt("myprofile_align", i);
         edit.commit();
     }
 
     private void setProfile(String str) {
-        @SuppressLint("WrongConstant") SharedPreferences.Editor edit = getActivity().getSharedPreferences(SP_NAME, 7).edit();
+        SharedPreferences.Editor edit = getActivity().getSharedPreferences(SP_NAME, Context.MODE_PRIVATE).edit();
         edit.putString("edit_profile", str);
         edit.commit();
     }
 
     private void setShowCameraShortcut(boolean z) {
-        @SuppressLint("WrongConstant") SharedPreferences.Editor edit = getActivity().getSharedPreferences(SP_NAME, 7).edit();
+        SharedPreferences.Editor edit = getActivity().getSharedPreferences(SP_NAME, Context.MODE_PRIVATE).edit();
         edit.putBoolean("enable_camera_shortcut", z);
         edit.commit();
     }
 
     private void setShowHelpText(boolean z) {
-        @SuppressLint("WrongConstant") SharedPreferences.Editor edit = getActivity().getSharedPreferences(SP_NAME, 7).edit();
+        SharedPreferences.Editor edit = getActivity().getSharedPreferences(SP_NAME, Context.MODE_PRIVATE).edit();
         edit.putBoolean("help_text", z);
         edit.commit();
     }
