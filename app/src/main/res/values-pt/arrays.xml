@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <array name="clock_font_entries">
+    <string-array name="clock_font_entries">
         <item>pre-defenido</item>
         <item>cooljazz</item>
         <item>personalizar</item>
-    </array>
-    <array name="clock_size_entries">
+    </string-array>
+    <string-array name="clock_size_entries">
         <item>pequeno</item>
         <item>normal</item>
         <item>grande</item>
-    </array>
-    <array name="myprofile_font_entries">
+    </string-array>
+    <string-array name="myprofile_font_entries">
         <item>cooljazz</item>
         <item>personalizar</item>
-    </array>
-    <array name="myprofile_size_entries">
+    </string-array>
+    <string-array name="myprofile_size_entries">
         <item>pequeno</item>
         <item>normal</item>
         <item>grande</item>
-    </array>
+    </string-array>
 </resources>

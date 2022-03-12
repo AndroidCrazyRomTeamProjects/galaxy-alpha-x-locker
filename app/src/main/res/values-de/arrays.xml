@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <array name="clock_align_entries">
+    <string-array name="clock_align_entries">
         <item>Links</item>
         <item>Mittig</item>
         <item>Rechts</item>
-    </array>
-    <array name="clock_font_entries">
+    </string-array>
+    <string-array name="clock_font_entries">
         <item>Standard</item>
         <item>Cooljazz</item>
         <item>Ändern</item>
-    </array>
-    <array name="clock_size_entries">
+    </string-array>
+    <string-array name="clock_size_entries">
         <item>klein</item>
         <item>normal</item>
         <item>groß</item>
-    </array>
-    <array name="myprofile_align_entries">
+    </string-array>
+    <string-array name="myprofile_align_entries">
         <item>Links</item>
         <item>Mittig</item>
         <item>Rechts</item>
-    </array>
-    <array name="myprofile_font_entries">
+    </string-array>
+    <string-array name="myprofile_font_entries">
         <item>Cooljazz</item>
         <item>Ändern</item>
-    </array>
-    <array name="myprofile_size_entries">
+    </string-array>
+    <string-array name="myprofile_size_entries">
         <item>klein</item>
         <item>normal</item>
         <item>groß</item>
-    </array>
+    </string-array>
 </resources>
