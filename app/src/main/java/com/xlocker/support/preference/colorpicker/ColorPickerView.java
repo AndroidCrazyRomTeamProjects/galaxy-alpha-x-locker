@@ -296,7 +296,7 @@ public class ColorPickerView extends View {
         this.f320n.setColor(this.f331y);
         canvas.drawRect(rectF.left - 1.0f, rectF.top - 1.0f, rectF.right + 1.0f, 1.0f + rectF.bottom, this.f320n);
         if (this.f323q == null) {
-            this.f323q = new LinearGradient(rectF.left, rectF.top, rectF.left, rectF.bottom, m5d(), (float[]) null, Shader.TileMode.CLAMP);
+            this.f323q = new LinearGradient(rectF.left, rectF.top, rectF.left, rectF.bottom, m5d(), null, Shader.TileMode.CLAMP);
             this.f316j.setShader(this.f323q);
         }
         canvas.drawRect(rectF, this.f316j);
@@ -342,7 +342,7 @@ public class ColorPickerView extends View {
             this.f324r = new LinearGradient(rectF.left, rectF.top, rectF.right, rectF.top, Color.HSVToColor(fArr), Color.HSVToColor(0, fArr), Shader.TileMode.CLAMP);
             this.f318l.setShader(this.f324r);
             canvas.drawRect(rectF, this.f318l);
-            if (!(this.f329w == null || this.f329w == "")) {
+            if (!(this.f329w == null || this.f329w.equals(""))) {
                 canvas.drawText(this.f329w, rectF.centerX(), rectF.centerY() + (this.f312f * 4.0f), this.f319m);
             }
             float f = (this.f312f * 4.0f) / 2.0f;

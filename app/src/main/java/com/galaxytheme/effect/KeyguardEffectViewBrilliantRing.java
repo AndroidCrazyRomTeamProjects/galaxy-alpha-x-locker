@@ -158,7 +158,7 @@ public class KeyguardEffectViewBrilliantRing extends EffectView implements Keygu
         LogUtil.i(TAG, "showUnlockAffordance");
         this.isUnlocked = false;
         HashMap<String, Long> hashMap = new HashMap<>();
-        hashMap.put("StartDelay", Long.valueOf(startDelay));
+        hashMap.put("StartDelay", startDelay);
         HashMap<String, Rect> hashMap2 = new HashMap<>();
         hashMap2.put("Rect", rect);
         handleCustomEvent(1, hashMap);
@@ -234,7 +234,7 @@ public class KeyguardEffectViewBrilliantRing extends EffectView implements Keygu
     @Override // com.galaxytheme.effect.KeyguardEffectViewBase
     public void handleUnlock(View view, MotionEvent motionEvent) throws Settings.SettingNotFoundException {
         LogUtil.i(TAG, "handleUnlock");
-        handleCustomEvent(2, (HashMap<?, ?>) null);
+        handleCustomEvent(2, null);
         this.isUnlocked = true;
         this.dragSoudMinusOffset = 0.059f;
         playSound(2);

@@ -7,7 +7,6 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 
-/* loaded from: classes.dex */
 public class ThemeSettingsActivity extends Activity {
     @Override // android.app.Activity
     protected void onCreate(Bundle bundle) {

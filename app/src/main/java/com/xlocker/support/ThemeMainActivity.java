@@ -72,11 +72,11 @@ public class ThemeMainActivity extends Activity implements DialogInterface.OnCan
         @Override // android.app.AlertDialog, android.app.Dialog
         protected void onCreate(Bundle bundle) {
             super.onCreate(bundle);
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.mContext).inflate(R.layout.download_dialog, (ViewGroup) null);
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.mContext).inflate(R.layout.download_dialog, null);
             setContentView(linearLayout);
             String string = ThemeMainActivity.this.getString(R.string.locker_app_name);
             ((TextView) linearLayout.findViewById(R.id.message)).setText(ThemeMainActivity.this.getString(R.string.need_locker_app, new Object[]{string, string}));
-            ((Button) linearLayout.findViewById(R.id.ok)).setOnClickListener(this);
+            (linearLayout.findViewById(R.id.ok)).setOnClickListener(this);
         }
     }
 

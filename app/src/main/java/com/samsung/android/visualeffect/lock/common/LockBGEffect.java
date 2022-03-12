@@ -44,7 +44,7 @@ public class LockBGEffect extends GLTextureView implements IEffectView {
                 if (cmd == 0) {
                     LockBGEffect.this.setBGBitmap((Bitmap) param.get("Bitmap"));
                 } else if (cmd == 1) {
-                    LockBGEffect.this.showAffordanceEffect(((Long) param.get("StartDelay")).longValue(), (Rect) param.get("Rect"));
+                    LockBGEffect.this.showAffordanceEffect((Long) param.get("StartDelay"), (Rect) param.get("Rect"));
                 } else if (cmd == 2) {
                     LogUtil.i("unlock", "lockBGEffect unlock");
                     LockBGEffect.this.showUnlockEffect();

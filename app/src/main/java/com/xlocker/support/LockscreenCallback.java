@@ -38,11 +38,11 @@ public class LockscreenCallback extends com.xlocker.core.sdk.LockscreenCallback 
     }
 
     public FrameLayout getForegroundLayer() {
-        return (FrameLayout) this.mActivity.findViewById(R.id.foreground_layer);
+        return this.mActivity.findViewById(R.id.foreground_layer);
     }
 
     public FrameLayout getHostView() {
-        return (FrameLayout) this.mActivity.findViewById(R.id.host_view);
+        return this.mActivity.findViewById(R.id.host_view);
     }
 
     public int getStatusBarHeight(Context context) {
@@ -54,7 +54,7 @@ public class LockscreenCallback extends com.xlocker.core.sdk.LockscreenCallback 
     }
 
     public FrameLayout getUnlockLayer() {
-        return (FrameLayout) this.mActivity.findViewById(R.id.unlock_layer);
+        return this.mActivity.findViewById(R.id.unlock_layer);
     }
 
     public View getWallpaperView() {

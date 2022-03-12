@@ -491,9 +491,9 @@ public class GalaxySettings extends PreferenceFragment implements Preference.OnP
                 }
             });
         } else if (this.mPreferenceCameraShortcut == preference) {
-            setShowCameraShortcut(((Boolean) obj).booleanValue());
+            setShowCameraShortcut((Boolean) obj);
         } else if (this.mPreferenceHelpText == preference) {
-            setShowHelpText(((Boolean) obj).booleanValue());
+            setShowHelpText((Boolean) obj);
         }
         return true;
     }

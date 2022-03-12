@@ -7,7 +7,6 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 
-/* loaded from: classes.dex */
 public class ColorPickerPanelView extends View {
 
     /* renamed from: a */

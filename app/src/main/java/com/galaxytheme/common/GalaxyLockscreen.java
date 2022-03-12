@@ -54,19 +54,19 @@ public abstract class GalaxyLockscreen extends Lockscreen {
 
     public void onActivityCreated() {
         GalaxyLockscreen.super.onActivityCreated();
-        View inflate = LayoutInflater.from(getThemeContext()).inflate(R.layout.galaxy_lockscreen, (ViewGroup) null);
+        View inflate = LayoutInflater.from(getThemeContext()).inflate(R.layout.galaxy_lockscreen, null);
         addHomePage(inflate);
         this.mGalaxyView = inflate;
-        setCameraWidget((ImageView) LayoutInflater.from(getThemeContext()).inflate(R.layout.galaxy_camera_widget, (ViewGroup) null), 84, 42, 84, 42);
+        setCameraWidget(LayoutInflater.from(getThemeContext()).inflate(R.layout.galaxy_camera_widget, null), 84, 42, 84, 42);
         this.mKeyguardUnlockView = getKeyguardUnlockView();
         getUnlockLayer().addView(this.mKeyguardUnlockView);
         this.mKeyguardUnlockView.m118a(this, (ImageView) getWallpaperView());
-        this.mKeyguardUnlockView.setFadeView((CarrierText) inflate.findViewById(R.id.carrier_text));
+        this.mKeyguardUnlockView.setFadeView(inflate.findViewById(R.id.carrier_text));
         Log.i("lockscreen", "GalaxyKeyguardShortcutView.classLoader = " + GalaxyKeyguardShortcutView.class.getClassLoader() + "@" + GalaxyKeyguardShortcutView.class.getClassLoader().hashCode() + ", view.classLoader = " + inflate.findViewById(R.id.keyguard_shortcutview).getClass().getClassLoader() + "@" + inflate.findViewById(R.id.keyguard_shortcutview).getClass().getClassLoader().hashCode());
-        this.mKeyguardShortcutView = (GalaxyKeyguardShortcutView) inflate.findViewById(R.id.keyguard_shortcutview);
+        this.mKeyguardShortcutView = inflate.findViewById(R.id.keyguard_shortcutview);
         this.mKeyguardShortcutView.setUnlockView(this.mKeyguardUnlockView);
         this.mKeyguardShortcutView.setRootContainer(getHostView());
-        ((TextView) inflate.findViewById(R.id.help_text)).setVisibility(GalaxySettings.isShowHelpText(getThemeContext()) ? View.VISIBLE : View.GONE);
+        ( inflate.findViewById(R.id.help_text)).setVisibility(GalaxySettings.isShowHelpText(getThemeContext()) ? View.VISIBLE : View.GONE);
         this.mUnLockView = createUnlockView();
         if (this.mUnLockView != null) {
             this.mUnLockView.reset();

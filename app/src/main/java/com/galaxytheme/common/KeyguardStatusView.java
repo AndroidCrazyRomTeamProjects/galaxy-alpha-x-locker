@@ -324,7 +324,7 @@ public class KeyguardStatusView extends GridLayout implements AdapterView.OnItem
         }
         this.f120d.setLayoutParams(layoutParams5);
         this.f119c.requestFocus();
-        m129a(false, (Rect) null);
+        m129a(false, null);
         View[] viewArr = {this.f119c, this.f120d};
         for (int i = 0; i < viewArr.length; i++) {
             View view = viewArr[i];

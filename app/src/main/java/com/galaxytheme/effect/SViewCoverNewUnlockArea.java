@@ -230,7 +230,7 @@ public class SViewCoverNewUnlockArea extends FrameLayout {
         int scrollY = top - view2.getScrollY();
         View view3 = view2;
         while (true) {
-            if (view3 != null && view3.getId() == this.mGalaxyLockscreen.getHostView().getId()) {
+            if (view3.getId() == this.mGalaxyLockscreen.getHostView().getId()) {
                 break;
             }
             int left2 = view3.getLeft() + scrollX;
@@ -424,7 +424,7 @@ public class SViewCoverNewUnlockArea extends FrameLayout {
         float y = motionEvent.getY();
         Point point = new Point();
         m181a(view, point);
-        if (view == null || !(view instanceof KeyguardShortcutView.ShortcutItem)) {
+        if (!(view instanceof KeyguardShortcutView.ShortcutItem)) {
             x += point.x;
             y += point.y;
         }

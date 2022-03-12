@@ -53,7 +53,7 @@ public class EffectView extends FrameLayout implements IEffectView {
         if (this.mView != null) {
             return this.mEffectType;
         }
-        LogUtil.d("EffectView", "getEffect : Current mView is " + ((Object) null));
+        LogUtil.d("EffectView", "getEffect : Current mView is " + ( null));
         return -1;
     }
 

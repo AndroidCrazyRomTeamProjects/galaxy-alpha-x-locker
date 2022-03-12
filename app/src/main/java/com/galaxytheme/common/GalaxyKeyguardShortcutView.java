@@ -15,7 +15,7 @@ public class GalaxyKeyguardShortcutView extends KeyguardShortcutView {
     private KeyguardUnlockView mUnlockView;
 
     public GalaxyKeyguardShortcutView(Context context) {
-        super(context, (AttributeSet) null);
+        super(context, null);
     }
 
     public GalaxyKeyguardShortcutView(Context context, AttributeSet attributeSet) {

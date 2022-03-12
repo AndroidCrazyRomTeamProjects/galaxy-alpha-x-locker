@@ -64,7 +64,7 @@ public class C0078a extends Drawable {
 
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        canvas.drawBitmap(this.f339g, (Rect) null, getBounds(), this.f334b);
+        canvas.drawBitmap(this.f339g, null, getBounds(), this.f334b);
     }
 
     @Override // android.graphics.drawable.Drawable
