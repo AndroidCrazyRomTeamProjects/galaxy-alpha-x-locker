@@ -22,7 +22,6 @@ import com.xlocker.core.sdk.KeyguardSecurityCallback;
 import com.xlocker.core.sdk.LockPatternUtils;
 import com.xlocker.core.sdk.Lockscreen;
 
-/* loaded from: classes.dex */
 public class SecCameraShortcut extends FrameLayout implements KeyguardSecurityCallback.OnSecurityResult {
 
     /* renamed from: a */

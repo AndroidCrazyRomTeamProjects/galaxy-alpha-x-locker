@@ -16,8 +16,6 @@ public class SViewCoverUnlockCircleEffect extends View {
     private int f11l;
     private Paint outStrokePaint;
     private int outerStrokeWidth;
-
-    /* renamed from: a */
     private final boolean ANIMATION_DEBUG = true;
     private final String TAG = "VisualEffectCircleUnlockEffect";
     private float fillAnimationValue = 0.0f;
@@ -54,7 +52,6 @@ public class SViewCoverUnlockCircleEffect extends View {
         this.fillStrokePaint.setStyle(Paint.Style.STROKE);
     }
 
-    /* renamed from: a */
     public void dragAnimationUpdate(float value) {
         this.fillAnimationValue = value;
         invalidate();

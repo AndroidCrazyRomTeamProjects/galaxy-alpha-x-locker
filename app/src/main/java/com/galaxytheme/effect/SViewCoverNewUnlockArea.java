@@ -17,8 +17,6 @@ import android.widget.ImageView;
 import com.galaxytheme.common.GalaxyLockscreen;
 import com.xlocker.core.sdk.widget.KeyguardShortcutView;
 
-/* renamed from: com.galaxytheme.a.b */
-/* loaded from: classes.dex */
 // seams to be an s view cover thing? basted on SViewCoverNewUnlockArea.java found on SystemUI
 public class SViewCoverNewUnlockArea extends FrameLayout {
 
@@ -49,10 +47,10 @@ public class SViewCoverNewUnlockArea extends FrameLayout {
     private GalaxyLockscreen mGalaxyLockscreen;
 
     /* renamed from: a */
-    float f31a;
+    float touchedEventX;
 
     /* renamed from: b */
-    float f32b;
+    float touchedEventY;
     /* renamed from: k */
     private ImageView f41k;
 
@@ -412,9 +410,9 @@ public class SViewCoverNewUnlockArea extends FrameLayout {
     @SuppressLint("LongLogTag")
     public void m184a(long j, Rect rect) {
         Log.d("VisualEffectCircleUnlockEffect", "showUnlockAffordance : " + rect.left + ", " + rect.right + ", " + rect.top + ", " + rect.bottom + ", startDelay : " + j);
-        this.f31a = rect.left + ((rect.right - rect.left) / 2.0f);
-        this.f32b = rect.top + ((rect.bottom - rect.top) / 2.0f);
-        m185a(j, this.f31a, this.f32b);
+        this.touchedEventX = rect.left + ((rect.right - rect.left) / 2.0f);
+        this.touchedEventY = rect.top + ((rect.bottom - rect.top) / 2.0f);
+        m185a(j, this.touchedEventX, this.touchedEventY);
     }
 
     /* renamed from: a */

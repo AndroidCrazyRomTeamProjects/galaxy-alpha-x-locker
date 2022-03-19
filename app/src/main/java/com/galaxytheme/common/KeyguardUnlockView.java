@@ -17,7 +17,6 @@ import com.galaxytheme.effect.KeyguardEffectViewBase;
 import com.xlocker.core.sdk.KeyguardSecurityCallback;
 import com.xlocker.core.sdk.LogUtil;
 
-/* loaded from: classes.dex */
 public class KeyguardUnlockView extends FrameLayout implements KeyguardSecurityView, KeyguardSecurityCallback.OnSecurityResult {
     protected KeyguardEffectViewBase mUnlockView;
 

@@ -67,7 +67,7 @@ public class KeyguardStatusView extends GridLayout implements AdapterView.OnItem
     private AbstractC0030a f126l;
 
     /* renamed from: m */
-    private BroadcastReceiver f127m;
+    private BroadcastReceiver mInfoCallback;
 
     /* renamed from: n */
     private ContentObserver f128n;
@@ -96,10 +96,9 @@ public class KeyguardStatusView extends GridLayout implements AdapterView.OnItem
     public interface AbstractC0031b {
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.galaxytheme.common.KeyguardStatusView$c */
     /* loaded from: classes.dex */
-    public static class C0032c {
+    private static class C0032c {
 
         /* renamed from: a */
         private int f135a;
@@ -125,12 +124,12 @@ public class KeyguardStatusView extends GridLayout implements AdapterView.OnItem
         this(context, attributeSet, 0);
     }
 
-    public KeyguardStatusView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.f127m = new BroadcastReceiver() { // from class: com.galaxytheme.common.KeyguardStatusView.1
+    public KeyguardStatusView(Context context, AttributeSet attributeSet, int defStyle) {
+        super(context, attributeSet, defStyle);
+        this.mInfoCallback = new BroadcastReceiver() { // from class: com.galaxytheme.common.KeyguardStatusView.1
             @Override // android.content.BroadcastReceiver
             public void onReceive(Context context2, Intent intent) {
-                KeyguardStatusView.this.m134a();
+                KeyguardStatusView.this.refresh();
             }
         };
         this.f128n = new ContentObserver(new Handler()) { // from class: com.galaxytheme.common.KeyguardStatusView.2
@@ -194,10 +193,9 @@ public class KeyguardStatusView extends GridLayout implements AdapterView.OnItem
         this.f132r.add(new C0032c(3, getContext().getResources().getString(R.string.custom_typeface), null));
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public String getDateFormat() {
+    private String getDateFormat() {
         String string = Settings.System.getString(getContext().getContentResolver(), "date_format");
-        LogUtil.i("KeyguardStatusView", "date format: " + ((Object) this.f118b));
+        LogUtil.i("KeyguardStatusView", "date format: " + (this.f118b));
         if (TextUtils.isEmpty(string)) {
             string = getContext().getString(R.string.abbrev_wday_month_day_no_year);
         }
@@ -223,8 +221,7 @@ public class KeyguardStatusView extends GridLayout implements AdapterView.OnItem
         return arrayList;
     }
 
-    /* renamed from: a */
-    protected void m134a() {
+    protected void refresh() {
         this.f121e.updateTime();
         m127c();
         m128b();
@@ -265,14 +262,14 @@ public class KeyguardStatusView extends GridLayout implements AdapterView.OnItem
         intentFilter.addAction("android.intent.action.TIME_TICK");
         intentFilter.addAction("android.intent.action.TIME_SET");
         intentFilter.addAction("android.intent.action.TIMEZONE_CHANGED");
-        getContext().registerReceiver(this.f127m, intentFilter);
+        getContext().registerReceiver(this.mInfoCallback, intentFilter);
         getContext().getContentResolver().registerContentObserver(Settings.System.getUriFor("date_format"), false, this.f128n);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        getContext().unregisterReceiver(this.f127m);
+        getContext().unregisterReceiver(this.mInfoCallback);
         getContext().getContentResolver().unregisterContentObserver(this.f128n);
     }
 
@@ -333,7 +330,7 @@ public class KeyguardStatusView extends GridLayout implements AdapterView.OnItem
             }
             view.setSelected(true);
         }
-        m134a();
+        refresh();
     }
 
     @Override // android.view.ViewGroup
@@ -369,7 +366,7 @@ public class KeyguardStatusView extends GridLayout implements AdapterView.OnItem
     public void onWindowFocusChanged(boolean z) {
         super.onWindowFocusChanged(z);
         if (z) {
-            m134a();
+            refresh();
         }
     }
 
