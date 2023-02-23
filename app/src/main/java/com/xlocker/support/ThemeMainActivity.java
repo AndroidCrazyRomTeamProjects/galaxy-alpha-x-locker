@@ -111,7 +111,7 @@ public class ThemeMainActivity extends Activity implements DialogInterface.OnCan
             String Lockscreenclass = GetLockscreenMetadata();
             if (!TextUtils.isEmpty(Lockscreenclass)) {
                 Log.i(TAG, "get lockscreen class name: " + Lockscreenclass);
-                this.f287e = (Lockscreen) Class.forName(Lockscreenclass).getConstructor(Context.class, Context.class).newInstance(this, this);
+                this.f287e = Class.forName(Lockscreenclass).getConstructor(Context.class, Context.class).newInstance(this, this);
             }
         } catch (Throwable th) {
             Log.i(TAG, Log.getStackTraceString(th));

@@ -29,6 +29,7 @@ android {
     lint {
         abortOnError false
     }
+    namespace 'com.galaxytheme.brilliantring'
 
 }
 
