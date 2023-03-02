@@ -13,7 +13,7 @@ and no google is not a virus!
 - Carrier Text shows as NO SIM INSERTED on newer android version(X Locker bug)
  
  # Special thanks
- - X locker team including [@elvishew](https://github.com/elvishew) [@ElvisAtMisfit](https://github.com/ElvisAtMisfit) (old account)  for making this framework possible
+ - X locker team including [@elvishew](https://github.com/elvishew) ([@ElvisAtMisfit](https://github.com/ElvisAtMisfit) old account)  for making this framework possible
  - SAMSUNG for creating this effect
 
 
