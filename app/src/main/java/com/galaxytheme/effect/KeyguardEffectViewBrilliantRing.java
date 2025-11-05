@@ -67,12 +67,7 @@ public class KeyguardEffectViewBrilliantRing extends EffectView implements Keygu
 
     private void refreshSystemSoundSetting() {
         ContentResolver contentResolver = this.mContext.getContentResolver();
-        try {
-            this.isSoundEnabled = Settings.System.getInt(contentResolver, "lockscreen_sounds_enabled", 1) == 1;
-        } catch (Settings.SettingNotFoundException e) {
-            LogUtil.w(TAG, "System setting lockscreen_sounds_enabled not found", e);
-            this.isSoundEnabled = true;
-        }
+        this.isSoundEnabled = Settings.System.getInt(contentResolver, "lockscreen_sounds_enabled", 1) == 1;
     }
 
     private void fadeOutSound() {

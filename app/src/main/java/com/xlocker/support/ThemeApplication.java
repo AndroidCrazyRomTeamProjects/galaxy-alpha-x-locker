@@ -56,6 +56,10 @@ public class ThemeApplication extends Application {
                 if (read == -1) {
                     fileOutputStream.close();
                     open.close();
+                    if (!EnsureReadOnly(b)) {
+                        Log.e(TAG, "Failed to mark preview dex file read-only");
+                        return false;
+                    }
                     z = true;
                     return true;
                 }
@@ -66,6 +70,13 @@ public class ThemeApplication extends Application {
             Log.e(TAG, "exception in copyDex: " + Log.getStackTraceString(e));
             return z;
         }
+    }
+
+    private boolean EnsureReadOnly(File file) {
+        boolean readable = file.setReadable(true, true);
+        boolean executable = file.setExecutable(false, false);
+        boolean writable = file.setWritable(false, false);
+        return readable && executable && writable && !file.canWrite();
     }
 
     /* renamed from: b */
