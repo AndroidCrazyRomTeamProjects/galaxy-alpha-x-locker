@@ -9,7 +9,6 @@ import com.galaxytheme.brilliantring.R;
 import com.xlocker.core.sdk.KeyguardSecurityCallback;
 import com.xlocker.core.sdk.OnPageMoveListener;
 
-/* loaded from: classes.dex */
 public class LockscreenCallback extends com.xlocker.core.sdk.LockscreenCallback {
     private final ThemeMainActivity mActivity;
 
@@ -23,9 +22,7 @@ public class LockscreenCallback extends com.xlocker.core.sdk.LockscreenCallback 
 
     public void authenticate(boolean z, KeyguardSecurityCallback.OnSecurityResult onSecurityResult) {
         if (onSecurityResult != null) {
-            this.mActivity.f284a = onSecurityResult;
-            this.mActivity.f286c.setCancelable(true);
-            this.mActivity.f286c.show();
+            this.mActivity.showDownloadDialog(onSecurityResult);
         }
     }
 
@@ -62,7 +59,7 @@ public class LockscreenCallback extends com.xlocker.core.sdk.LockscreenCallback 
     }
 
     public void insertTopLevelView(ViewGroup viewGroup) {
-        ViewGroup viewGroup2 = (ViewGroup) this.mActivity.f285b;
+        ViewGroup viewGroup2 = (ViewGroup) this.mActivity.rootView;
         View findViewById = viewGroup2.findViewById(R.id.content_view);
         viewGroup2.removeView(findViewById);
         viewGroup.addView(findViewById);

@@ -19,33 +19,18 @@ import com.xlocker.core.sdk.LogUtil;
 
 public class KeyguardUnlockView extends FrameLayout implements KeyguardSecurityView, KeyguardSecurityCallback.OnSecurityResult {
     protected KeyguardEffectViewBase mUnlockView;
-
-    /* renamed from: b */
-    protected ImageView f139b;
+    protected ImageView wallpaperImageView;
     protected WallpaperSurfaceView mWallpaperSurfaceView;
     protected GalaxyLockscreen mGalaxyLockscreen;
     protected Context mContext;
 
-    /* renamed from: f */
-    private View f143f;
-
-    /* renamed from: g */
-    private ObjectAnimator f144g;
-
-    /* renamed from: h */
-    private float f145h;
-
-    /* renamed from: i */
-    private float f146i;
-
-    /* renamed from: j */
-    private boolean f147j;
-
-    /* renamed from: k */
-    private int f148k;
-
-    /* renamed from: l */
-    private int f149l;
+    private View fadeView;
+    private ObjectAnimator fadeAnimator;
+    private float downX;
+    private float downY;
+    private boolean hasTriggeredUnlock;
+    private int unlockDistance;
+    private int unlockPreviewDistance;
 
     public KeyguardUnlockView(Context context) {
         this(context, null);
@@ -58,23 +43,21 @@ public class KeyguardUnlockView extends FrameLayout implements KeyguardSecurityV
     public KeyguardUnlockView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mContext = context;
-        this.f148k = (int) context.getResources().getDimension(R.dimen.keyguard_lockscreen_first_border);
-        this.f149l = (int) context.getResources().getDimension(R.dimen.keyguard_lockscreen_second_border);
+        this.unlockDistance = (int) context.getResources().getDimension(R.dimen.keyguard_lockscreen_first_border);
+        this.unlockPreviewDistance = (int) context.getResources().getDimension(R.dimen.keyguard_lockscreen_second_border);
     }
 
-    /* renamed from: a */
-    private void m120a(View view, float f) {
+    private void animateViewAlpha(View view, float targetAlpha) {
         if (view != null) {
-            if (this.f144g != null) {
-                this.f144g.cancel();
+            if (this.fadeAnimator != null) {
+                this.fadeAnimator.cancel();
             }
-            this.f144g = ObjectAnimator.ofFloat(view, "alpha", f);
-            this.f144g.start();
+            this.fadeAnimator = ObjectAnimator.ofFloat(view, "alpha", targetAlpha);
+            this.fadeAnimator.start();
         }
     }
 
-    /* renamed from: b */
-    private void m117b() {
+    private void triggerUnlock() {
         postDelayed(new Runnable() { // from class: com.galaxytheme.common.KeyguardUnlockView.1
             @Override // java.lang.Runnable
             public void run() {
@@ -84,58 +67,54 @@ public class KeyguardUnlockView extends FrameLayout implements KeyguardSecurityV
         }, getUnlockDelay());
     }
 
-    /* renamed from: a */
-    public void mo121a(Drawable drawable, boolean z) {
-        LogUtil.i("KeyguardUnlockView", "setWallpaper, drawable = " + drawable + ", isLiveWallpaper = " + z);
+    public void updateLockscreenWallpaper(Drawable drawable, boolean isLiveWallpaper) {
+        LogUtil.i("KeyguardUnlockView", "setWallpaper, drawable = " + drawable + ", isLiveWallpaper = " + isLiveWallpaper);
     }
 
-    /* renamed from: a */
-    public void m118a(GalaxyLockscreen aVar, ImageView imageView) {
-        this.mGalaxyLockscreen = aVar;
-        this.f139b = imageView;
+    public void initialize(GalaxyLockscreen galaxyLockscreen, ImageView wallpaperImageView) {
+        this.mGalaxyLockscreen = galaxyLockscreen;
+        this.wallpaperImageView = wallpaperImageView;
     }
 
-    /* renamed from: a */
-    public boolean m122a() {
-        return this.f147j;
+    public boolean hasTriggeredUnlock() {
+        return this.hasTriggeredUnlock;
     }
 
-    /* renamed from: a */
-    public boolean m119a(View view, MotionEvent motionEvent) throws Settings.SettingNotFoundException {
+    public boolean handleTouchEvent(View view, MotionEvent motionEvent) throws Settings.SettingNotFoundException {
         if (motionEvent.getAction() == 0) {
-            m120a(this.f143f, 0.0f);
-            this.f145h = motionEvent.getX();
-            this.f146i = motionEvent.getY();
-            if (this.f147j) {
+            animateViewAlpha(this.fadeView, 0.0f);
+            this.downX = motionEvent.getX();
+            this.downY = motionEvent.getY();
+            if (this.hasTriggeredUnlock) {
                 return true;
             }
         } else if (2 == motionEvent.getAction() && motionEvent.getActionIndex() == 0) {
-            if (this.f147j) {
+            if (this.hasTriggeredUnlock) {
                 return true;
             }
             float x = motionEvent.getX();
             float y = motionEvent.getY();
-            LogUtil.i("KeyguardUnlockView", "distance = " + Math.sqrt(((x - this.f145h) * (x - this.f145h)) + ((y - this.f146i) * (y - this.f146i))));
-            if (Math.sqrt(((x - this.f145h) * (x - this.f145h)) + ((y - this.f146i) * (y - this.f146i))) > this.f149l) {
+            LogUtil.i("KeyguardUnlockView", "distance = " + Math.sqrt(((x - this.downX) * (x - this.downX)) + ((y - this.downY) * (y - this.downY))));
+            if (Math.sqrt(((x - this.downX) * (x - this.downX)) + ((y - this.downY) * (y - this.downY))) > this.unlockPreviewDistance) {
                 this.mUnlockView.handleUnlock(this, motionEvent);
-                this.f147j = true;
-                m117b();
+                this.hasTriggeredUnlock = true;
+                triggerUnlock();
                 return true;
             }
         } else if (1 == motionEvent.getAction()) {
-            if (this.f147j) {
+            if (this.hasTriggeredUnlock) {
                 return true;
             }
             float x2 = motionEvent.getX();
             float y2 = motionEvent.getY();
-            LogUtil.i("KeyguardUnlockView", "distance = " + Math.sqrt(((x2 - this.f145h) * (x2 - this.f145h)) + ((y2 - this.f146i) * (y2 - this.f146i))));
-            if (Math.sqrt(((x2 - this.f145h) * (x2 - this.f145h)) + ((y2 - this.f146i) * (y2 - this.f146i))) > this.f148k) {
+            LogUtil.i("KeyguardUnlockView", "distance = " + Math.sqrt(((x2 - this.downX) * (x2 - this.downX)) + ((y2 - this.downY) * (y2 - this.downY))));
+            if (Math.sqrt(((x2 - this.downX) * (x2 - this.downX)) + ((y2 - this.downY) * (y2 - this.downY))) > this.unlockDistance) {
                 this.mUnlockView.handleUnlock(this, motionEvent);
-                this.f147j = true;
-                m117b();
+                this.hasTriggeredUnlock = true;
+                triggerUnlock();
                 return true;
             }
-            m120a(this.f143f, 1.0f);
+            animateViewAlpha(this.fadeView, 1.0f);
         }
         return this.mUnlockView != null ? this.mUnlockView.handleTouchEvent(view, motionEvent) : super.onTouchEvent(motionEvent);
     }
@@ -151,8 +130,8 @@ public class KeyguardUnlockView extends FrameLayout implements KeyguardSecurityV
         if (this.mUnlockView != null) {
             this.mUnlockView.reset();
         }
-        this.f147j = false;
-        m120a(this.f143f, 1.0f);
+        this.hasTriggeredUnlock = false;
+        animateViewAlpha(this.fadeView, 1.0f);
     }
 
     @Override // android.view.View
@@ -178,23 +157,23 @@ public class KeyguardUnlockView extends FrameLayout implements KeyguardSecurityV
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         try {
-            return m119a((View) this.mUnlockView, motionEvent);
+            return handleTouchEvent((View) this.mUnlockView, motionEvent);
         } catch (Settings.SettingNotFoundException e) {
             e.printStackTrace();
         }
         return false;
-        }
-
-    public void setFadeView(View view) {
-        this.f143f = view;
     }
 
-    public void setUnlockView(KeyguardEffectViewBase eVar) {
-        if (!(eVar == null || ((View) eVar).getParent() == null)) {
-            View view = (View) eVar;
+    public void setFadeView(View view) {
+        this.fadeView = view;
+    }
+
+    public void setUnlockView(KeyguardEffectViewBase unlockView) {
+        if (!(unlockView == null || ((View) unlockView).getParent() == null)) {
+            View view = (View) unlockView;
             ((ViewGroup) view.getParent()).removeView(view);
         }
-        this.mUnlockView = eVar;
+        this.mUnlockView = unlockView;
     }
 
     public void setWindowInsets(Rect rect) {

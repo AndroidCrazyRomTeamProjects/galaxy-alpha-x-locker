@@ -18,7 +18,7 @@ public class BrilliantringLockscreen extends GalaxyLockscreen {
 
     @Override // com.galaxytheme.common.GalaxyLockscreen
     protected KeyguardUnlockView getKeyguardUnlockView() {
-        return new C0017b(getThemeContext());
+        return new BrilliantRingUnlockView(getThemeContext());
     }
 
     public int getLockSoundResourceId() {
