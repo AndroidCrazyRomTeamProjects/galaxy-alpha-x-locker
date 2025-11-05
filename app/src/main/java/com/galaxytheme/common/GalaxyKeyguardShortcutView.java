@@ -48,14 +48,14 @@ public class GalaxyKeyguardShortcutView extends KeyguardShortcutView {
         getPositionInContainer(shortcutItem, this.mTmpPosition);
         motionEvent.setLocation(this.mTmpPosition.x + x, this.mTmpPosition.y + y);
         try {
-            this.mUnlockView.m119a((View) shortcutItem, motionEvent);
+            this.mUnlockView.handleTouchEvent((View) shortcutItem, motionEvent);
         } catch (Settings.SettingNotFoundException e) {
             e.printStackTrace();
         }
         motionEvent.setLocation(x, y);
         switch (motionEvent.getAction()) {
             case 1:
-                if (this.mUnlockView.m122a()) {
+                if (this.mUnlockView.hasTriggeredUnlock()) {
                     this.mIsFirst = false;
                     this.mUnlockView.postDelayed(new Runnable() { // from class: com.galaxytheme.common.GalaxyKeyguardShortcutView.2
                         @Override // java.lang.Runnable
@@ -67,7 +67,7 @@ public class GalaxyKeyguardShortcutView extends KeyguardShortcutView {
                 }
                 break;
             case 2:
-                if (this.mUnlockView.m122a()) {
+                if (this.mUnlockView.hasTriggeredUnlock()) {
                     this.mIsFirst = false;
                     this.mUnlockView.postDelayed(new Runnable() { // from class: com.galaxytheme.common.GalaxyKeyguardShortcutView.1
                         @Override // java.lang.Runnable

@@ -60,7 +60,7 @@ public abstract class GalaxyLockscreen extends Lockscreen {
         setCameraWidget(LayoutInflater.from(getThemeContext()).inflate(R.layout.galaxy_camera_widget, null), 84, 42, 84, 42);
         this.mKeyguardUnlockView = getKeyguardUnlockView();
         getUnlockLayer().addView(this.mKeyguardUnlockView);
-        this.mKeyguardUnlockView.m118a(this, (ImageView) getWallpaperView());
+        this.mKeyguardUnlockView.initialize(this, (ImageView) getWallpaperView());
         this.mKeyguardUnlockView.setFadeView(inflate.findViewById(R.id.carrier_text));
         Log.i("lockscreen", "GalaxyKeyguardShortcutView.classLoader = " + GalaxyKeyguardShortcutView.class.getClassLoader() + "@" + GalaxyKeyguardShortcutView.class.getClassLoader().hashCode() + ", view.classLoader = " + inflate.findViewById(R.id.keyguard_shortcutview).getClass().getClassLoader() + "@" + inflate.findViewById(R.id.keyguard_shortcutview).getClass().getClassLoader().hashCode());
         this.mKeyguardShortcutView = inflate.findViewById(R.id.keyguard_shortcutview);
@@ -132,7 +132,7 @@ public abstract class GalaxyLockscreen extends Lockscreen {
 
     public void onWallpaperUpdated(Drawable drawable, boolean z) {
         if (this.mKeyguardUnlockView != null) {
-            this.mKeyguardUnlockView.mo121a(drawable, z);
+            this.mKeyguardUnlockView.updateLockscreenWallpaper(drawable, z);
         }
     }
 }

@@ -31,25 +31,18 @@ import com.xlocker.core.sdk.Lockscreen;
 import java.io.IOException;
 import org.xmlpull.v1.XmlPullParserException;
 
-/* loaded from: classes.dex */
 public class ThemeMainActivity extends Activity implements DialogInterface.OnCancelListener {
 
     private static final String TAG = ThemeMainActivity.class.getSimpleName();
 
-    /* renamed from: a */
-    Object f284a;
+    private KeyguardSecurityCallback.OnSecurityResult pendingSecurityResult;
 
-    /* renamed from: b */
-    View f285b;
+    View rootView;
 
-    /* renamed from: c */
-    DownloadDialog f286c;
+    DownloadDialog downloadDialog;
 
-    /* renamed from: e */
-    private Object f287e;
+    private Lockscreen lockscreen;
 
-    /* renamed from: com.xlocker.support.ThemeMainActivity$a */
-    /* loaded from: classes.dex */
     class DownloadDialog extends AlertDialog implements View.OnClickListener {
 
         private Context mContext;
@@ -80,7 +73,7 @@ public class ThemeMainActivity extends Activity implements DialogInterface.OnCan
         }
     }
 
-    private String GetLockscreenMetadata() {
+    private String getLockscreenMetadata() {
         try {
             PackageInfo packageInfo = getPackageManager().getPackageInfo(getPackageName(), PackageManager.GET_META_DATA);
             if (!(packageInfo == null || packageInfo.applicationInfo == null)) {
@@ -106,20 +99,21 @@ public class ThemeMainActivity extends Activity implements DialogInterface.OnCan
         return "";
     }
 
-    private void GetLockscreenClass() {
+    private void initializeLockscreen() {
         try {
-            String Lockscreenclass = GetLockscreenMetadata();
-            if (!TextUtils.isEmpty(Lockscreenclass)) {
-                Log.i(TAG, "get lockscreen class name: " + Lockscreenclass);
-                this.f287e = Class.forName(Lockscreenclass).getConstructor(Context.class, Context.class).newInstance(this, this);
+            String lockscreenClassName = getLockscreenMetadata();
+            if (!TextUtils.isEmpty(lockscreenClassName)) {
+                Log.i(TAG, "get lockscreen class name: " + lockscreenClassName);
+                this.lockscreen = (Lockscreen) Class.forName(lockscreenClassName)
+                        .getConstructor(Context.class, Context.class)
+                        .newInstance(this, this);
             }
         } catch (Throwable th) {
             Log.i(TAG, Log.getStackTraceString(th));
         }
     }
 
-    /* renamed from: c */
-    private void m25c() {
+    private void configureWindowInsets() {
         if (Build.VERSION.SDK_INT >= 19) {
             View findViewById = findViewById(R.id.host_view);
             findViewById.setFitsSystemWindows(true);
@@ -129,13 +123,17 @@ public class ThemeMainActivity extends Activity implements DialogInterface.OnCan
         }
     }
 
-    /* renamed from: d */
-    private Object m24d() {
+    private ILockscreenCallback createLockscreenCallback() {
         return new LockscreenCallback(this);
     }
 
-    /* renamed from: a */
-    public boolean m27a(Context context, String str) {
+    void showDownloadDialog(KeyguardSecurityCallback.OnSecurityResult securityResult) {
+        this.pendingSecurityResult = securityResult;
+        this.downloadDialog.setCancelable(true);
+        this.downloadDialog.show();
+    }
+
+    public boolean isPackageInstalled(Context context, String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
@@ -150,39 +148,39 @@ public class ThemeMainActivity extends Activity implements DialogInterface.OnCan
     @Override // android.app.Activity
     public void finish() {
         super.finish();
-        if (this.f287e != null) {
-            ((Lockscreen) this.f287e).onActivityFinished();
+        if (this.lockscreen != null) {
+            this.lockscreen.onActivityFinished();
         }
     }
 
     @Override // android.content.DialogInterface.OnCancelListener
     public void onCancel(DialogInterface dialogInterface) {
-        if (dialogInterface == this.f286c && this.f284a != null) {
-            ((KeyguardSecurityCallback.OnSecurityResult) this.f284a).onFailed();
-            this.f284a = null;
+        if (dialogInterface == this.downloadDialog && this.pendingSecurityResult != null) {
+            this.pendingSecurityResult.onFailed();
+            this.pendingSecurityResult = null;
         }
     }
 
     @Override // android.app.Activity
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.f286c = new DownloadDialog(this);
-        this.f286c.setOnCancelListener(this);
-        if (!m27a(this, getString(R.string.locker_app_package))) {
-            GetLockscreenClass();
-            if (this.f287e != null) {
+        this.downloadDialog = new DownloadDialog(this);
+        this.downloadDialog.setOnCancelListener(this);
+        if (!isPackageInstalled(this, getString(R.string.locker_app_package))) {
+            initializeLockscreen();
+            if (this.lockscreen != null) {
                 setContentView(R.layout.preview);
-                this.f285b = findViewById(R.id.root_view);
-                m25c();
-                ((Lockscreen) this.f287e).setCallback((ILockscreenCallback) m24d());
-                Drawable defaultWallpaper = ((Lockscreen) this.f287e).getDefaultWallpaper();
+                this.rootView = findViewById(R.id.root_view);
+                configureWindowInsets();
+                this.lockscreen.setCallback(createLockscreenCallback());
+                Drawable defaultWallpaper = this.lockscreen.getDefaultWallpaper();
                 ((ImageView) findViewById(R.id.wallpaper)).setImageDrawable(defaultWallpaper);
-                ((Lockscreen) this.f287e).onActivityCreated();
-                ((Lockscreen) this.f287e).onWallpaperUpdated(defaultWallpaper, false);
+                this.lockscreen.onActivityCreated();
+                this.lockscreen.onWallpaperUpdated(defaultWallpaper, false);
                 return;
             }
-            this.f286c.setCancelable(false);
-            this.f286c.show();
+            this.downloadDialog.setCancelable(false);
+            this.downloadDialog.show();
             return;
         }
         Intent intent = new Intent(GlobalIntent.ACTION_THEME_DETAIL);
@@ -196,8 +194,8 @@ public class ThemeMainActivity extends Activity implements DialogInterface.OnCan
     @Override // android.app.Activity
     protected void onDestroy() {
         super.onDestroy();
-        if (this.f287e != null) {
-            ((Lockscreen) this.f287e).onActivityDestroyed();
+        if (this.lockscreen != null) {
+            this.lockscreen.onActivityDestroyed();
         }
         System.exit(0);
     }
@@ -205,32 +203,32 @@ public class ThemeMainActivity extends Activity implements DialogInterface.OnCan
     @Override // android.app.Activity
     protected void onPause() {
         super.onPause();
-        if (this.f287e != null) {
-            ((Lockscreen) this.f287e).onActivityPaused();
+        if (this.lockscreen != null) {
+            this.lockscreen.onActivityPaused();
         }
     }
 
     @Override // android.app.Activity
     protected void onResume() {
         super.onResume();
-        if (this.f287e != null) {
-            ((Lockscreen) this.f287e).onActivityResumed();
+        if (this.lockscreen != null) {
+            this.lockscreen.onActivityResumed();
         }
     }
 
     @Override // android.app.Activity
     protected void onStart() {
         super.onStart();
-        if (this.f287e != null) {
-            ((Lockscreen) this.f287e).onActivityStarted();
+        if (this.lockscreen != null) {
+            this.lockscreen.onActivityStarted();
         }
     }
 
     @Override // android.app.Activity
     protected void onStop() {
         super.onStop();
-        if (this.f287e != null) {
-            ((Lockscreen) this.f287e).onActivityStopped();
+        if (this.lockscreen != null) {
+            this.lockscreen.onActivityStopped();
         }
     }
 }
